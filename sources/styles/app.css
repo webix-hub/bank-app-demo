@@ -1,0 +1,30 @@
+/* toolbar */
+.toolbar_button button{
+    padding:0;
+    text-align:center;
+}
+.logo{
+    background:url(webix-logo.svg) 15px 5px no-repeat;
+}
+/* list of persons */
+.userpic{
+    border-radius:30px;
+    width:60px;
+    height:60px; 
+    background-color:#1a73c7;
+  	color:#fff;
+  	text-align:center;
+    line-height:58px;
+    font-size:36px;
+    margin-right:5px;
+    float:left;
+}
+.money{
+    color:#777;
+    display:block;
+}
+.persons_list .webix_list_item,
+.persons_list .webix_list_item.webix_selected{
+    padding:15px 10px;
+    color:#222;
+}
