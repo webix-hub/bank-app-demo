@@ -7,7 +7,7 @@ export default class PersonsView extends JetView {
             rows:[
                 {
                     view:"toolbar", elements:[
-                        { view:"label", label:"Payments" },
+                        { view:"label", label:"Persons" },
                         {},
                         {
                             view:"button", type:"icon", icon:"search",
@@ -22,7 +22,7 @@ export default class PersonsView extends JetView {
                         template:(data,common) => common.userPic(data) + data.name + common.money(data),
                         userPic:data => "<span class='userpic'>" + data.name.charAt(0) + "</span>",
                         money:data => "<span class='money'>$" + data.money + "</span>",
-                        height:90
+                        height:70
                     }
                 }
             ]
