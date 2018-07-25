@@ -7,12 +7,12 @@ export default class GridBase extends JetView {
                 { id:"id", header:"#", width:40, sort:"int" },
                 {
                     id:"status", header:"", width:40,
-                    css:"status", sort:"text", // when icons - change to custom sorting
+                    css:"status", sort:"text",
                     template:data => `<span class='${data.status}'>&#9728;</span>`
                 },
                 {
-                    id:"date", header:"Date", fillspace:1, minWidth:170, //sort:"date", - custom as well
-                    format:webix.Date.dateToStr("%d %F, %H:%i")
+                    id:"date", header:"Date", fillspace:1, minWidth:170,
+                    sort:"date", format:webix.Date.dateToStr("%d %F, %H:%i")
                 },
                 {
                     id:"", header:"Payment", fillspace:1, minWidth:200, sort:"text",

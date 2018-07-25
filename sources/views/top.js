@@ -2,6 +2,7 @@ import {JetView} from "webix-jet";
 import ToolView from "views/toolbar";
 import PersonsView from "views/persons";
 import MenuView from "views/menu";
+import CalendarView from "views/calendar";
 
 export default class TopView extends JetView{
 	config(){
@@ -11,7 +12,7 @@ export default class TopView extends JetView{
 				{
 					type:"wide", rows:[
 						PersonsView,
-						{ view:"calendar" }
+						CalendarView
 					]
 				}
 			]
