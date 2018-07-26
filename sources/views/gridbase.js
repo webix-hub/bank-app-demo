@@ -26,8 +26,8 @@ export default class GridBase extends JetView {
                     id:"type", header:"+/-", width:40, sort:"int", css:"type", hidden:true,
                     template:data => data.type ? "<span class='incoming'>+</span>" : "<span class='payment'>-</span>"
                 },
-                { id:"sum", header:"Sum", sort:"int", template:data => `$${data.sum}` },
-                { id:"left", header:"Left", sort:"int", template:data => `$${data.left}` }
+                { id:"sum", header:"Sum", sort:"int", format:webix.i18n.priceFormat },
+                { id:"left", header:"Left", sort:"int", format:webix.i18n.priceFormat }
             ]
         };
     }

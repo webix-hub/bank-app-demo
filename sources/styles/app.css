@@ -28,7 +28,7 @@
     padding:10px 10px;
     line-height:24px;
 }
-/* transactions list */
+/* transactions grid */
 .success{
     color:green;
 }
@@ -49,4 +49,7 @@
 }
 .shop{
     font-weight: bold;
+}
+.webix_ss_header td {
+    border: 0 none !important;
 }
