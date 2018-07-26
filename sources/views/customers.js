@@ -1,5 +1,7 @@
 import {JetView} from "webix-jet";
 import PersonsView from "views/persons";
+import InformationView from "views/customers/information";
+import VisitsView from "views/customers/visits";
 
 export default class CustomersView extends JetView {
     config(){
@@ -9,17 +11,17 @@ export default class CustomersView extends JetView {
                     rows:[
                         {
                             view:"tabbar", multiview:true, options:[
-                                { id:"information", value:"Information" },
-                                { id:"visits", value:"Visits" },
-                                { id:"form", value:"Form" }
+                                { id:"information", value:"Information", width:150 },
+                                { id:"visits", value:"Visits", width:150 },
+                                { id:"add", value:"Add customer", width:150 }
                             ]
                         },
                         {
                             animate:false,
                             cells:[
-                                { id:"information", template:"Customer form" },
-                                { id:"visits", template:"Something about visits" },
-                                { id:"form", template:"Something else" }
+                                { id:"information", $subview:InformationView },
+                                { id:"visits", $subview:VisitsView },
+                                { id:"form", template:"Same form but empty" }
                             ]
                         }
                     ]

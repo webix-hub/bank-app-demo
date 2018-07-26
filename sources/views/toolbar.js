@@ -12,13 +12,14 @@ export default class ToolView extends JetView {
                 },
                 {},
                 {
-                    view:"button", type:"icon", icon:"info-circle",
-                    width:37, css:"toolbar_button"
+                    view:"button", type:"icon", icon:"credit-card",
+                    width:37, css:"toolbar_button", tooltip:"Make a payment"
                 },
                 {
                     view:"button", //localId:"bell",
                     type:"icon", icon:"bell",
                     badge:2, width:37, css:"toolbar_button",
+                    tooltip:"Open latest notifications",
                     click: function(){
                         this.$scope.notifications.showLatest(this.$view);
                     }
@@ -26,6 +27,7 @@ export default class ToolView extends JetView {
                 {
                     view:"button", type:"icon", icon:"cog",
                     width:37, css:"toolbar_button",
+                    tooltip:"Go to settings",
                     click:() => this.show("/top/typography")
                 }
             ]
