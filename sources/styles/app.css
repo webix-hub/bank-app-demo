@@ -57,3 +57,7 @@
 .unread{
     color:rgb(247, 50, 10);
 }
+.link{
+    color:blue;
+    cursor: pointer;
+}

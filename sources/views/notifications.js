@@ -20,7 +20,7 @@ export default class NotificationView extends JetView {
                         }
                     },
                     {
-                        template:"See all notifications",
+                        template:"<a class='link' route='top/snippets'>See all notifications</a>",
                         autoheight:true
                     }
                 ]
