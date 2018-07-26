@@ -1,4 +1,6 @@
 import {JetView} from "webix-jet";
+import NotificationView from "views/notifications.js"
+
 export default class ToolView extends JetView {
     config(){
         return {
@@ -14,14 +16,27 @@ export default class ToolView extends JetView {
                     width:37, css:"toolbar_button"
                 },
                 {
-                    view:"button", type:"icon", icon:"bell", badge:3,
-                    width:37, css:"toolbar_button"
+                    view:"button", //localId:"bell",
+                    type:"icon", icon:"bell",
+                    badge:2, width:37, css:"toolbar_button",
+                    click: function(){
+                        this.$scope.notifications.showLatest(this.$view);
+                    }
                 },
                 {
                     view:"button", type:"icon", icon:"cog",
-                    width:37, css:"toolbar_button"
+                    width:37, css:"toolbar_button",
+                    click:() => this.show("/top/typography")
                 }
             ]
         };
+    }
+    init(){
+        this.notifications = this.ui(NotificationView);
+
+        // this.on(this.app,"read:notifications",() => {
+        //     this.$$("bell").config.badge = "";
+        //     this.$$("bell").refresh();
+        // });
     }
 }

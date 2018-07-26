@@ -1,6 +1,6 @@
 import {JetView,plugins} from "webix-jet";
 import PersonsView from "views/persons";
-import CalendarView from "views/calendar";
+import DatesView from "views/dates";
 
 export default class TransactionsView extends JetView {
     config(){
@@ -8,7 +8,7 @@ export default class TransactionsView extends JetView {
         const right = {
             type:"wide", rows:[
                 PersonsView,
-                CalendarView
+                DatesView
             ]
         };
 
