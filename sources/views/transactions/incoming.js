@@ -1,9 +1,9 @@
 import {JetView} from "webix-jet";
 import {allpayments} from "models/allpayments";
-import GridBase from "views/gridbase";
+import GridBase from "views/transactions/gridbase";
 import findTAction from "helpers/findtaction";
 
-export default class PaymentsView extends JetView {
+export default class IncomingView extends JetView {
     config(){
         return {
             rows:[
@@ -16,7 +16,7 @@ export default class PaymentsView extends JetView {
 
         grid.sync(allpayments,function(){
 			this.filter(function(data){
-				return data.type === 0;
+				return data.type === 1;
 			});
         });
         

@@ -1,6 +1,6 @@
 import {JetView,plugins} from "webix-jet";
 import PersonsView from "views/persons";
-import DatesView from "views/dates";
+import DatesView from "views/transactions/dates";
 
 export default class TransactionsView extends JetView {
     config(){

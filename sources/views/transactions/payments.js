@@ -1,9 +1,9 @@
 import {JetView} from "webix-jet";
 import {allpayments} from "models/allpayments";
-import GridBase from "views/gridbase";
+import GridBase from "views/transactions/gridbase";
 import findTAction from "helpers/findtaction";
 
-export default class AllTActionsView extends JetView {
+export default class PaymentsView extends JetView {
     config(){
         return {
             rows:[
@@ -14,15 +14,17 @@ export default class AllTActionsView extends JetView {
     ready(view){
         const grid = view.queryView({view:"datatable"});
 
-        grid.showColumn("type");
-
-        grid.sync(allpayments);
-
+        grid.sync(allpayments,function(){
+			this.filter(function(data){
+				return data.type === 0;
+			});
+        });
+        
         grid.attachEvent("onAfterSelect", obj => {
             const date = allpayments.getItem(obj.row).date;
             this.app.callEvent("taction:select",[date]);
         });
 
-        this.on(this.app,"date:select",date =>findTAction(grid,allpayments,date));
+        this.on(this.app,"date:select",date =>findTAction(grid,grid.data,date));
     }
 }
