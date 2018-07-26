@@ -16,7 +16,9 @@ export default class PersonsView extends JetView {
                     ]
                 },
                 {
-                    view:"list", data:persons, css:"persons_list",
+                    view:"list",
+                    css:"persons_list",
+                    width:260,
                     select:true,
                     type:{
                         template:(data,common) => common.userPic(data) + data.name + common.money(data),
@@ -27,5 +29,8 @@ export default class PersonsView extends JetView {
                 }
             ]
         };
+    }
+    init(view){
+        view.queryView({ view:"list" }).parse(persons);
     }
 }
