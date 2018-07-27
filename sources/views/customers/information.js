@@ -50,11 +50,13 @@ export default class InformationView extends JetView {
                                     view:"richselect", name:"city",
                                     label:"City, country", labelPosition:"top",
                                     placeholder:"Click to select",
-                                    //options:cities something wrong here - probably wants a promise
-                                    options:[
-                                        { "id":"", "value":"-- Not selected --", "$empty":true },
-                                        { "city":"Tirane", "country":"AL" }
-                                    ]
+                                    options:{
+                                        on:{
+                                            onShow(){
+                                                this.getList().parse(cities);
+                                            }
+                                        }
+                                    }
                                 },
                                 {},
                                 {}

@@ -1,3 +1,30 @@
 export const cities = new webix.DataCollection({
-    url:"data/cities.json"
+    data:[
+        { id:"", value:"-- Not selected --", $empty:true },
+        { id:"1", value:"Tirane, AL" },
+        { id:"2", value:"Buenos Aires, AR" },
+        { id:"3", value:"Canberra, AU" },
+        { id:"4", value:"Vienna, AT" },
+        { id:"5", value:"Minsk, BY" },
+        { id:"6", value:"Brussels, BE" },
+        { id:"7", value:"Brasilia, BR" },
+        { id:"8", value:"Ottawa, CA" },
+        { id:"9", value:"Beijing, CN" },
+        { id:"10", value:"Prague, CZ" },
+        { id:"11", value:"Copenhagen, DK" },
+        { id:"12", value:"Cairo, EG" },
+        { id:"13", value:"Helsinki, FI" },
+        { id:"14", value:"Paris, FR" },
+        { id:"15", value:"Tbilisi, GE" },
+        { id:"16", value:"Berlin, DE" },
+        { id:"17", value:"New Delhi, IN" },
+        { id:"18", value:"Dublin, IE" },
+        { id:"19", value:"Rome, IT" },
+        { id:"20", value:"Tokyo, JP" },
+        { id:"21", value:"Wellington, NZ" },
+        { id:"22", value:"Seoul, KR" },
+        { id:"23", value:"Madrid, ES" },
+        { id:"24", value:"Stockholm, SE" },
+        { id:"25", value:"Washington, US" }
+    ]
 });
