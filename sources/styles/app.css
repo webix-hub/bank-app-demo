@@ -20,7 +20,7 @@
     float:left;
 }
 .money{
-    color:#777;
+    color:#bbb;
     display:block;
 }
 .persons_list .webix_list_item,
@@ -61,3 +61,5 @@
     color:blue;
     cursor: pointer;
 }
+/* form */
+

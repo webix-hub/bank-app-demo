@@ -18,14 +18,14 @@ export default class InformationView extends JetView {
                     placeholder:"Last name"
                 },
                 {
-                    view:"richselect", name:"positions",
+                    view:"richselect", name:"position",
                     label:"Position", labelPosition:"top",
                     placeholder:"Click to select",
                     options:[
-                        { id:"", value:"-- Not selected --", $empty:true },
-                        { id:1, value:"Sales manager" },
-                        { id:2, value:"Customer service" },
-                        { id:3, value:"General manager" }
+                        { id:"$empty", value:"-- Not selected --", $empty:true },
+                        { id:"1", value:"Sales manager" },
+                        { id:"2", value:"Customer service" },
+                        { id:"3", value:"General manager" }
                     ]
                 },
                 {
@@ -53,13 +53,7 @@ export default class InformationView extends JetView {
                     view:"richselect", name:"city",
                     label:"City, country", labelPosition:"top",
                     placeholder:"Click to select",
-                    options:{
-                        on:{
-                            onShow(){
-                                this.getList().parse(cities);
-                            }
-                        }
-                    }
+                    options:webix.copy(cities)
                 },
                 {
                     view:"text", name:"address", label:"Address",
@@ -81,15 +75,17 @@ export default class InformationView extends JetView {
                     view:"label", name:"photo",
                     width:260, height:260,
                     value:"faceless",
-                    template: obj => (`<img style='height:260px;' 
-                        src='data/photos/${obj.value}.jpg'></img>`)
+                    template: obj => (`<img class='userphoto' style='height:260px;'
+                        src='data/photos/${obj.value}.jpg'></img>`) //class for hover
                 },
                 {
-                    view:"multicombo", value:[1,2,4], options:[
+                    view:"multicombo", name:"tags", options:[
                         { id:"1", value:"New" },
                         { id:"2", value:"Customer" },
                         { id:"3", value:"Supplier" },
-                        { id:"4", value:"Discount" }
+                        { id:"4", value:"Discount" },
+                        { id:"5", value:"Old Buddy" },
+                        { id:"6", value:"Avid Supporter" }
                     ]
                 }
             ]
@@ -113,11 +109,17 @@ export default class InformationView extends JetView {
                 {
                     margin:10, cols:[
                         {},
-                        { view:"button", value:"Reset", width:100 },
+                        {
+                            view:"button", value:"Reset", width:100,
+                            click: () => this.getRoot().clear()
+                        },
                         { view:"button", value:"Save", type:"form", width:100 }
                     ]
                 }
             ]
         };
+    }
+    init(form){
+        this.on(this.app,"person:select",data => form.setValues(data));
     }
 }

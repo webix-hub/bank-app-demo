@@ -21,7 +21,7 @@ export default class CustomersView extends JetView {
                             cells:[
                                 { id:"information", $subview:InformationView },
                                 { id:"visits", $subview:VisitsView },
-                                { id:"form", template:"Same form but empty" }
+                                { id:"add", template:"Same form but empty" }
                             ]
                         }
                     ]

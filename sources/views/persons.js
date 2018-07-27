@@ -15,7 +15,8 @@ export default class PersonsView extends JetView {
                                 onTimedKeyPress(){
                                     const input = this.getValue().toLowerCase();
                                     this.$scope.$$("list").filter(function(obj){
-                                        return obj.name.toLowerCase().indexOf(input) !== -1;
+                                        const name = obj.fname + " " + obj.lname;
+                                        return name.toLowerCase().indexOf(input) !== -1;
                                     });
                                 }
                             }
@@ -37,10 +38,16 @@ export default class PersonsView extends JetView {
                     width:260,
                     select:true,
                     type:{
-                        template:(data,common) => common.userPic(data) + data.name + common.money(data),
-                        userPic:data => "<span class='userpic'>" + data.name.charAt(0) + "</span>",
+                        template:(data,common) => common.userPic(data) + data.fname + " " + data.lname + common.money(data),
+                        userPic:data => "<span class='userpic'>" + data.fname.charAt(0) + "</span>",
                         money:data => "<span class='money'>$" + data.money + "</span>",
                         height:70
+                    },
+                    on:{
+                        onAfterSelect:(id) => {
+                            const person = persons.getItem(id);
+                            this.app.callEvent("person:select",[person]);
+                        }
                     }
                 }
             ]
