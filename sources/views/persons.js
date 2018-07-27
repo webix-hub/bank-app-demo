@@ -55,5 +55,6 @@ export default class PersonsView extends JetView {
     }
     init(){
         this.$$("list").parse(persons);
+        this.on(this.app,"customer:save",(id,data) => persons.updateItem(id,data));
     }
 }

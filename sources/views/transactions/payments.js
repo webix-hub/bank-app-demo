@@ -25,6 +25,6 @@ export default class PaymentsView extends JetView {
             this.app.callEvent("taction:select",[date]);
         });
 
-        this.on(this.app,"date:select",date =>findTAction(grid,grid.data,date));
+        this.on(this.app,"date:select",date => findTAction(grid,grid.data,date)); //!
     }
 }

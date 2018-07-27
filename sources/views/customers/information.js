@@ -104,16 +104,26 @@ export default class InformationView extends JetView {
                 },
                 {
                     view:"richtext", label:"Notes", labelPosition:"top",
-                    name:"notes"
+                    name:"notes", localId:"notes"
                 },
                 {
                     margin:10, cols:[
                         {},
                         {
                             view:"button", value:"Reset", width:100,
-                            click: () => this.getRoot().clear()
+                            click:() => {
+                                this.$$("notes").setValue("");  // ! a crude workaround
+                                this.getRoot().clear();
+                            }
                         },
-                        { view:"button", value:"Save", type:"form", width:100 }
+                        {
+                            view:"button", value:"Save", type:"form", width:100,
+                            click:() => {
+                                const newdata = this.getRoot().getValues();
+                                const id = newdata.id;
+                                this.app.callEvent("customer:save",[id,newdata]);
+                            }
+                        }
                     ]
                 }
             ]

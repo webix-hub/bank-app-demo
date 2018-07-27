@@ -1,4 +1,5 @@
 export default function findTAction(view,data,date){
+    console.log(data);
     const taction = data.find(obj => {
         const a = obj.date.toString().slice(0,14);
         const b = date.toString().slice(0,14);
