@@ -1,5 +1,6 @@
 import {JetView} from "webix-jet";
 import {cities} from "models/cities";
+import {tags} from "models/tags";
 
 export default class InformationView extends JetView {
     config(){
@@ -79,14 +80,8 @@ export default class InformationView extends JetView {
                         src='data/photos/${obj.value}.jpg'></img>`) //class for hover
                 },
                 {
-                    view:"multicombo", name:"tags", options:[
-                        { id:"1", value:"New" },
-                        { id:"2", value:"Customer" },
-                        { id:"3", value:"Supplier" },
-                        { id:"4", value:"Discount" },
-                        { id:"5", value:"Old Buddy" },
-                        { id:"6", value:"Avid Supporter" }
-                    ]
+                    view:"multicombo", name:"tags", placeholder:"Click to add tags",
+                    options:tags
                 }
             ]
         };

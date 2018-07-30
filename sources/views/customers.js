@@ -1,7 +1,7 @@
 import {JetView} from "webix-jet";
 import PersonsView from "views/persons";
 import InformationView from "views/customers/information";
-import VisitsView from "views/customers/visits";
+import StatisticsView from "views/customers/statistics";
 
 export default class CustomersView extends JetView {
     config(){
@@ -12,16 +12,16 @@ export default class CustomersView extends JetView {
                         {
                             view:"tabbar", multiview:true, options:[
                                 { id:"information", value:"Information", width:150 },
-                                { id:"visits", value:"Visits", width:150 },
-                                { id:"add", value:"Add customer", width:150 }
+                                { id:"statistics", value:"Statistics", width:150 },
+                                { id:"add", value:"Something", width:150 }
                             ]
                         },
                         {
                             animate:false,
                             cells:[
                                 { id:"information", $subview:InformationView },
-                                { id:"visits", $subview:VisitsView },
-                                { id:"add", template:"Same form but empty" }
+                                { id:"statistics", $subview:StatisticsView },
+                                { id:"add", template:"Something else" }
                             ]
                         }
                     ]
@@ -29,5 +29,8 @@ export default class CustomersView extends JetView {
                 PersonsView
             ]
         };
+    }
+    ready(){
+        this.app.callEvent("customers:init");
     }
 }
