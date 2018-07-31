@@ -1,65 +1,65 @@
 /* toolbar */
 .toolbar_button button{
-    padding:0;
-    text-align:center;
+	padding:0;
+	text-align:center;
 }
 .logo{
-    background:url(webix-logo.svg) 15px 5px no-repeat;
+	background:url(webix-logo.svg) 15px 5px no-repeat;
 }
 /* list of persons */
 .userpic{
-    border-radius:25px;
-    width:50px;
-    height:50px; 
-    background-color:#1a73c7;
+	border-radius:25px;
+	width:50px;
+	height:50px; 
+	background-color:#1a73c7;
   	color:#fff;
   	text-align:center;
-    line-height:53px;
-    font-size:31px;
-    margin-right:15px;
-    float:left;
+	line-height:53px;
+	font-size:31px;
+	margin-right:15px;
+	float:left;
 }
 .money{
-    color:#bbb;
-    display:block;
+	color:#bbb;
+	display:block;
 }
 .persons_list .webix_list_item,
 .persons_list .webix_list_item.webix_selected{
-    padding:10px 10px;
-    line-height:24px;
+	padding:10px 10px;
+	line-height:24px;
 }
 /* transactions grid */
 .success{
-    color:green;
+	color:green;
 }
 .waiting{
-    color:orange;
+	color:orange;
 }
 .failed{
-    color:red;
+	color:red;
 }
 .type, .status{
-    text-align: center;
+	text-align: center;
 }
 .incoming{
-    color:green;
+	color:green;
 }
 .payment{
-    color:red;
+	color:red;
 }
 .shop{
-    font-weight: bold;
+	font-weight: bold;
 }
 .webix_ss_header td {
-    border: 0 none !important;
+	border: 0 none !important;
 }
 /* notifications */
 .unread{
-    color:rgb(247, 50, 10);
+	color:rgb(247, 50, 10);
 }
 .link{
-    color:blue;
-    cursor: pointer;
+	color:blue;
+	cursor: pointer;
 }
 /* form */
 

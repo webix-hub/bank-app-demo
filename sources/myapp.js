@@ -4,16 +4,16 @@ import {JetApp, EmptyRouter, HashRouter } from "webix-jet";
 export default class MyApp extends JetApp{
 	constructor(config){
 		const defaults = {
-			id 		: APPNAME,
+			id		: APPNAME,
 			version : VERSION,
 			router 	: BUILD_AS_MODULE ? EmptyRouter : HashRouter,
 			debug 	: !PRODUCTION,
 			start 	: "/top/transactions",
 			views:{
-                "alltactions":"transactions.alltactions",
-                "payments":"transactions.payments",
-                "incoming":"transactions.incoming"
-            }
+				"alltactions":"transactions.alltactions",
+				"payments":"transactions.payments",
+				"incoming":"transactions.incoming"
+			}
 		};
 
 		super({ ...defaults, ...config });
