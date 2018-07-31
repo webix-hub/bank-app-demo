@@ -2,6 +2,7 @@ import {JetView} from "webix-jet";
 import {cities} from "models/cities";
 import {tags} from "models/tags";
 import {positions} from "models/positions";
+import "webix/photo";
 
 export default class InformationView extends JetView {
 	config(){
@@ -66,12 +67,14 @@ export default class InformationView extends JetView {
 
 		const right_photo = {
 			gravity:3,
-			margin:10, rows:[
+			margin:10,
+			rows:[
 				{
-					view:"label", name:"photo",
-					width:260, height:260,
-					//value:"faceless",
-					template:"<img style='height:260px;' src='data/photos/#value#.jpg'>"
+					view:"photo",
+					name:"photo",
+					width:260,
+					height:260,
+					borderless:true
 				},
 				{
 					view:"multicombo", name:"tags", placeholder:"Click to add tags",

@@ -8,6 +8,7 @@ export default class TagsView extends JetView {
 			type:"barH",
 			alpha:0.8,
 			radius:0,
+			barWidth:20,
 			value:"#number#",
 			padding:{
 				left:90,

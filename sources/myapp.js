@@ -8,7 +8,7 @@ export default class MyApp extends JetApp{
 			version : VERSION,
 			router 	: BUILD_AS_MODULE ? EmptyRouter : HashRouter,
 			debug 	: !PRODUCTION,
-			start 	: "/top/transactions",
+			start 	: "/top/transactions/alltactions",
 			views:{
 				"alltactions":"transactions.alltactions",
 				"payments":"transactions.payments",
