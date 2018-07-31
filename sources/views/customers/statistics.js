@@ -11,7 +11,7 @@ export default class StatisticsView extends JetView {
 			type:"wide", cols:[
 				{
 					type:"wide", rows:[
-						{gravity:2},//GeoView,
+						GeoView,
 						MoneyView
 					]
 				},
