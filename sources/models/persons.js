@@ -7,7 +7,7 @@ export const persons = new webix.DataCollection({
 
 export function geoData(){
 	let data = [];
-	//persons.waitData.then(() => {
+	return persons.waitData.then(() => {
 		cities.map(city => {
 			if (city.id !== "$empty"){
 				let country = city.value.split(", ").pop();
@@ -22,22 +22,20 @@ export function geoData(){
 				
 			}
 		});
-		//return data;
-	//});
-	return data;
+		return data;
+	});
 }
 
 export function getTags(){
 	let data = [];
 
-	persons.waitData.then(() => {
+	return persons.waitData.then(() => {
 		tags.map(tag => {
 			let who = persons.find(pers => {
 				return pers.tags.find(el => el === tag.id);
 			});
 			data.push({ tag:tag.value, number:who.length });
 		});
-		//return data;
+		return data;
 	});
-	return data;
 }
