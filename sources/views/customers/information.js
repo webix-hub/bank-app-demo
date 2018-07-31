@@ -1,6 +1,7 @@
 import {JetView} from "webix-jet";
 import {cities} from "models/cities";
 import {tags} from "models/tags";
+import {positions} from "models/positions";
 
 export default class InformationView extends JetView {
 	config(){
@@ -22,12 +23,7 @@ export default class InformationView extends JetView {
 					view:"richselect", name:"position",
 					label:"Position", labelPosition:"top",
 					placeholder:"Click to select",
-					options:[
-						{ id:"$empty", value:"-- Not selected --", $empty:true },
-						{ id:"1", value:"Sales manager" },
-						{ id:"2", value:"Customer service" },
-						{ id:"3", value:"General manager" }
-					]
+					options:positions
 				},
 				{
 					view:"text", name:"email",
@@ -74,9 +70,8 @@ export default class InformationView extends JetView {
 				{
 					view:"label", name:"photo",
 					width:260, height:260,
-					value:"faceless",
-					template: obj => (`<img class='userphoto' style='height:260px;'
-						src='data/photos/${obj.value}.jpg'></img>`) //class for hover
+					//value:"faceless",
+					template:"<img style='height:260px;' src='data/photos/#value#.jpg'>"
 				},
 				{
 					view:"multicombo", name:"tags", placeholder:"Click to add tags",

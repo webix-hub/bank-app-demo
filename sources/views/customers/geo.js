@@ -1,5 +1,5 @@
 import {JetView} from "webix-jet";
-import {geoData} from "models/persons";
+import {geoData} from "models/geodata";
 
 export default class GeoView extends JetView {
 	config(){
@@ -9,10 +9,10 @@ export default class GeoView extends JetView {
 			// https://developers.google.com/maps/documentation/javascript/get-api-key
 			key:"AIzaSyAi0oVNVO-e603aUY8SILdD4v9bVBkmiTg",
 			chart:{
-				legend:"none",
-				colorAxis: { colors: ["#9370db"] }
+				//legend:"none",
+				colorAxis: { colors:["blue","gold","red"] }
 			},
-			columns:["country","clients"],
+			columns:["country","money"],
 			tooltip:"Clients: #clients#<br/>Income: #money#"
 		};
 	}

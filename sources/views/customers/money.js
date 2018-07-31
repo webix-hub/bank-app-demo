@@ -4,7 +4,13 @@ import {persons} from "models/persons";
 export default class MoneyView extends JetView {
 	config(){
 		return {
-			view:"chart", type:"bar",
+			view:"chart",
+			type:"bar",
+			alpha:0.8,
+			radius:0,
+			padding:{
+				left:60
+			},
 			value:"#money#",
 			xAxis:{
 				template:"#lname#",

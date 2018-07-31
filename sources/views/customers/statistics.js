@@ -3,6 +3,7 @@ import GeoView from "views/customers/geo";
 import MoneyView from "views/customers/money";
 import AgeView from "views/customers/age";
 import TagsView from "views/customers/tags";
+import PositionsView from "views/customers/positions";
 
 export default class StatisticsView extends JetView {
 	config(){
@@ -18,7 +19,7 @@ export default class StatisticsView extends JetView {
 					type:"wide", rows:[
 						AgeView,
 						TagsView,
-						{ template:"Positions pie" }
+						PositionsView
 					]
 				}
 			]
