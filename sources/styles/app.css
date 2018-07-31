@@ -7,17 +7,19 @@
 	background:url(webix-logo.svg) 15px 5px no-repeat;
 }
 /* list of persons */
-.userpic{
+.userphoto, .userpic{
 	border-radius:25px;
 	width:50px;
-	height:50px; 
+	height:50px;
+	float:left;
+	margin-right:15px;
+}
+.userpic{
 	background-color:#1a73c7;
   	color:#fff;
   	text-align:center;
 	line-height:53px;
 	font-size:31px;
-	margin-right:15px;
-	float:left;
 }
 .money{
 	color:#bbb;

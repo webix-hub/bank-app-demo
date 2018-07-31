@@ -94,8 +94,9 @@ export default class InformationView extends JetView {
 						right_photo
 					]
 				},
+				{ view:"label", template:"Notes" },
 				{
-					view:"richtext", label:"Notes", labelPosition:"top",
+					view:"richtext", labelPosition:"top",
 					name:"notes", localId:"notes"
 				},
 				{
