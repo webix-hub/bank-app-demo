@@ -13,7 +13,10 @@ export default class GeoView extends JetView {
 			chart:{
 				colorAxis:{ colors:["blue","gold","red"] }
 			},
-			columns:["country","money"],
+			columns:[
+				{ type:"string", label:"country" },
+				{ type:"number", label:"money" }
+			],
 			tooltip:"Clients: #clients#<br/>Income: #money#"
 		};
 	}
