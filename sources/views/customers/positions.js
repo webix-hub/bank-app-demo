@@ -1,5 +1,7 @@
 import {JetView} from "webix-jet";
-import {getPositions} from "models/positionsdata";
+import {positions} from "models/positions";
+import {persons} from "models/persons";
+import {getPositions} from "helpers/positionsdata";
 
 export default class PositionsView extends JetView {
 	config(){
@@ -18,6 +20,6 @@ export default class PositionsView extends JetView {
 		};
 	}
 	init(view){
-		view.parse(getPositions());
+		view.parse(getPositions(positions,persons));
 	}
 }

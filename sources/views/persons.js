@@ -14,7 +14,7 @@ export default class PersonsView extends JetView {
 								onBlur(){ this.hide(); },
 								onTimedKeyPress(){
 									const input = this.getValue().toLowerCase();
-									this.$scope.$$("list").filter(function(obj){
+									this.$scope.$$("list").filter(obj => {
 										const name = obj.fname + " " + obj.lname;
 										return name.toLowerCase().indexOf(input) !== -1;
 									});

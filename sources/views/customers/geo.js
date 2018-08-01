@@ -1,5 +1,7 @@
 import {JetView} from "webix-jet";
-import {geoData} from "models/geodata";
+import {cities} from "models/cities";
+import {persons} from "models/persons";
+import {geoData} from "helpers/geodata";
 
 export default class GeoView extends JetView {
 	config(){
@@ -9,14 +11,13 @@ export default class GeoView extends JetView {
 			// https://developers.google.com/maps/documentation/javascript/get-api-key
 			key:"AIzaSyAi0oVNVO-e603aUY8SILdD4v9bVBkmiTg",
 			chart:{
-				//legend:"none",
-				colorAxis: { colors:["blue","gold","red"] }
+				colorAxis:{ colors:["blue","gold","red"] }
 			},
 			columns:["country","money"],
 			tooltip:"Clients: #clients#<br/>Income: #money#"
 		};
 	}
 	init(view){
-		view.parse(geoData());
+		view.parse(geoData(cities,persons));
 	}
 }

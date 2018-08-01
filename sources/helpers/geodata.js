@@ -1,7 +1,4 @@
-import {cities} from "models/cities";
-import {persons} from "models/persons";
-
-export function geoData(){
+export function geoData(cities,persons){
 	let data = [];
 	return persons.waitData.then(() => {
 		cities.map(city => {
