@@ -19,10 +19,15 @@ export default class AllTActionsView extends JetView {
 		grid.sync(allpayments);
 
 		grid.attachEvent("onAfterSelect", obj => {
-			const date = allpayments.getItem(obj.row).date;
-			this.app.callEvent("taction:select",[date]);
+			const record = allpayments.getItem(obj.row);
+			this.app.callEvent("taction:select",[record.date,record.id]);
 		});
 
-		this.on(this.app,"date:select",date =>findTAction(grid,allpayments,date));
+		this.on(this.app,"date:select",date => findTAction(grid,allpayments,date));
+
+		this.on(this.app,"person:select", person => {
+			grid.select(person.company);
+			grid.showItem(person.company);
+		});
 	}
 }
