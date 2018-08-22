@@ -23,6 +23,8 @@ export default class AllTActionsView extends JetView {
 			this.app.callEvent("taction:select",[record.date,record.id]);
 		});
 
+		grid.attachEvent("onBeforeUnSelect", () => this.app.callEvent("taction:select"));
+
 		this.on(this.app,"date:select",date => findTAction(grid,allpayments,date));
 
 		this.on(this.app,"person:select", person => {

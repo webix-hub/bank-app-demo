@@ -70,9 +70,13 @@ export default class PersonsView extends JetView {
 		});
 
 		this.on(this.app,"taction:select",(date,company) => {
-			const person = persons.find(obj => obj.company === company)[0];
-			this.$$("list").select(person.id);
-			this.$$("list").showItem(person.id);
+			if (company) {
+				const person = persons.find(obj => obj.company === company)[0];
+				this.$$("list").select(person.id);
+				this.$$("list").showItem(person.id);
+			}
+			else
+				this.$$("list").unselect();
 		});
 	}
 }
