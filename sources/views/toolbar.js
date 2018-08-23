@@ -4,9 +4,10 @@ import NotificationView from "views/notifications";
 export default class ToolView extends JetView {
 	config(){
 		return {
-			view:"toolbar", height:60, elements:[
+			view:"toolbar", height:60,
+			elements:[
 				{
-					view:"button", type:"icon", icon:"bars",
+					view:"button", type:"icon", icon:"menu",
 					width:37, css:"toolbar_button",
 					click:() => this.app.callEvent("menu:toggle")
 				},

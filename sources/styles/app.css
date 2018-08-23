@@ -52,9 +52,9 @@
 .shop{
 	font-weight: bold;
 }
-.webix_ss_header td {
+/* .webix_ss_header td {
 	border: 0 none !important;
-}
+} */
 /* notifications */
 .unread{
 	color:rgb(247, 50, 10);
