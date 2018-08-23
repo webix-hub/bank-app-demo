@@ -10,14 +10,14 @@ export default class MenuView extends JetView {
 				{
 					width:250, localId:"side:menu", view:"sidebar",
 					data:[
-						{ id:"transactions", value:"Transactions", icon:"shopping-cart" },
+						{ id:"transactions", value:"Transactions", icon:"cart" },
 						{ id:"customers", value:"Customers", icon:"cube" },
-						{ id:"snippets", value:"Snippets", icon:"code" },
-						{ id:"layout", value:"Layout", icon:"th-large" },
-						{ id:"charts", value:"Charts", icon:"area-chart" },
-						{ id:"typography", value:"Typography", icon:"align-justify" },
+						{ id:"snippets", value:"Snippets", icon:"code-not-equal-variant" },
+						{ id:"layout", value:"Layout", icon:"view-dashboard" },
+						{ id:"charts", value:"Charts", icon:"chart-areaspline" },
+						{ id:"typography", value:"Typography", icon:"format-line-style" },
 						{ id:"calendar", value:"Calendar", icon:"calendar" },
-						{ id:"filemanager", value:"File Manager", icon:"folder" }
+						{ id:"filemanager", value:"File Manager", icon:"folder-star" }
 					]
 				}
 			]

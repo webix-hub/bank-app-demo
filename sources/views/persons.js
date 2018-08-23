@@ -22,7 +22,7 @@ export default class PersonsView extends JetView {
 							}
 						},
 						{
-							view:"button", type:"icon", icon:"search",
+							view:"button", type:"icon", icon:"magnify",
 							width:37, css:"toolbar_button",
 							click:() => {
 								this.$$("search").show();

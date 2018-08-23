@@ -25,7 +25,7 @@ export default class ToolView extends JetView {
 					}
 				},
 				{
-					view:"button", type:"icon", icon:"cog",
+					view:"button", type:"icon", icon:"settings",
 					width:37, css:"toolbar_button",
 					tooltip:"Go to settings",
 					click:() => this.show("/top/typography")
