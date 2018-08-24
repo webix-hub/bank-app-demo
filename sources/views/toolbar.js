@@ -11,6 +11,7 @@ export default class ToolView extends JetView {
 					width:37, css:"toolbar_button",
 					click:() => this.app.callEvent("menu:toggle")
 				},
+				{ css:"logo" },
 				{},
 				{
 					view:"button", type:"icon", icon:"credit-card",

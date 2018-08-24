@@ -8,7 +8,16 @@ export default class GridBase extends JetView {
 				{
 					id:"status", header:"", width:40,
 					css:"status", sort:"text",
-					template:data => `<span class='${data.status}'>&#9728;</span>`
+					template:data => {
+						let icon = "";
+						if (data.status === "success")
+							icon = "check-circle";
+						else if (data.status === "failed")
+							icon = "alert-box";
+						else
+							icon = "clock";
+						return `<span class='webix_icon mdi mdi-${icon} ${data.status}'></span>`
+					}
 				},
 				{
 					id:"date", header:"Date", fillspace:1, minWidth:170,
@@ -16,15 +25,28 @@ export default class GridBase extends JetView {
 				},
 				{
 					id:"", header:"Payment", fillspace:1, minWidth:200, sort:"text",
-					template:data => `${data.method} ${data.number || ""}`
+					template:data => {
+						let icon = "";
+						let type = "";
+						if (data.method === "PayPal")
+							type = icon = "paypal";
+						else {
+							icon = "credit-card";
+							type = (data.method === "MasterCard") ? "mastercard" : "visa";
+						}
+						return `<span class='webix_icon mdi mdi-${icon} ${type}'></span>${data.method} ${data.number || ""}`
+					}
 				},
 				{
 					id:"", header:"Purchase", fillspace:2, sort:"text",
-					template: data => `<span class='shop'>${data.name}</span> / ${data.city} / ${data.country}`
+					template: data => `${data.name} / ${data.city} / ${data.country}`
 				},
 				{
 					id:"type", header:"+/-", width:40, sort:"int", css:"type", hidden:true,
-					template:data => data.type ? "<span class='incoming'>+</span>" : "<span class='payment'>-</span>"
+					template:data => {
+						let type = data.type ? "plus incoming" : "minus payment";
+							return `<span class='webix_icon mdi mdi-${type}'></span>`;
+					}
 				},
 				{ id:"sum", header:"Sum", sort:"int", format:webix.i18n.priceFormat },
 				{ id:"left", header:"Left", sort:"int", format:webix.i18n.priceFormat }

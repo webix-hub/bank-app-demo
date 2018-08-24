@@ -5,13 +5,14 @@ import MenuView from "views/menu";
 export default class TopView extends JetView{
 	config(){
 		return {
-			cols:[
-				MenuView,
+			rows:[
+				ToolView,
 				{
-					rows:[
-						ToolView,
+					cols:[
+						MenuView,
 						{
-							type:"space", cols:[
+							type:"space",
+							cols:[
 								{ $subview:true }
 							]
 						}

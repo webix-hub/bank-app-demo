@@ -4,7 +4,13 @@
 	text-align:center;
 }
 .logo{
-	background:url(webix-logo.svg) 15px 5px no-repeat;
+	background:url(webix-logo.svg) 15px 2px no-repeat;
+}
+/* sidebar animation */
+.webix_sidebar,
+.webix_sidebar.webix_sidebar_expanded,
+.webix_layout_space{
+	transition:width 0.5s;
 }
 /* list of persons */
 .userphoto, .userpic{
@@ -21,43 +27,54 @@
 	line-height:53px;
 	font-size:31px;
 }
+.username{
+	color:#313131;
+	font-weight:500;
+	line-height:26px;
+}
 .money{
-	color:#bbb;
+	color:#475466;
 	display:block;
 }
 .persons_list .webix_list_item,
 .persons_list .webix_list_item.webix_selected{
-	padding:10px 10px;
-	line-height:24px;
+	padding:10px;
+	line-height:20px;
 }
 /* transactions grid */
 .success{
-	color:green;
+	color:#55CD97;
 }
 .waiting{
 	color:orange;
 }
 .failed{
-	color:red;
+	color:#FF5C4C;
 }
 .type, .status{
 	text-align: center;
 }
 .incoming{
-	color:green;
+	color:#55CD97;
 }
 .payment{
-	color:red;
+	color:#FF5C4C;
 }
-.shop{
-	font-weight: bold;
+.paypal{
+	color:#07445F;
+}
+.visa{
+	color:#2394BC;
+}
+.mastercard{
+	color:#E97D51;
 }
 /* .webix_ss_header td {
 	border: 0 none !important;
 } */
 /* notifications */
 .unread{
-	color:rgb(247, 50, 10);
+	color:#FF5C4C;
 }
 .link{
 	color:blue;
