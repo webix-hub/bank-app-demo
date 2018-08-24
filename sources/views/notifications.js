@@ -4,24 +4,27 @@ import {notifications} from "models/notifications";
 export default class NotificationView extends JetView {
 	config(){
 		return {
-			view:"popup", body:{
+			view:"popup",
+			body:{
 				rows:[
 					{
-						view:"list", width:250, height:350,
+						view:"list",
+						borderless:true,
+						css:"notifications",
+						width:250, height:350,
 						template:(obj,common) => {
-							let result = common.itemNew(obj) + "<b>" + obj.title + "</b>";
-							result += (!obj.read ? "</span> " : "") + "<br/>"; 
-							result += obj.message;
-							return result;
+							return (!obj.read ? common.itemNew() : "") +
+								"<span class='m_title'>" + obj.title + "</span>" +
+								"<span class='message'>" + obj.message + "</span>";
 						},
 						type:{
-							itemNew: obj => !obj.read ? "<span class='unread'>&#9728; " : "",
-							height:150
+							itemNew: () => "<span class='webix_icon mdi mdi-alert-decagram unread'></span>",
+							height:120
 						}
 					},
 					{
 						template:"<a class='link' route='top/snippets'>See all notifications</a>",
-						autoheight:true
+						autoheight:true, borderless:true
 					}
 				]
 			}

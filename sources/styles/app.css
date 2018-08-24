@@ -57,7 +57,7 @@
 .incoming{
 	color:#55CD97;
 }
-.payment{
+.payment, .unread{
 	color:#FF5C4C;
 }
 .paypal{
@@ -73,11 +73,19 @@
 	border: 0 none !important;
 } */
 /* notifications */
-.unread{
-	color:#FF5C4C;
+.notifications .webix_list_item{
+	line-height:20px;
+	padding:10px;
+}
+.notifications .webix_list_item .m_title{
+	font-weight: 500;
+}
+.notifications .webix_list_item .message{
+	display:block;
 }
 .link{
 	color:blue;
+	text-decoration: underline;
 	cursor: pointer;
 }
 /* form */
