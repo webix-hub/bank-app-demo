@@ -71,9 +71,9 @@ export default class PersonsView extends JetView {
 			persons.waitData.then(() => this.$$("list").select(1));
 		});
 
-		this.on(this.app,"taction:select",(date,company) => {
-			if (company) {
-				const person = persons.find(obj => obj.company === company)[0];
+		this.on(this.app,"taction:select",record => {
+			if (record) {
+				const person = persons.find(obj => obj.company === record.id)[0];
 				this.$$("list").select(person.id);
 				this.$$("list").showItem(person.id);
 			}

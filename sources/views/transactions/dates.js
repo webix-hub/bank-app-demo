@@ -4,11 +4,14 @@ export default class DatesView extends JetView{
 		return {
 			view:"calendar",
 			on:{
-				onDateSelect: date => this.app.callEvent("date:select",[date])
+				onDateSelect:date => this.app.callEvent("date:select",[date])
 			}
 		};
 	}
 	init(calendar){
-		this.on(this.app,"taction:select",date => calendar.setValue(date));
+		this.on(this.app,"taction:select",record => {
+			if (record)
+				calendar.setValue(record.date);
+		});
 	}
 }

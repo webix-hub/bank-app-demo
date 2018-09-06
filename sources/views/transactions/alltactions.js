@@ -20,7 +20,7 @@ export default class AllTActionsView extends JetView {
 
 		grid.attachEvent("onAfterSelect", obj => {
 			const record = allpayments.getItem(obj.row);
-			this.app.callEvent("taction:select",[record.date,record.id]);
+			this.app.callEvent("taction:select",[record]);
 		});
 
 		grid.attachEvent("onBeforeUnSelect", () => this.app.callEvent("taction:select"));

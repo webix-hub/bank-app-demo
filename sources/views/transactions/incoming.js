@@ -18,9 +18,16 @@ export default class IncomingView extends JetView {
 		
 		grid.attachEvent("onAfterSelect", obj => {
 			const record = grid.data.getItem(obj.row);
-			this.app.callEvent("taction:select",[record.date,record.id]);
+			this.app.callEvent("taction:select",[record]);
 		});
 
 		this.on(this.app,"date:select",date =>findTAction(grid,grid.data,date));
+
+		this.on(this.app,"person:select", person => {
+			if (person){	
+				grid.select(person.company);
+				grid.showItem(person.company);
+			}
+		});
 	}
 }
