@@ -17,8 +17,8 @@ export default class PaymentsView extends JetView {
 		grid.parse(getPayments());
 		
 		grid.attachEvent("onAfterSelect", obj => {
-			const date = grid.data.getItem(obj.row).date;
-			this.app.callEvent("taction:select",[date]);
+			const record = grid.data.getItem(obj.row);
+			this.app.callEvent("taction:select",[record.date,record.id]);
 		});
 
 		this.on(this.app,"date:select",date => findTAction(grid,grid.data,date)); //!

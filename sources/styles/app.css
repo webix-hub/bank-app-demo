@@ -4,13 +4,7 @@
 	text-align:center;
 }
 .logo{
-	background:url(webix-logo.svg) 15px 2px no-repeat;
-}
-/* sidebar animation */
-.webix_sidebar,
-.webix_sidebar.webix_sidebar_expanded,
-.webix_layout_space{
-	transition:width 0.5s;
+	background:url(webix-logo.svg) 2px 2px no-repeat;
 }
 /* list of persons */
 .userphoto, .userpic{
@@ -52,7 +46,7 @@
 	color:#FF5C4C;
 }
 .type, .status{
-	text-align: center;
+	text-align:center;
 }
 .incoming{
 	color:#55CD97;
@@ -60,33 +54,19 @@
 .payment, .unread{
 	color:#FF5C4C;
 }
-.paypal{
-	color:#07445F;
-}
-.visa{
-	color:#2394BC;
-}
-.mastercard{
-	color:#E97D51;
-}
-/* .webix_ss_header td {
-	border: 0 none !important;
-} */
 /* notifications */
 .notifications .webix_list_item{
 	line-height:20px;
 	padding:10px;
 }
 .notifications .webix_list_item .m_title{
-	font-weight: 500;
+	font-weight:500;
 }
 .notifications .webix_list_item .message{
 	display:block;
 }
 .link{
 	color:blue;
-	text-decoration: underline;
-	cursor: pointer;
+	text-decoration:underline;
+	cursor:pointer;
 }
-/* form */
-

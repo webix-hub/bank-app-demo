@@ -12,7 +12,7 @@ export default class AllTActionsView extends JetView {
 		};
 	}
 	ready(view){
-		const grid = view.queryView({view:"datatable"});
+		const grid = view.queryView({ view:"datatable" });
 
 		grid.showColumn("type");
 

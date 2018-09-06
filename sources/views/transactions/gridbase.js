@@ -26,15 +26,7 @@ export default class GridBase extends JetView {
 				{
 					id:"", header:"Payment", fillspace:1, minWidth:200, sort:"text",
 					template:data => {
-						let icon = "";
-						let type = "";
-						if (data.method === "PayPal")
-							type = icon = "paypal";
-						else {
-							icon = "credit-card";
-							type = (data.method === "MasterCard") ? "mastercard" : "visa";
-						}
-						return `<span class='webix_icon mdi mdi-${icon} ${type}'></span>${data.method} ${data.number || ""}`
+						return `<img style="margin-bottom:-6px;margin-right:8px;" src="sources/styles/${data.method}.svg" />${data.method} ${data.number || ""}`
 					}
 				},
 				{
