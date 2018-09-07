@@ -24,8 +24,8 @@ export default class TransactionsView extends JetView {
 							view:"segmented",
 							options:[
 								{ id:"all", value:"All" },
-								{ id:0, value:"Payments" },
-								{ id:1, value:"Incoming" }
+								{ id:"0", value:"Payments" },
+								{ id:"1", value:"Incoming" }
 							],
 							on:{
 								onChange: newv => this.app.callEvent("tactions:filter",[newv])
