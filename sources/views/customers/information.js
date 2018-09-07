@@ -72,6 +72,7 @@ export default class InformationView extends JetView {
 				{
 					view:"photo",
 					name:"photo",
+					css:"form_photo",
 					width:260,
 					height:260,
 					borderless:true
@@ -123,7 +124,8 @@ export default class InformationView extends JetView {
 			],
 			on:{
 				onValues(){
-					this.$scope.setParam("user",this.getValues().id,true);
+					const id = this.getValues().id;
+					if (id) this.$scope.setParam("user",id,true);
 				}
 			}
 		};

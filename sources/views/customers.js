@@ -10,7 +10,8 @@ export default class CustomersView extends JetView {
 				{
 					rows:[
 						{
-							view:"tabbar", multiview:true, options:[
+							view:"tabbar", multiview:true, borderless:false,
+							options:[
 								{ id:"information", value:"Information", width:150 },
 								{ id:"statistics", value:"Statistics", width:150 },
 								{ id:"add", value:"Something", width:150 }

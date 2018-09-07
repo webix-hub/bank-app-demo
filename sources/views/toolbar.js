@@ -24,10 +24,11 @@ export default class ToolView extends JetView {
 						{
 							cols:[
 								{
-									view:"icon", icon:"bell", badge:2,
+									view:"icon", icon:"bell",
+									localId:"bell", badge:2,
 									tooltip:"Open latest notifications",
 									click:function(){
-										this.$scope.notifications.showLatest(this.$view);
+										this.$scope.notifications.showPopup(this.$view);
 									}
 								},
 								{
@@ -44,5 +45,16 @@ export default class ToolView extends JetView {
 	}
 	init(){
 		this.notifications = this.ui(NotificationView);
+
+		this.on(this.app,"read:notifications",() => {
+			this.$$("bell").config.badge = 0;
+			this.$$("bell").refresh();
+
+			setTimeout(() => {
+				this.$$("bell").config.badge += 1;
+				this.$$("bell").refresh();
+				this.app.callEvent("new:notification");
+			},10000);
+		});
 	}
 }

@@ -9,22 +9,22 @@
 /* list of persons */
 .userphoto, .userpic{
 	border-radius:25px;
-	width:50px;
-	height:50px;
+	width:48px;
+	height:48px;
 	float:left;
 	margin-right:15px;
 }
 .userpic{
-	background-color:#1a73c7;
+	background-color:#1CA1C1;
   	color:#fff;
   	text-align:center;
-	line-height:53px;
-	font-size:31px;
+	line-height:50px;
+	font-size:25px;
 }
 .username{
 	color:#313131;
 	font-weight:500;
-	line-height:26px;
+	line-height:30px;
 }
 .money{
 	color:#475466;
@@ -32,8 +32,8 @@
 }
 .persons_list .webix_list_item,
 .persons_list .webix_list_item.webix_selected{
-	padding:10px;
-	line-height:20px;
+	padding:8px;
+	line-height:6px;
 }
 /* transactions grid */
 .success{
@@ -55,7 +55,8 @@
 	color:#FF5C4C;
 }
 /* notifications */
-.notifications .webix_list_item{
+.notifications .webix_list_item,
+.notifications .webix_list_item.webix_selected{
 	line-height:20px;
 	padding:10px;
 }
@@ -69,4 +70,8 @@
 	color:blue;
 	text-decoration:underline;
 	cursor:pointer;
+}
+/* form */
+.webix_view.form_photo > div{
+	padding:0px;
 }

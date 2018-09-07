@@ -7,11 +7,14 @@ export default class PersonsView extends JetView {
 			rows:[
 				{
 					view:"toolbar", elements:[
-						{ view:"label", label:"Persons" },
+						{ view:"label", label:"Persons", localId:"label" },
 						{
 							view:"text", localId:"search", hidden:true,
 							on:{
-								onBlur(){ this.hide(); },
+								onBlur(){
+									webix.delay(() => this.hide());
+									this.$scope.$$("label").show();
+								},
 								onTimedKeyPress(){
 									const input = this.getValue().toLowerCase();
 									this.$scope.$$("list").filter(obj => {
@@ -22,10 +25,10 @@ export default class PersonsView extends JetView {
 							}
 						},
 						{
-							view:"button", type:"icon", icon:"magnify",
-							width:37, css:"toolbar_button",
+							view:"icon", icon:"magnify",
 							click:() => {
 								this.$$("search").show();
+								this.$$("label").hide();
 								this.$$("search").focus();
 							}
 						}
@@ -53,7 +56,7 @@ export default class PersonsView extends JetView {
 								return "<span class='userpic'>" + data.fname.charAt(0) + "</span>";
 						},
 						money:data => "<span class='money'>$" + data.money + "</span>",
-						height:70
+						height:65
 					},
 					on:{
 						onAfterSelect:id => {
@@ -69,7 +72,10 @@ export default class PersonsView extends JetView {
 	init(){
 		this.$$("list").parse(persons);
 
-		this.on(this.app,"customer:save",(id,data) => persons.updateItem(id,data));
+		this.on(this.app,"customer:save",(id,data) => {
+			persons.updateItem(id,data);
+			webix.message("Saved");
+		});
 		
 		this.on(this.app,"customers:init",user => {
 			persons.waitData.then(() => {
