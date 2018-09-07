@@ -72,7 +72,10 @@ export default class PersonsView extends JetView {
 		this.on(this.app,"customer:save",(id,data) => persons.updateItem(id,data));
 		
 		this.on(this.app,"customers:init",user => {
-			persons.waitData.then(() => this.$$("list").select(user));
+			persons.waitData.then(() => {
+				this.$$("list").select(user);
+				this.$$("list").showItem(user);
+			});
 		});
 
 		this.on(this.app,"taction:select",record => {
