@@ -5,6 +5,7 @@ import {getPositions} from "helpers/positionsdata";
 
 export default class PositionsView extends JetView {
 	config(){
+		const _ = this.app.getService("locale")._;
 		return {
 			view:"chart",
 			type:"pie",
@@ -14,7 +15,7 @@ export default class PositionsView extends JetView {
 				width:150,
 				align:"right",
 				valign:"middle",
-				template:"#position#"
+				template:obj => _(obj.position)
 			},
 			shadow:false
 		};

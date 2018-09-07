@@ -3,11 +3,13 @@ import {persons} from "models/persons";
 
 export default class PersonsView extends JetView {
 	config(){
+		const _ = this.app.getService("locale")._;
 		return {
 			rows:[
 				{
-					view:"toolbar", elements:[
-						{ view:"label", label:"Persons", localId:"label" },
+					view:"toolbar",
+					elements:[
+						{ view:"label", label:_("Persons"), localId:"label" },
 						{
 							view:"text", localId:"search", hidden:true,
 							on:{
@@ -41,7 +43,7 @@ export default class PersonsView extends JetView {
 					width:260,
 					select:true,
 					tooltip:{
-						template:"Click twice to see more goodies"
+						template:_("Click twice to see more goodies")
 					},
 					type:{
 						template:(data,common) => {
@@ -74,7 +76,7 @@ export default class PersonsView extends JetView {
 
 		this.on(this.app,"customer:save",(id,data) => {
 			persons.updateItem(id,data);
-			webix.message("Saved");
+			webix.message(_("Saved"));
 		});
 		
 		this.on(this.app,"customers:init",user => {

@@ -5,6 +5,7 @@ import AllTActions from "views/alltactions";
 
 export default class TransactionsView extends JetView {
 	config(){
+		const _ = this.app.getService("locale")._;
 
 		const right = {
 			type:"wide", rows:[
@@ -18,14 +19,14 @@ export default class TransactionsView extends JetView {
 				{
 					view:"toolbar",
 					elements:[
-						{ view:"label", label:"Transactions" },
+						{ view:"label", label:_("Transactions") },
 						{},
 						{
 							view:"segmented",
 							options:[
-								{ id:"all", value:"All" },
-								{ id:"0", value:"Payments" },
-								{ id:"1", value:"Incoming" }
+								{ id:"all", value:_("All") },
+								{ id:"0", value:_("Payments") },
+								{ id:"1", value:_("Incoming") }
 							],
 							on:{
 								onChange: newv => this.app.callEvent("tactions:filter",[newv])

@@ -4,6 +4,7 @@ import {newNotification} from "models/newnotifications";
 
 export default class NotificationView extends JetView {
 	config(){
+		const _ = this.app.getService("locale")._;
 		return {
 			view:"popup",
 			body:{
@@ -11,14 +12,14 @@ export default class NotificationView extends JetView {
 					{
 						view:"list",
 						localId:"list",
-						// select:true,
+						select:true,
 						borderless:true,
 						css:"notifications",
 						width:250, height:350,
 						template:(obj,common) => {
 							return (!obj.read ? common.itemNew() : "") +
-								"<span class='m_title" + (!obj.read ? " unread" : "") + "'>" + obj.title + "</span>" +
-								"<span class='message'>" + obj.message + "</span>";
+								"<span class='m_title" + (!obj.read ? " unread" : "") + "'>" + _(obj.title) + "</span>" +
+								"<span class='message'>" + _(obj.message) + "</span>";
 						},
 						type:{
 							itemNew:() => "<span class='webix_icon mdi mdi-alert-decagram unread'></span>",
@@ -26,7 +27,7 @@ export default class NotificationView extends JetView {
 						}
 					},
 					{
-						template:"<a class='link' route='top/snippets'>See all notifications</a>",
+						template:`<a class='link'>${_("See all notifications")}</a>`,
 						autoheight:true, borderless:true
 					}
 				]

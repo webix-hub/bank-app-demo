@@ -6,38 +6,38 @@ import "webix/photo";
 
 export default class InformationView extends JetView {
 	config(){
-
+		const _ = this.app.getService("locale")._;
 		const left_main = {
 			gravity:3,
 			margin:10, rows:[
 				{
 					view:"text", name:"fname",
-					label:"First name", labelPosition:"top",
-					placeholder:"First name"
+					label:_("First name"), labelPosition:"top",
+					placeholder:_("First name")
 				},
 				{
 					view:"text", name:"lname",
-					label:"Last name", labelPosition:"top",
-					placeholder:"Last name"
+					label:_("Last name"), labelPosition:"top",
+					placeholder:_("Last name")
 				},
 				{
 					view:"richselect", name:"position",
-					label:"Position", labelPosition:"top",
-					placeholder:"Click to select",
+					label:_("Position"), labelPosition:"top",
+					placeholder:_("Click to select"),
 					options:positions
 				},
 				{
 					view:"text", name:"email",
-					label:"Email", labelPosition:"top",
+					label:_("Email"), labelPosition:"top",
 					placeholder:"judetheawesome@obscure.com"
 				},
 				{
 					view:"radio", name:"notifications",
-					label:"Notifications", labelPosition:"top",
+					label:_("Notifications"), labelPosition:"top",
 					value:1,
 					options:[
-						{ id:1, value:"Yes"},
-						{ id:2, value:"No" }
+						{ id:1, value:_("Yes") },
+						{ id:2, value:_("No") }
 					]
 				},
 				{ height:20 }
@@ -48,18 +48,18 @@ export default class InformationView extends JetView {
 			gravity:3, margin:10, rows:[
 				{
 					view:"richselect", name:"city",
-					label:"City, country", labelPosition:"top",
-					placeholder:"Click to select",
+					label:_("City, country"), labelPosition:"top",
+					placeholder:_("Click to select"),
 					options:webix.copy(cities)
 				},
 				{
-					view:"text", name:"address", label:"Address",
-					labelPosition:"top", placeholder:"Address"
+					view:"text", name:"address", label:_("Address"),
+					labelPosition:"top", placeholder:_("Address")
 				},
 				{
 					view:"datepicker", name:"birthday",
-					label:"Birthday", labelPosition:"top",
-					placeholder:"Click to select",
+					label:_("Birthday"), labelPosition:"top",
+					placeholder:_("Click to select"),
 					format:webix.Date.dateToStr("%d %M %Y")
 				}
 			]
@@ -78,7 +78,7 @@ export default class InformationView extends JetView {
 					borderless:true
 				},
 				{
-					view:"multicombo", name:"tags", placeholder:"Click to add tags",
+					view:"multicombo", name:"tags", placeholder:_("Click to add tags"),
 					options:tags
 				}
 			]
@@ -96,7 +96,7 @@ export default class InformationView extends JetView {
 						right_photo
 					]
 				},
-				{ view:"label", template:"Notes" },
+				{ view:"label", template:_("Notes") },
 				{
 					view:"richtext", labelPosition:"top",
 					name:"notes", localId:"notes"
@@ -105,14 +105,14 @@ export default class InformationView extends JetView {
 					margin:10, cols:[
 						{},
 						{
-							view:"button", value:"Reset", width:100,
+							view:"button", value:_("Reset"), width:100,
 							click:() => {
 								this.$$("notes").setValue("");  // ! a crude workaround
 								this.getRoot().clear();
 							}
 						},
 						{
-							view:"button", value:"Save", type:"form", width:100,
+							view:"button", value:_("Save"), type:"form", width:100,
 							click:() => {
 								const newdata = this.getRoot().getValues();
 								const id = newdata.id;

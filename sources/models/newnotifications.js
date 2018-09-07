@@ -27,5 +27,10 @@ const notifications = [
 		title:"Localization",
 		message:"Dear client, you can pick one of the six languages we provided for this demo app. Click the icon in the top right corner.",
 		read:0
+	},
+	{
+		title:"We love you",
+		message:"Dear client, we love you very much. If our feelings are mutual, contact us and download Webix. Then we will love you eternally.",
+		read:0
 	}
 ];

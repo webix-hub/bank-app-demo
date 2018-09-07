@@ -3,6 +3,7 @@ import {persons} from "models/persons";
 
 export default class AgeView extends JetView {
 	config(){
+		const _ = this.app.getService("locale")._;
 		return {
 			view:"chart", type:"scatter",
 			padding:{
@@ -22,13 +23,13 @@ export default class AgeView extends JetView {
 				type:"d"
 			},
 			xAxis:{
-				title:"Age",
+				title:_("Age"),
 				start:22,
 				end:44,
 				step:1
 			},
 			yAxis:{
-				title:"Total money spent, $",
+				title:_("Total money spent, $"),
 				start:0,
 				end:1500,
 				step:250

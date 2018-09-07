@@ -2,82 +2,97 @@ import {JetView} from "webix-jet";
 
 export default class SettingsView extends JetView {
 	config(){
+		const _ = this.app.getService("locale")._;
+		const lang = this.app.getService("locale").getLang();
 		return {
 			rows:[
-				{ template:"Settings", type:"header" },
+				{ template:_("Settings"), type:"header" },
 				{
-					view:"form", elementsConfig:{ labelPosition:"top" },elements:[
-						{ template:"Regional settings", type:"section" },
+					view:"form", elementsConfig:{ labelPosition:"top" },
+					elements:[
+						{ template:_("Regional settings"), type:"section" },
 						{
 							cols:[
 								{
-									label:"Language", view:"richselect", name:"lang",
-									value:"en",
+									label:_("Language"), view:"richselect",
+									name:"lang", value:lang, gravity:3,
+									minWidth:144,
 									options:[
-										{ id:"en", value:"English" },
-										{ id:"es", value:"Spanish" },
-										{ id:"cn", value:"Chinese" },
-										{ id:"ru", value:"Russian" }
-									], gravity:3
+										{ id:"en", code:"US", value:"English" },
+										{ id:"zh", code:"CN", value:"中文" },
+										{ id:"es", code:"ES", value:"Español" },
+										{ id:"ko", code:"KR", value:"한국어" },
+										{ id:"ru", code:"RU", value:"Русский" },
+										{ id:"de", code:"DE", value:"Deutsch" }
+									],
+									on:{
+										onChange:newlang => {
+											webix.delay(() => this.app.getService("locale").setLang(newlang));
+										}
+									}
 								},
 								{},
 								{
-									label:"Date format", view:"richselect", name:"dateformat",
-									value:"5",
+									label:_("Date format"), view:"richselect",
+									name:"dateformat", value:"5", gravity:3,
+									minWidth:144,
 									options:[
 										{ id:"1", value:"dd/mm/yyyy hh:mm" },
 										{ id:"2", value:"mm/dd/yyyy hh:mm" },
 										{ id:"3", value:"dd.mm.yyyy hh:mm" },
 										{ id:"4", value:"mm.dd.yyyy hh:mm" },
-										{ id:"5", value:"d Mon, hh:mm" }
-									], gravity:3
+										{ id:"5", value:"d Month, hh:mm" }
+									]
 								},
 								{},
 								{
-									label:"Money format", view:"richselect", name:"moneyformat",
-									value:"1",
+									label:_("Money format"), view:"richselect",
+									name:"moneyformat", value:"1",
+									minWidth:144, gravity:3,
 									options:[
 										{ id:"1", value:"1,234.56" },
 										{ id:"2", value:"1'234,56" }
-									], gravity:3
+									]
 								},
 								{ gravity:5 }
 							]
 						},
-						{ template:"Environment settings", type:"section" },
+						{ template:_("Environment settings"), type:"section" },
 						{
 							cols:[
 								{
-									label:"Theme", view:"richselect", name:"theme",
-									value:"some",
+									label:_("Theme"), view:"richselect",
+									name:"theme", value:"light", gravity:3,
+									minWidth:144,
 									options:[
-										{ id:"some", value:"Some" }
-									], gravity:3
+										{ id:"light", value:_("Light") },
+										{ id:"dark", value:_("Dark") }
+									]
 								},
 								{},
 								{
-									label:"Max list length", view:"slider", name:"maxlist",
-									min:20, max:100, value:50, step:10,
-									title:"#value#",
-									gravity:3
+									label:_("Max list length"), view:"slider",
+									name:"maxlist", minWidth:144,
+									min:10, max:50, value:50, step:10,
+									title:"#value#", gravity:3
 								},
 								{ gravity:9 }
 							]
 						},
 						{},
 						{
-							cols:[
+							margin:10, cols:[
 								{
-									view:"button", value:"Default settings",
-									width:130
+									view:"button", value:_("Default settings"),
+									width:160
 								},
 								{
-									view:"button", value:"Reset",
+									view:"button", value:_("Reset"),
 									width:100, type:"danger"
 								},
 								{},
 								{
-									view:"button", value:"Save",
+									view:"button", value:_("Save"),
 									width:100, type:"form"
 								}
 							]

@@ -5,6 +5,7 @@ import {geoData} from "helpers/geodata";
 
 export default class GeoView extends JetView {
 	config(){
+		const _ = this.app.getService("locale")._;
 		return {
 			view:"geochart", gravity:2,
 			// provide your own Google API key
@@ -17,7 +18,7 @@ export default class GeoView extends JetView {
 				{ type:"string", label:"country" },
 				{ type:"number", label:"money" }
 			],
-			tooltip:"Clients: #clients#<br/>Income: #money#"
+			tooltip:`${_("Clients")}: #clients#<br/>${_("Income")}: #money#`
 		};
 	}
 	init(view){

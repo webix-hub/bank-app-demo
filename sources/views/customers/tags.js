@@ -3,6 +3,7 @@ import {getTags} from "models/tagsdata";
 
 export default class TagsView extends JetView {
 	config(){
+		const _ = this.app.getService("locale")._;
 		return {
 			view:"chart",
 			type:"barH",
@@ -18,10 +19,10 @@ export default class TagsView extends JetView {
 				start:0,
 				end:32,
 				step:2,
-				title:"Awarded badges"
+				title:_("Awarded badges")
 			},
 			yAxis:{
-				template:"#tag#"
+				template:obj => _(obj.tag)
 			},
 			label:obj => `<span style='font-size:20px;'>${obj.number}</span>`
 		};

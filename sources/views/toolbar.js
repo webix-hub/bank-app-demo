@@ -3,6 +3,7 @@ import NotificationView from "views/notifications";
 
 export default class ToolView extends JetView {
 	config(){
+		const _ = this.app.getService("locale")._;
 		return {
 			view:"toolbar",
 			height:60,
@@ -26,14 +27,14 @@ export default class ToolView extends JetView {
 								{
 									view:"icon", icon:"bell",
 									localId:"bell", badge:2,
-									tooltip:"Open latest notifications",
+									tooltip:_("Open latest notifications"),
 									click:function(){
 										this.$scope.notifications.showPopup(this.$view);
 									}
 								},
 								{
 									view:"icon", icon:"settings",
-									tooltip:"Go to settings",
+									tooltip:_("Go to settings"),
 									click:() => this.show("/top/settings")
 								}
 							]

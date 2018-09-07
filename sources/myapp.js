@@ -1,5 +1,5 @@
 import "./styles/app.css";
-import {JetApp, EmptyRouter, HashRouter } from "webix-jet";
+import {JetApp, EmptyRouter, HashRouter, plugins } from "webix-jet";
 
 export default class MyApp extends JetApp{
 	constructor(config){
@@ -19,6 +19,8 @@ if (!BUILD_AS_MODULE){
 	webix.ready(() => {
 		if (!webix.env.touch && webix.ui.scrollSize)
 			webix.CustomScroll.init();
-		new MyApp().render();
+		const app = new MyApp();
+		app.use(plugins.Locale,{ storage:webix.storage.local });
+		app.render();
 	});
 }

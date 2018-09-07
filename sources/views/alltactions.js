@@ -3,6 +3,7 @@ import {allpayments} from "models/allpayments";
 
 export default class AllTActionsView extends JetView {
 	config(){
+		const _ = this.app.getService("locale")._;
 		return {
 			view:"datatable",
 			select:true,
@@ -24,17 +25,17 @@ export default class AllTActionsView extends JetView {
 					}
 				},
 				{
-					id:"date", header:"Date", fillspace:1, minWidth:170,
+					id:"date", header:_("Date"), fillspace:1, minWidth:170,
 					sort:"date", format:webix.Date.dateToStr("%d %F, %H:%i")
 				},
 				{
-					id:"", header:"Payment", fillspace:1, minWidth:240, sort:"text",
+					id:"", header:_("Payment"), fillspace:1, minWidth:240, sort:"text",
 					template:data => {
 						return `<img style="margin-bottom:-6px;margin-right:8px;" src="sources/styles/${data.method}.svg" />${data.method} ${data.number || ""}`
 					}
 				},
 				{
-					id:"", header:"Purchase", fillspace:2, sort:"text",
+					id:"", header:_("Purchase"), fillspace:2, sort:"text",
 					template: data => `${data.name} / ${data.city} / ${data.country}`
 				},
 				{
@@ -44,12 +45,14 @@ export default class AllTActionsView extends JetView {
 							return `<span class='webix_icon mdi mdi-${type}'></span>`;
 					}
 				},
-				{ id:"sum", header:"Sum", sort:"int", format:webix.i18n.priceFormat },
-				{ id:"left", header:"Left", sort:"int", format:webix.i18n.priceFormat }
+				{ id:"sum", header:_("Sum"), sort:"int", format:webix.i18n.priceFormat },
+				{ id:"left", header:_("Left"), sort:"int", format:webix.i18n.priceFormat }
 			]
 		};
 	}
 	init(grid){
+		const _ = this.app.getService("locale")._;
+		
 		grid.sync(allpayments);
 
 		this.on(this.app,"tactions:filter",type => {
@@ -80,7 +83,7 @@ export default class AllTActionsView extends JetView {
 			}
 			else {
 				grid.clearSelection();
-				webix.message("Nothing on this day");
+				webix.message(_("Nothing on this day"));
 			}
 		});
 	}

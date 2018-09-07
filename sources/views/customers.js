@@ -5,6 +5,7 @@ import StatisticsView from "views/customers/statistics";
 
 export default class CustomersView extends JetView {
 	config(){
+		const _ = this.app.getService("locale")._;
 		return {
 			type:"wide", cols:[
 				{
@@ -12,8 +13,8 @@ export default class CustomersView extends JetView {
 						{
 							view:"tabbar", multiview:true, borderless:false,
 							options:[
-								{ id:"information", value:"Information", width:150 },
-								{ id:"statistics", value:"Statistics", width:150 },
+								{ id:"information", value:_("Information"), width:150 },
+								{ id:"statistics", value:_("Statistics"), width:150 },
 								{ id:"add", value:"Something", width:150 }
 							]
 						},
