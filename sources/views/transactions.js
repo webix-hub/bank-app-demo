@@ -1,6 +1,7 @@
-import {JetView,plugins} from "webix-jet";
+import {JetView} from "webix-jet";
 import PersonsView from "views/persons";
-import DatesView from "views/transactions/dates";
+import DatesView from "views/dates";
+import AllTActions from "views/alltactions";
 
 export default class TransactionsView extends JetView {
 	config(){
@@ -14,16 +15,25 @@ export default class TransactionsView extends JetView {
 
 		const left = {
 			rows:[
-				{ view:"toolbar", elements:[
-					{ view:"label", label:"Transactions" },
-					{},
-					{ view:"segmented", localId:"seg:tactions", options:[
-						{ id:"alltactions", value:"All" },
-						{ id:"payments", value:"Payments" },
-						{ id:"incoming", value:"Incoming" }
-					] }
-				] },
-				{ $subview:true }
+				{
+					view:"toolbar",
+					elements:[
+						{ view:"label", label:"Transactions" },
+						{},
+						{
+							view:"segmented",
+							options:[
+								{ id:"all", value:"All" },
+								{ id:0, value:"Payments" },
+								{ id:1, value:"Incoming" }
+							],
+							on:{
+								onChange: newv => this.app.callEvent("tactions:filter",[newv])
+							}
+						}
+					]
+				},
+				AllTActions
 			]
 		};
 
@@ -32,8 +42,5 @@ export default class TransactionsView extends JetView {
 				left, right
 			]
 		};
-	}
-	init(){
-		this.use(plugins.Menu,"seg:tactions");
 	}
 }

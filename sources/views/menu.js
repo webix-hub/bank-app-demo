@@ -17,12 +17,7 @@ export default class MenuView extends JetView {
 		};
 	}
 	init(){
-		this.use(plugins.Menu,{
-			id:"side:menu",
-			urls:{
-				"transactions":"transactions/alltactions"
-			}
-		});
+		this.use(plugins.Menu,this.$$("side:menu"));
 		this.on(this.app,"menu:toggle",() => this.$$("side:menu").toggle());
 	}
 }
