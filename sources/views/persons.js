@@ -53,10 +53,11 @@ export default class PersonsView extends JetView {
 						height:70
 					},
 					on:{
-						onAfterSelect:(id) => {
+						onAfterSelect:id => {
 							const person = persons.getItem(id);
 							this.app.callEvent("person:select",[person]);
-						}
+						},
+						onItemDblClick:id => this.show("customers?user="+id)
 					}
 				}
 			]
@@ -67,8 +68,8 @@ export default class PersonsView extends JetView {
 
 		this.on(this.app,"customer:save",(id,data) => persons.updateItem(id,data));
 		
-		this.on(this.app,"customers:init",() => {
-			persons.waitData.then(() => this.$$("list").select(1));
+		this.on(this.app,"customers:init",user => {
+			persons.waitData.then(() => this.$$("list").select(user));
 		});
 
 		this.on(this.app,"taction:select",record => {

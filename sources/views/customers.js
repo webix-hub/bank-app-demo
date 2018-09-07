@@ -30,7 +30,7 @@ export default class CustomersView extends JetView {
 			]
 		};
 	}
-	ready(){
-		this.app.callEvent("customers:init");
+	urlChange(){
+		this.app.callEvent("customers:init",[this.getParam("user")||1]);
 	}
 }
