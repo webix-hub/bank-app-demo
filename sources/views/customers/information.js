@@ -84,7 +84,8 @@ export default class InformationView extends JetView {
 		};
 
 		return {
-			view:"form", rows:[
+			view:"form",
+			rows:[
 				{
 					cols:[
 						left_main,
@@ -119,7 +120,12 @@ export default class InformationView extends JetView {
 						}
 					]
 				}
-			]
+			],
+			on:{
+				onValues(){
+					this.$scope.setParam("user",this.getValues().id,true);
+				}
+			}
 		};
 	}
 	init(form){

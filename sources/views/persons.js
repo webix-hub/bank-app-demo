@@ -37,6 +37,9 @@ export default class PersonsView extends JetView {
 					css:"persons_list",
 					width:260,
 					select:true,
+					tooltip:{
+						template:"Click twice to see more goodies"
+					},
 					type:{
 						template:(data,common) => {
 							return common.userPic(data) +
