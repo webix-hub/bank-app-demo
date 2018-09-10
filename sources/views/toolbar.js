@@ -40,7 +40,8 @@ export default class ToolView extends JetView {
 							]
 						}
 					]
-				}
+				},
+				{ width:6 }
 			]
 		};
 	}

@@ -31,7 +31,7 @@ export default class TransactionsView extends JetView {
 							on:{
 								onChange: newv => this.app.callEvent("tactions:filter",[newv])
 							}
-						}
+						},
 					]
 				},
 				AllTActions
