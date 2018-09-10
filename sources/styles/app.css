@@ -7,33 +7,34 @@
 	background:url(webix-logo.svg) 2px 2px no-repeat;
 }
 /* list of persons */
-.userphoto, .userpic{
+.userphoto{
+	display:inline-block;
 	border-radius:25px;
 	width:48px;
 	height:48px;
 	float:left;
-	margin-right:15px;
 }
-.userpic{
-	background-color:#1CA1C1;
-  	color:#fff;
-  	text-align:center;
-	line-height:50px;
-	font-size:25px;
+.text {
+	padding:4px 4px 4px 16px;
+	display:inline-block;
 }
 .username{
+	font-size:14px;
+	letter-spacing:0.2px;
 	color:#313131;
 	font-weight:500;
-	line-height:30px;
+	line-height:20px;
+	display:block;
 }
 .money{
 	color:#475466;
 	display:block;
+	letter-spacing:0.2px;
+	line-height:20px; 
 }
 .persons_list .webix_list_item,
 .persons_list .webix_list_item.webix_selected{
-	padding:8px;
-	line-height:6px;
+	padding:8px 12px;
 }
 /* transactions grid */
 .success{

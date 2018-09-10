@@ -46,19 +46,12 @@ export default class PersonsView extends JetView {
 						template:_("Click twice to see more goodies")
 					},
 					type:{
-						template:(data,common) => {
-							return common.userPic(data) +
-								"<span class='username'>" + data.fname + " " + data.lname + "</span>" +
-								common.money(data);
-						},
-						userPic:data => {
-							if (data.photo)
-								return "<image class='userphoto' src='data/photos/" + data.photo + ".jpg'>";
-							else
-								return "<span class='userpic'>" + data.fname.charAt(0) + "</span>";
-						},
-						money:data => "<span class='money'>$" + data.money + "</span>",
-						height:65
+						template:obj => `<image class="userphoto" src="data/photos/${obj.photo}.jpg" />
+							<div class="text">
+						  		<span class="username">${obj.fname} ${obj.lname}</span>
+						  		<span class="money">$${obj.money}</span>
+							</div>`,
+						height:66
 					},
 					on:{
 						onAfterSelect:id => {
