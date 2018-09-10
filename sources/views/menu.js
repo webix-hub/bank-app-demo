@@ -4,16 +4,15 @@ export default class MenuView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
 		return {
-			width:250, localId:"side:menu", view:"sidebar",
+			width:200, localId:"side:menu", view:"sidebar",
 			data:[
 				{ id:"transactions", value:_("Transactions"), icon:"cart" },
 				{ id:"customers", value:_("Customers"), icon:"cube" },
-				{ id:"snippets", value:"Snippets", icon:"code-not-equal-variant" },
-				{ id:"layout", value:"Layout", icon:"view-dashboard" },
 				{ id:"charts", value:_("Charts"), icon:"chart-areaspline" },
-				{ id:"typography", value:"Typography", icon:"format-line-style" },
-				{ id:"calendar", value:"Calendar", icon:"calendar" },
-				{ id:"filemanager", value:"File Manager", icon:"folder-star" }
+				{ id:"widgets", value:_("Widgets"), icon:"code-not-equal-variant" },
+				{ id:"demos", value:_("Demos"), icon:"view-dashboard" },
+				{ id:"prices", value:_("Prices"), icon:"format-line-style" },
+				{ id:"tutorials", value:_("Tutorials"), icon:"calendar" }
 			]
 		};
 	}

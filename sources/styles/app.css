@@ -75,3 +75,7 @@
 .webix_view.form_photo > div{
 	padding:0px;
 }
+/* iframes */
+.webix_view.ifr_template .webix_template{
+	padding:0px;
+}
