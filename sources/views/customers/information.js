@@ -156,11 +156,11 @@ export default class InformationView extends JetView {
 		this.on(this.app,"person:select",data => form.setValues(data));
 
 		const _ = this.app.getService("locale")._;
-		let p_options = getPositions();
+		let p_options = webix.copy(getPositions());
 		p_options.map(x => {
 			x.value = _(x.value);
 		});
-		let c_options = getTags();
+		let c_options = webix.copy(getTags());
 		c_options.map(x => {
 			x.value = _(x.value);
 		});
