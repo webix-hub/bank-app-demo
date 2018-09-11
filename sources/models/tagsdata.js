@@ -1,10 +1,10 @@
-import {tags} from "models/tags";
+import {getTags} from "models/tags";
 import {persons} from "models/persons";
 
-export function getTags(){
+export function getTagsData(){
 	let data = [];
 	return persons.waitData.then(() => {
-		tags.map(tag => {
+		getTags().map(tag => {
 			let who = persons.find(pers => {
 				return pers.tags.find(el => el === tag.id);
 			});

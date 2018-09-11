@@ -1,4 +1,8 @@
-export const tags = [
+export function getTags(){
+	return tags;
+}
+
+const tags = [
 	{ id:"1", value:"New" },
 	{ id:"2", value:"Customer" },
 	{ id:"3", value:"Supplier" },

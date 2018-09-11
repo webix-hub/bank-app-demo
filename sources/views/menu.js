@@ -4,7 +4,7 @@ export default class MenuView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
 		return {
-			width:200, localId:"side:menu", view:"sidebar",
+			width:200, view:"sidebar",
 			data:[
 				{ id:"transactions", value:_("Transactions"), icon:"cart" },
 				{ id:"customers", value:_("Customers"), icon:"cube" },
@@ -16,9 +16,10 @@ export default class MenuView extends JetView {
 			]
 		};
 	}
-	init(){
-		this.use(plugins.Menu,this.$$("side:menu"));
-		this.on(this.app,"menu:toggle",() => this.$$("side:menu").toggle());
+	init(sidebar){
+		this.use(plugins.Menu,sidebar);
+		this.on(this.app,"menu:toggle",() => sidebar.toggle());
+		sidebar.getPopup().attachEvent("onBeforeShow",() => false);
 	}
 	urlChange(ui,url){
 		if (!ui.find(opts => url[1].page === opts.id).length)

@@ -1,9 +1,10 @@
 import {JetView} from "webix-jet";
-import {getTags} from "models/tagsdata";
+import {getTagsData} from "models/tagsdata";
 
 export default class TagsView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
+		
 		return {
 			view:"chart",
 			type:"barH",
@@ -28,6 +29,6 @@ export default class TagsView extends JetView {
 		};
 	}
 	init(view){
-		view.parse(getTags());
+		view.parse(getTagsData());
 	}
 }

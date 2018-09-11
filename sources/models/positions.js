@@ -1,4 +1,8 @@
-export const positions = [
+export function getPositions(){
+	return positions;
+}
+
+const positions = [
 	{ id:"$empty", value:"-- Not selected --", $empty:true },
 	{ id:"1", value:"Sales manager" },
 	{ id:"2", value:"Customer service" },

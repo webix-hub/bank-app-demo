@@ -1,16 +1,17 @@
 import {JetView} from "webix-jet";
 import {cities} from "models/cities";
-import {tags} from "models/tags";
-import {positions} from "models/positions";
+import {getTags} from "models/tags";
+import {getPositions} from "models/positions";
 import "webix/photo";
 import "webix/tinymce/tinymce";
 
 export default class InformationView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
+		
 		const left_main = {
 			gravity:3,
-			minWidth:160,
+			minWidth:210,
 			margin:10,
 			rows:[
 				{
@@ -25,9 +26,10 @@ export default class InformationView extends JetView {
 				},
 				{
 					view:"richselect", name:"position",
+					localId:"position:combo",
 					label:_("Position"), labelPosition:"top",
 					placeholder:_("Click to select"),
-					options:positions
+					options:[]
 				},
 				{
 					view:"text", name:"email",
@@ -84,8 +86,10 @@ export default class InformationView extends JetView {
 					borderless:true
 				},
 				{
-					view:"multicombo", name:"tags", placeholder:_("Click to add tags"),
-					options:tags
+					view:"multicombo", name:"tags",
+					localId:"tags:combo",
+					placeholder:_("Click to add tags"),
+					options:[]
 				}
 			]
 		};
@@ -150,5 +154,18 @@ export default class InformationView extends JetView {
 	}
 	init(form){
 		this.on(this.app,"person:select",data => form.setValues(data));
+
+		const _ = this.app.getService("locale")._;
+		let p_options = getPositions();
+		p_options.map(x => {
+			x.value = _(x.value);
+		});
+		let c_options = getTags();
+		c_options.map(x => {
+			x.value = _(x.value);
+		});
+
+		this.$$("position:combo").getPopup().getList().parse(p_options);
+		this.$$("tags:combo").getPopup().getList().parse(c_options);
 	}
 }

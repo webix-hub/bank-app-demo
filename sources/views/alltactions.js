@@ -21,7 +21,7 @@ export default class AllTActionsView extends JetView {
 							icon = "alert-box";
 						else
 							icon = "clock";
-						return `<span class='webix_icon mdi mdi-${icon} ${data.status}'></span>`
+						return `<span class='webix_icon mdi mdi-${icon} ${data.status}'></span>`;
 					}
 				},
 				{
@@ -31,7 +31,7 @@ export default class AllTActionsView extends JetView {
 				{
 					id:"", header:_("Payment"), fillspace:1, minWidth:240, sort:"text",
 					template:data => {
-						return `<img style="margin-bottom:-6px;margin-right:8px;" src="sources/styles/${data.method}.svg" />${data.method} ${data.number || ""}`
+						return `<img style="margin-bottom:-6px;margin-right:8px;" src="sources/styles/${data.method}.svg" />${data.method} ${data.number || ""}`;
 					}
 				},
 				{
@@ -42,7 +42,7 @@ export default class AllTActionsView extends JetView {
 					id:"type", header:"+/-", width:40, sort:"int", css:"type",
 					template:data => {
 						let type = data.type ? "plus incoming" : "minus payment";
-							return `<span class='webix_icon mdi mdi-${type}'></span>`;
+						return `<span class='webix_icon mdi mdi-${type}'></span>`;
 					}
 				},
 				{ id:"sum", header:_("Sum"), sort:"int", format:webix.i18n.priceFormat },
