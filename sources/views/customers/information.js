@@ -3,6 +3,7 @@ import {cities} from "models/cities";
 import {tags} from "models/tags";
 import {positions} from "models/positions";
 import "webix/photo";
+import "webix/tinymce/tinymce";
 
 export default class InformationView extends JetView {
 	config(){
@@ -109,7 +110,6 @@ export default class InformationView extends JetView {
 								localId:"notes",
 								config:{
 									menubar:false,
-									statusbar:false,
 									skin_url:"sources/styles/tiny_mce_webix_white",
 									plugins:"link",
 									toolbar:"fontsizeselect | bold italic underline | alignleft aligncenter alignright alignjustify | link"
