@@ -17,6 +17,7 @@ export default class MyApp extends JetApp{
 
 if (!BUILD_AS_MODULE){
 	webix.ready(() => {
+		webix.codebase = "//cdn.webix.com/components/tinymce/";
 		if (!webix.env.touch && webix.ui.scrollSize && webix.CustomScroll)
 			webix.CustomScroll.init();
 		const app = new MyApp();

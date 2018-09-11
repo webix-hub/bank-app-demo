@@ -66,6 +66,8 @@ export default class PersonsView extends JetView {
 		};
 	}
 	init(){
+		const _ = this.app.getService("locale")._;
+		
 		this.$$("list").parse(persons);
 
 		this.on(this.app,"customer:save",(id,data) => {

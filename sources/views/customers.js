@@ -7,7 +7,8 @@ export default class CustomersView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
 		return {
-			type:"wide", cols:[
+			type:"wide",
+			cols:[
 				{
 					rows:[
 						{
@@ -20,6 +21,7 @@ export default class CustomersView extends JetView {
 						},
 						{
 							animate:false,
+							keepViews:true,
 							cells:[
 								{ id:"information", $subview:InformationView },
 								{ id:"statistics", $subview:StatisticsView },

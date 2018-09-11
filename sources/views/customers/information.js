@@ -9,7 +9,9 @@ export default class InformationView extends JetView {
 		const _ = this.app.getService("locale")._;
 		const left_main = {
 			gravity:3,
-			margin:10, rows:[
+			minWidth:160,
+			margin:10,
+			rows:[
 				{
 					view:"text", name:"fname",
 					label:_("First name"), labelPosition:"top",
@@ -45,7 +47,10 @@ export default class InformationView extends JetView {
 		};
 
 		const middle_extra = {
-			gravity:3, margin:10, rows:[
+			gravity:3,
+			minWidth:200,
+			margin:10,
+			rows:[
 				{
 					view:"richselect", name:"city",
 					label:_("City, country"), labelPosition:"top",
@@ -98,8 +103,15 @@ export default class InformationView extends JetView {
 				},
 				{ view:"label", template:_("Notes") },
 				{
-					view:"richtext", labelPosition:"top",
-					name:"notes", localId:"notes"
+					view:"tinymce-editor", labelPosition:"top",
+					name:"notes", localId:"notes",
+					config:{
+						menubar:false,
+						statusbar:false,
+						skin_url:"sources/styles/tiny_mce_webix_white",
+						plugins:"link",
+						toolbar:"fontsizeselect | bold italic underline | alignleft aligncenter alignright alignjustify | link"
+					}
 				},
 				{
 					margin:10, cols:[
