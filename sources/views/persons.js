@@ -41,7 +41,7 @@ export default class PersonsView extends JetView {
 					view:"list",
 					localId:"list",
 					css:"persons_list",
-					width:260,
+					width:250,
 					select:true,
 					tooltip:{
 						template:_("Click twice to see more goodies")
