@@ -94,27 +94,33 @@ export default class InformationView extends JetView {
 			rows:[
 				{
 					cols:[
-						left_main,
-						{ gravity:1 },
-						middle_extra,
-						{ gravity:2 },
-						right_photo
+						left_main, { gravity:1 }, middle_extra, { gravity:2 }, right_photo
 					]
 				},
-				{ view:"label", template:_("Notes") },
 				{
-					view:"tinymce-editor", labelPosition:"top",
-					name:"notes", localId:"notes",
-					config:{
-						menubar:false,
-						statusbar:false,
-						skin_url:"sources/styles/tiny_mce_webix_white",
-						plugins:"link",
-						toolbar:"fontsizeselect | bold italic underline | alignleft aligncenter alignright alignjustify | link"
+					view:"forminput",
+					labelWidth:0,
+					body:{
+						rows:[
+							{ view:"label", template:_("Notes") },
+							{
+								view:"tinymce-editor",
+								name:"notes",
+								localId:"notes",
+								config:{
+									menubar:false,
+									statusbar:false,
+									skin_url:"sources/styles/tiny_mce_webix_white",
+									plugins:"link",
+									toolbar:"fontsizeselect | bold italic underline | alignleft aligncenter alignright alignjustify | link"
+								}
+							}
+						]
 					}
 				},
 				{
-					margin:10, cols:[
+					margin:10,
+					cols:[
 						{},
 						{
 							view:"button", value:_("Reset"), width:100,
