@@ -11,7 +11,7 @@ export default class InformationView extends JetView {
 		
 		const left_main = {
 			gravity:3,
-			minWidth:210,
+			minWidth:200,
 			margin:10,
 			rows:[
 				{
@@ -56,9 +56,10 @@ export default class InformationView extends JetView {
 			rows:[
 				{
 					view:"richselect", name:"city",
+					localId:"cities:combo",
 					label:_("City, country"), labelPosition:"top",
 					placeholder:_("Click to select"),
-					options:webix.copy(cities)
+					options:[]
 				},
 				{
 					view:"text", name:"address", label:_("Address"),
@@ -156,16 +157,18 @@ export default class InformationView extends JetView {
 		this.on(this.app,"person:select",data => form.setValues(data));
 
 		const _ = this.app.getService("locale")._;
+
 		let p_options = webix.copy(getPositions());
-		p_options.map(x => {
-			x.value = _(x.value);
-		});
-		let c_options = webix.copy(getTags());
-		c_options.map(x => {
-			x.value = _(x.value);
-		});
+		p_options.map(x => x.value = _(x.value));
+
+		let t_options = webix.copy(getTags());
+		t_options.map(x => x.value = _(x.value));
+
+		let c_options = webix.copy(cities);
+		c_options.map(x => x.value = _(x.value));
 
 		this.$$("position:combo").getPopup().getList().parse(p_options);
-		this.$$("tags:combo").getPopup().getList().parse(c_options);
+		this.$$("tags:combo").getPopup().getList().parse(t_options);
+		this.$$("cities:combo").getPopup().getList().parse(c_options);
 	}
 }

@@ -3,6 +3,7 @@ export default class DatesView extends JetView{
 	config(){
 		return {
 			view:"calendar",
+			width:250,
 			on:{
 				onDateSelect:date => this.app.callEvent("date:select",[date])
 			}
