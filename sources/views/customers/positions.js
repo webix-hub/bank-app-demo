@@ -1,27 +1,24 @@
 import {JetView} from "webix-jet";
-import {getPositions} from "models/positions";
-import {persons} from "models/persons";
-import {getPositionOptions} from "helpers/positionsdata";
+import {getPositionsData} from "models/positions";
 
 export default class PositionsView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
 		return {
 			view:"chart",
-			type:"pie",
+			type:"donut",
 			value:"#number#",
-			pieInnerText:obj => `<span style='color:#fff;font-size:24px;'>${obj.number}</span>`,
 			legend:{
-				width:150,
+				width:200,
 				align:"right",
 				valign:"middle",
 				template:obj => _(obj.position)
 			},
-			shadow:false
+			shadow:false,
+			tooltip:{ template:obj => `${_("Clients")}: ${obj.number}` }
 		};
 	}
 	init(view){
-		//view.parse(getPositionOptions(getPositions(),persons));
-		//console.log(getPositionOptions(getPositions(),persons));
+		view.parse(getPositionsData());
 	}
 }

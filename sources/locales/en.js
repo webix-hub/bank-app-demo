@@ -108,5 +108,6 @@ export default {
 	"Seoul, Republic of Korea":"Seoul, Republic of Korea",
 	"Madrid, Spain":"Madrid, Spain",
 	"Stockholm, Sweden":"Stockholm, Sweden",
-	"Washington, United States":"Washington, United States"
+	"Washington, United States":"Washington, United States",
+	"Payment History":"Payment History"
 };

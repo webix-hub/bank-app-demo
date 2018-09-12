@@ -9,9 +9,10 @@ export default class AllTActionsView extends JetView {
 			select:true,
 			tooltip:true,
 			columns:[
-				{ id:"id", header:"#", width:40, sort:"int" },
+				{ id:"id", header:"#", width:40, sort:"int", tooltip:"" },
 				{
 					id:"status", header:"", width:40,
+					tooltip:"",
 					css:"status", sort:"text",
 					template:data => {
 						let icon = "";

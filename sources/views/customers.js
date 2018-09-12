@@ -2,6 +2,7 @@ import {JetView} from "webix-jet";
 import PersonsView from "views/persons";
 import InformationView from "views/customers/information";
 import StatisticsView from "views/customers/statistics";
+import PaymentHistoryView from "views/customers/paymenthistory";
 
 export default class CustomersView extends JetView {
 	config(){
@@ -15,8 +16,9 @@ export default class CustomersView extends JetView {
 							view:"tabbar", multiview:true, borderless:false,
 							options:[
 								{ id:"information", value:_("Information"), width:150 },
-								{ id:"statistics", value:_("Statistics"), width:150 },
-								{ id:"add", value:"Something", width:150 }
+								{ id:"payments", value:_("Payment History"), width:150 },
+								{ id:"statistics", value:_("Statistics"), width:150 }
+								
 							]
 						},
 						{
@@ -24,8 +26,9 @@ export default class CustomersView extends JetView {
 							keepViews:true,
 							cells:[
 								{ id:"information", $subview:InformationView },
-								{ id:"statistics", $subview:StatisticsView },
-								{ id:"add", template:"Something else" }
+								{ id:"payments", $subview:PaymentHistoryView },
+								{ id:"statistics", $subview:StatisticsView }
+								
 							]
 						}
 					]
