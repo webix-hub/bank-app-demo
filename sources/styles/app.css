@@ -80,3 +80,7 @@
 .webix_view.ifr_template .webix_template{
 	padding:0px;
 }
+/* geochart */
+path {
+    stroke:#D9D8D7;
+}

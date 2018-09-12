@@ -8,24 +8,37 @@ export default class TagsView extends JetView {
 		return {
 			view:"chart",
 			type:"barH",
-			alpha:0.8,
 			radius:0,
 			barWidth:20,
 			value:"#number#",
+			border:false,
 			padding:{
-				left:90,
-				bottom:60
+				top:20,
+				left:20,
+				bottom:40
 			},
 			xAxis:{
 				start:0,
 				end:32,
-				step:2,
-				title:_("Awarded badges")
+				step:4,
+				color:"#fff", lineColor:"#EDEFF0"
 			},
 			yAxis:{
-				template:obj => _(obj.tag)
+				template:"", lines:false, color:"#EDEFF0"
 			},
-			label:obj => `<span style='font-size:20px;'>${obj.number}</span>`
+			color:"#color#",
+			legend:{
+				template:obj => _(obj.tag),
+				valign:"middle",
+				align:"right",
+				width:100,
+				marker:{
+					type:"round", width:7, height:8
+				}
+			},
+			tooltip:{
+				template:"#number# clients"
+			}
 		};
 	}
 	init(view){

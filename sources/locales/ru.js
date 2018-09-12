@@ -60,7 +60,7 @@ export default {
 	"Dear client, you can pick one of the six languages we provided for this demo app. Click the icon in the top right corner.":"Уважаемый клиент, вы можете выбрать один из 6 языков, что мы подготовили для вас. Кликните по иконке в правом верхнем углу.",
 	"We love you":"Мы любим вас",
 	"Dear client, we love you very much. If our feelings are mutual, contact us and download Webix. Then we will love you eternally.":"Уважаемый клиент, мы вас очень-очень любим. Если это взаимно, пишите нам и качайте Webix. Тогда мы будем любить вас вечно.",
-	"Persons":"Сотрудники",
+	"Persons":"Клиенты",
 	"Click twice to see more goodies":"Кликните дважды, чтобы открыть дополнительную информацию",
 	"Saved":"Сохранено",
 	"Settings":"Настройки",

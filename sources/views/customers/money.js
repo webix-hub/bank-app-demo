@@ -1,27 +1,33 @@
 import {JetView} from "webix-jet";
 import {persons} from "models/persons";
+import {getColor} from "helpers/chartcolors";
 
 export default class MoneyView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
+
 		return {
 			view:"chart",
 			type:"bar",
-			alpha:0.8,
+			border:false,
 			radius:0,
+			color:() => getColor(),
+			barWidth:24,
 			padding:{
 				left:60
 			},
 			value:"#money#",
 			xAxis:{
-				template:"#lname#",
-				title:_("Top clients")
+				template:"#lname#", lines:false, color:"#EDEFF0"
+				//title:_("Top clients")	MOVE THIS TO HEADER WHEN ONE IS CREATED
 			},
 			yAxis:{
 				start:1000,
 				end:1500,
 				step:100,
-				title:_("Money spent, $")
+				color:"#fff",
+				lineColor:"#EDEFF0"
+				//title:_("Money spent, $")	MOVE THIS TO TOOLTIPS OR SOMETHING
 			},
 			tooltip:{
 				template:"<b>#fname# #lname#</b><br>$#money#"
@@ -30,9 +36,7 @@ export default class MoneyView extends JetView {
 	}
 	init(view){
 		view.sync(persons,function(){
-			this.filter(function(obj){
-				return obj.money > 1100;
-			});
+			this.filter(obj => obj.money > 1100);
 			this.sort("money","desc");
 		});
 	}

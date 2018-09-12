@@ -8,7 +8,7 @@ export function getTagsData(){
 			let who = persons.find(pers => {
 				return pers.tags.find(el => el === tag.id);
 			});
-			data.push({ tag:tag.value, number:who.length });
+			data.push({ tag:tag.value, number:who.length, color:tag.color });
 		});
 		return data;
 	});
