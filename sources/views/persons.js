@@ -36,7 +36,7 @@ export default class PersonsView extends JetView {
 								this.$$("search").focus();
 							}
 						},
-						{ width:6 }
+						{ width:0.1 }
 					]
 				},
 				{
