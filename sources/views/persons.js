@@ -4,10 +4,12 @@ import {persons} from "models/persons";
 export default class PersonsView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
+		const theme = this.app.config.theme;
+
 		return {
 			rows:[
 				{
-					view:"toolbar",
+					view:"toolbar", css:theme,
 					elements:[
 						{ view:"label", label:_("Persons"), localId:"label" },
 						{

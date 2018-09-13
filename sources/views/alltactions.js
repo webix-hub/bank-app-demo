@@ -4,6 +4,7 @@ import {allpayments} from "models/allpayments";
 export default class AllTActionsView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
+
 		return {
 			view:"datatable",
 			select:true,

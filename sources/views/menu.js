@@ -3,8 +3,10 @@ import {JetView, plugins} from "webix-jet";
 export default class MenuView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
+		const theme = this.app.config.theme;
+
 		return {
-			width:200, view:"sidebar",
+			width:200, view:"sidebar", css:theme,
 			data:[
 				{ id:"transactions", value:_("Transactions"), icon:"cart" },
 				{ id:"customers", value:_("Customers"), icon:"cube" },

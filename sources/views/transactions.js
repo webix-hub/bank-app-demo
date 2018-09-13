@@ -6,6 +6,7 @@ import AllTActions from "views/alltactions";
 export default class TransactionsView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
+		const theme = this.app.config.theme;
 
 		const right = {
 			type:"wide", rows:[
@@ -17,7 +18,7 @@ export default class TransactionsView extends JetView {
 		const left = {
 			rows:[
 				{
-					view:"toolbar",
+					view:"toolbar", css:theme,
 					elements:[
 						{ view:"label", label:_("Transactions"), minWidth:100 },
 						{},

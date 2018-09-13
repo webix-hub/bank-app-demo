@@ -9,6 +9,7 @@ export default class MyApp extends JetApp{
 			router 	: BUILD_AS_MODULE ? EmptyRouter : HashRouter,
 			debug 	: !PRODUCTION,
 			start 	: "/top/transactions",
+			theme	: webix.storage.local.get("bank_app_theme") || "",
 			views:{
 				"information":"customers.information",
 				"statistics":"customers.statistics",

@@ -4,8 +4,10 @@ import NotificationView from "views/notifications";
 export default class ToolView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
+		const theme = this.app.config.theme;
+
 		return {
-			view:"toolbar",
+			view:"toolbar", css:theme,
 			height:60,
 			elements:[
 				{
