@@ -59,7 +59,10 @@ export default class PersonsView extends JetView {
 							const person = persons.getItem(id);
 							this.app.callEvent("person:select",[person]);
 						},
-						onItemDblClick:id => this.show("customers?user="+id)
+						onItemDblClick:id => {
+							if (this.getUrl()[0].page !== "customers")
+								this.show("customers/information?user="+id)
+						}
 					}
 				}
 			]

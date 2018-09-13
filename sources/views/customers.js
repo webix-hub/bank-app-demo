@@ -29,7 +29,4 @@ export default class CustomersView extends JetView {
 	init(){
 		this.use(plugins.Menu,this.$$("tabbar"));
 	}
-	urlChange(){
-		this.app.callEvent("customers:init",[this.getParam("user")||1]);
-	}
 }

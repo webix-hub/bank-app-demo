@@ -17,7 +17,12 @@ export default class MenuView extends JetView {
 		};
 	}
 	init(sidebar){
-		this.use(plugins.Menu,sidebar);
+		this.use(plugins.Menu,{
+			id:sidebar,
+			urls:{
+				"customers":"customers/information"
+			}
+		});
 		this.on(this.app,"menu:toggle",() => sidebar.toggle());
 		sidebar.getPopup().attachEvent("onBeforeShow",() => false);
 	}

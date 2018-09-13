@@ -41,13 +41,14 @@ export default class AllTActionsView extends JetView {
 				},
 				{
 					id:"type", header:"+/-", width:40, sort:"int", css:"type",
+					tooltip:"",
 					template:data => {
 						let type = data.type ? "plus incoming" : "minus payment";
 						return `<span class='webix_icon mdi mdi-${type}'></span>`;
 					}
 				},
-				{ id:"sum", header:_("Sum"), sort:"int", format:webix.i18n.priceFormat },
-				{ id:"left", header:_("Left"), sort:"int", format:webix.i18n.priceFormat }
+				{ id:"sum", header:_("Sum"), sort:"int", format:webix.i18n.priceFormat, tooltip:"" },
+				{ id:"left", header:_("Left"), sort:"int", format:webix.i18n.priceFormat, tooltip:"" }
 			]
 		};
 	}

@@ -171,4 +171,7 @@ export default class InformationView extends JetView {
 		this.$$("tags:combo").getPopup().getList().parse(t_options);
 		this.$$("cities:combo").getPopup().getList().parse(c_options);
 	}
+	urlChange(){
+		this.app.callEvent("customers:init",[this.getParam("user")||1]);
+	}
 }
