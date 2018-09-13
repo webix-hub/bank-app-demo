@@ -154,19 +154,21 @@ export default class InformationView extends JetView {
 
 		this.on(this.app,"person:select",person => form.setValues(person));
 
+		this.getLocalizedComboOptions();
+	}
+	getLocalizedComboOptions(){
 		const _ = this.app.getService("locale")._;
 
 		let p_options = webix.copy(getPositions());
 		p_options.map(x => x.value = _(x.value));
+		this.$$("position:combo").getPopup().getList().parse(p_options);
 
 		let t_options = webix.copy(getTags());
 		t_options.map(x => x.value = _(x.value));
+		this.$$("tags:combo").getPopup().getList().parse(t_options);
 
 		let c_options = webix.copy(cities);
 		c_options.map(x => x.value = _(x.value));
-
-		this.$$("position:combo").getPopup().getList().parse(p_options);
-		this.$$("tags:combo").getPopup().getList().parse(t_options);
 		this.$$("cities:combo").getPopup().getList().parse(c_options);
 	}
 }

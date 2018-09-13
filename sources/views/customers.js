@@ -28,17 +28,7 @@ export default class CustomersView extends JetView {
 	}
 	init(){
 		this.use(plugins.Menu,this.$$("tabbar"));
-		this._spacer = "";
+
 		this.on(this.app,"person:select",person => this.setParam("user",person.id,true));
-	}
-	urlChange(ui,url){
-		if (url[0].page === "customers" && url[1].page === "statistics")
-			this._spacer = this.$$("inner:layout").addView({ height:12 },1);
-		else {
-			if (this._spacer){
-				this.$$("inner:layout").removeView(this._spacer);
-				this._spacer = "";
-			}
-		}
 	}
 }
