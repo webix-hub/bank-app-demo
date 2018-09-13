@@ -1,4 +1,5 @@
 import {JetView} from "webix-jet";
+import {getLangsList} from "models/langslist";
 
 export default class SettingsView extends JetView {
 	config(){
@@ -21,18 +22,16 @@ export default class SettingsView extends JetView {
 							cols:[
 								{
 									label:_("Language"), view:"richselect",
-									name:"lang", value:lang, gravity:3,
+									name:"lang", localId:"langs:combo",
+									value:lang, gravity:3,
 									minWidth:144,
-									options:[
-										{ id:"en", code:"US", value:"English" },
-										{ id:"zh", code:"CN", value:"中文" },
-										{ id:"es", code:"ES", value:"Español" },
-										{ id:"ko", code:"KR", value:"한국어" },
-										{ id:"ru", code:"RU", value:"Русский" },
-										{ id:"de", code:"DE", value:"Deutsch" }
-									],
+									options:getLangsList(),
 									on:{
-										onChange:newlang => this._lang = newlang
+										onChange:function(newlang){
+											this.$scope._lang = newlang;
+											const country = this.getList().getItem(newlang).code;
+											webix.i18n.setLocale(newlang+"-"+country);
+										}
 									}
 								},
 								{},
@@ -124,6 +123,7 @@ export default class SettingsView extends JetView {
 	}
 	init(){
 		this._lang = this.app.getService("locale").getLang();
+
 		this._defaults = {
 			lang:"en",
 			dateformat:"5",
