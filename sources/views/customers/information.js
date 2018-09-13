@@ -144,17 +144,15 @@ export default class InformationView extends JetView {
 						}
 					]
 				}
-			],
-			on:{
-				onValues(){
-					const id = this.getValues().id;
-					if (id) this.$scope.setParam("user",id,true);
-				}
-			}
+			]
 		};
 	}
 	init(form){
-		this.on(this.app,"person:select",data => form.setValues(data));
+		this.app.callEvent("form:update",[this.getParam("user",true)]);
+
+		this.on(this.app,"customer:updatedata",person => form.setValues(person));
+
+		this.on(this.app,"person:select",person => form.setValues(person));
 
 		const _ = this.app.getService("locale")._;
 
@@ -170,8 +168,5 @@ export default class InformationView extends JetView {
 		this.$$("position:combo").getPopup().getList().parse(p_options);
 		this.$$("tags:combo").getPopup().getList().parse(t_options);
 		this.$$("cities:combo").getPopup().getList().parse(c_options);
-	}
-	urlChange(){
-		this.app.callEvent("customers:init",[this.getParam("user")||1]);
 	}
 }

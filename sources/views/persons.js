@@ -63,7 +63,8 @@ export default class PersonsView extends JetView {
 						},
 						onItemDblClick:id => {
 							if (this.getUrl()[0].page !== "customers")
-								this.show("customers/information?user="+id)
+								this.show("customers?user="+id+"/information");
+							else this.show("information");
 						}
 					}
 				}
@@ -72,29 +73,36 @@ export default class PersonsView extends JetView {
 	}
 	init(){
 		const _ = this.app.getService("locale")._;
+		const list = this.$$("list");
 		
-		this.$$("list").parse(persons);
+		list.parse(persons);
 
 		this.on(this.app,"customer:save",(id,data) => {
 			persons.updateItem(id,data);
 			webix.message(_("Saved"));
 		});
-		
-		this.on(this.app,"customers:init",user => {
+
+		this.on(this.app,"form:update",(id) => {
 			persons.waitData.then(() => {
-				this.$$("list").select(user);
-				this.$$("list").showItem(user);
+				const user = list.getSelectedId();
+				if (!user){
+					list.select(id || 1);
+					list.showItem(id || 1);
+				}
+				else {
+					this.app.callEvent("customer:updatedata",[list.getItem(user)]);
+				}
 			});
 		});
 
 		this.on(this.app,"taction:select",record => {
 			if (record) {
 				const person = persons.find(obj => obj.company === record.id)[0];
-				this.$$("list").select(person.id);
-				this.$$("list").showItem(person.id);
+				list.select(person.id);
+				list.showItem(person.id);
 			}
 			else
-				this.$$("list").unselect();
+				list.unselect();
 		});
 	}
 }

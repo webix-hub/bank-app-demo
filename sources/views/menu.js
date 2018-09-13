@@ -22,7 +22,7 @@ export default class MenuView extends JetView {
 		this.use(plugins.Menu,{
 			id:sidebar,
 			urls:{
-				"customers":"customers/information"
+				"customers":"customers?user=1/information"
 			}
 		});
 		this.on(this.app,"menu:toggle",() => sidebar.toggle());
