@@ -7,6 +7,17 @@ export default class DemosView extends JetView {
 			</iframe>
 			</div>`,
 			css:"ifr_template"
+			// view:"iframe", src:"https://webix.com/demos/",
+			// on:{
+			// 	onAfterLoad(){
+			//		//CORS disapproves
+			// 		this.getWindow().document.querySelector(".global-header").style.visibility = "hidden";
+			// 		this.getWindow().document.querySelector(".top-demo-bg").style.visibility = "hidden";
+			// 		this.getWindow().document.querySelector(".demos-main-links-section").style.visibility = "hidden";
+			// 		this.getWindow().document.querySelector(".section-info-row.section-info-row-get-start").style.visibility = "hidden";
+			// 		this.getWindow().document.querySelector(".global-footer-wrap").style.visibility = "hidden";
+			// 	}
+			// }
 		};
 	}
 }

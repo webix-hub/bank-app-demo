@@ -23,7 +23,7 @@ export default {
 	"Sales manager":"Менеджер по продаж.",
 	"Customer service":"Работа с клиентами",
 	"General manager":"Генеральный директор",
-	"Awarded badges":"Присвоенные теги",
+	"Awarded Badges":"Присвоенные теги",
 	"New":"Новичок",
 	"Customer":"Клиент",
 	"Supplier":"Поставщик",
@@ -109,5 +109,8 @@ export default {
 	"Madrid, Spain":"Мадрид, Испания",
 	"Stockholm, Sweden":"Стокгольм, Швеция",
 	"Washington, United States":"Вашингтон, США",
-	"Payment History":"История платежей"
+	"Payment History":"История платежей",
+	"Origin of clients":"Откуда клиенты",
+	"Income from various age groups":"Доход от клиентов разного возраста",
+	"Clients by occupation":"Должности клиентов"
 };

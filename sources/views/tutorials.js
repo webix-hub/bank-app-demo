@@ -12,7 +12,7 @@ export default class TutorialsView extends JetView {
 			// 	onAfterLoad(){
 			//		//CORS disapproves
 			// 		this.getWindow().document.querySelector(".global-header").style.visibility = "hidden";
-			// 		this.getWindow().document.querySelector(".section-info-row-get-start").style.visibility = "hidden";
+			// 		this.getWindow().document.querySelector(".section-info-row.section-info-row-get-start").style.visibility = "hidden";
 			// 		this.getWindow().document.querySelector(".global-footer-wrap").style.visibility = "hidden";
 			// 	}
 			// }

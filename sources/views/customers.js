@@ -13,9 +13,9 @@ export default class CustomersView extends JetView {
 							view:"tabbar", localId:"tabbar",
 							borderless:false, height:43,
 							options:[
-								{ id:"information", value:_("Information"), width:150 },
-								{ id:"paymenthistory", value:_("Payment History"), width:150 },
-								{ id:"statistics", value:_("Statistics"), width:150 }
+								{ id:"information", value:_("Information"), width:170 },
+								{ id:"paymenthistory", value:_("Payment History"), width:170 },
+								{ id:"statistics", value:_("Statistics"), width:170 }
 								
 							]
 						},

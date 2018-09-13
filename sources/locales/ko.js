@@ -23,7 +23,7 @@ export default {
 	"Sales manager":"영업 관리자",
 	"Customer service":"고객 서비스",
 	"General manager":"일반 관리자",
-	"Awarded badges":"배지 부여",
+	"Awarded Badges":"배지 부여",
 	"New":"새로운",
 	"Customer":"고객",
 	"Supplier":"공급자",
@@ -109,5 +109,8 @@ export default {
 	"Madrid, Spain":"마드리드, 스페인",
 	"Stockholm, Sweden":"스톡홀름, 스웨덴",
 	"Washington, United States":"워싱턴, 미국",
-	"Payment History":"지불 내역"
+	"Payment History":"지불 내역",
+	"Origin of clients":"고객의 유래",
+	"Income from various age groups":"다양한 연령대의 소득",
+	"Clients by occupation":"직업 별 고객"
 };

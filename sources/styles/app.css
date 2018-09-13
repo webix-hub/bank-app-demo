@@ -84,3 +84,7 @@
 path {
     stroke:#D9D8D7;
 }
+/* headers (templates) */
+.webix_view.chart_header{
+	text-align: center;
+}

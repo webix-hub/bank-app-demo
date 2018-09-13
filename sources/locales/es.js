@@ -23,7 +23,7 @@ export default {
 	"Sales manager":"Gerente de ventas",
 	"Customer service":"Servicio al cliente",
 	"General manager":"Gerente general",
-	"Awarded badges":"Insignias otorgadas",
+	"Awarded Badges":"Insignias otorgadas",
 	"New":"Nuevo",
 	"Customer":"Cliente",
 	"Supplier":"Proveedor",
@@ -109,5 +109,8 @@ export default {
 	"Madrid, Spain":"Madrid, España",
 	"Stockholm, Sweden":"Estocolmo, Suiza",
 	"Washington, United States":"Washington, Estados Unidos",
-	"Payment History":"Historial de pagos"
+	"Payment History":"Historial de pagos",
+	"Origin of clients":"Origen de los clientes",
+	"Income from various age groups":"Ingresos de varios grupos de edad",
+	"Clients by occupation":"Clientes por ocupación"
 };

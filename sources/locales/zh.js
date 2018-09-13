@@ -21,7 +21,7 @@ export default {
 	"Sales manager":"銷售經理",
 	"Customer service":"客戶服務",
 	"General manager":"總經理",
-	"Awarded badges":"獲得徽章",
+	"Awarded Badges":"獲得徽章",
 	"New":"新",
 	"Customer":"顧客",
 	"Supplier":"供應商",
@@ -109,5 +109,8 @@ export default {
 	"Madrid, Spain":"西班牙馬德里",
 	"Stockholm, Sweden":"瑞典斯德哥爾摩",
 	"Washington, United States":"華盛頓，美國",
-	"Payment History":"支付歷史"
+	"Payment History":"支付歷史",
+	"Origin of clients":"客戶的起源",
+	"Income from various age groups":"各年齡組的收入",
+	"Clients by occupation":"客戶按職業劃分"
 };
