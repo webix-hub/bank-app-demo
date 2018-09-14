@@ -38,7 +38,7 @@ export default class TagsView extends JetView {
 						template:obj => _(obj.tag),
 						valign:"middle",
 						align:"right",
-						width:100,
+						width:130,
 						marker:{
 							type:"round", width:7, height:8
 						}
