@@ -7,6 +7,7 @@ export default class SettingsView extends JetView {
 		const lang = this.app.getService("locale").getLang();
 		const theme = this.app.config.theme;
 		const combo_theme_value = theme ? "1" : "0";
+		const date_combo_value = this.app.config.dateFormat;
 
 		return {
 			rows:[
@@ -37,15 +38,20 @@ export default class SettingsView extends JetView {
 								{},
 								{
 									label:_("Date format"), view:"richselect",
-									name:"dateformat", value:"5", gravity:3,
+									name:"dateformat", value:date_combo_value, gravity:3,
 									minWidth:144,
 									options:[
-										{ id:"1", value:"dd/mm/yyyy hh:mm" },
-										{ id:"2", value:"mm/dd/yyyy hh:mm" },
-										{ id:"3", value:"dd.mm.yyyy hh:mm" },
-										{ id:"4", value:"mm.dd.yyyy hh:mm" },
-										{ id:"5", value:"d Month, hh:mm" }
-									]
+										{ value:"dd/mm/yyyy hh:mm", id:"%d/%m/%Y %H:%i" },
+										{ value:"mm/dd/yyyy hh:mm", id:"%m/%d/%Y %H:%i" },
+										{ value:"dd.mm.yyyy hh:mm", id:"%d.%m.%Y %H:%i" },
+										{ value:"mm.dd.yyyy hh:mm", id:"%m.%d.%Y %H:%i" },
+										{ value:"d Month, hh:mm", 	id:"%j %F, %H:%i" }
+									],
+									on:{
+										onChange(newv){
+											this.$scope.app.config.dateFormat = newv;
+										}
+									}
 								},
 								{},
 								{

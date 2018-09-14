@@ -4,6 +4,7 @@ import {allpayments} from "models/allpayments";
 export default class AllTActionsView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
+		const dateFormat = webix.Date.dateToStr(this.app.config.dateFormat);
 
 		return {
 			view:"datatable",
@@ -28,7 +29,7 @@ export default class AllTActionsView extends JetView {
 				},
 				{
 					id:"date", header:_("Date"), fillspace:1, minWidth:170,
-					sort:"date", format:webix.Date.dateToStr("%d %F, %H:%i")
+					sort:"date", format:dateFormat
 				},
 				{
 					id:"", header:_("Payment"), fillspace:1, minWidth:240, sort:"text",

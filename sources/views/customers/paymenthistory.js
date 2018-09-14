@@ -3,6 +3,8 @@ import {individualpayments} from "models/individualpayments";
 
 export default class PaymentHistoryView extends JetView{
 	config(){
+		const dateFormat = webix.Date.dateToStr(this.app.config.dateFormat);
+
 		return {
 			view:"datatable",
 			select:true,
@@ -10,7 +12,7 @@ export default class PaymentHistoryView extends JetView{
 			columns:[
 				{
 					id:"date", header:"Date", sort:"date",
-					format:webix.Date.dateToStr("%d %F, %H:%i"),
+					format:dateFormat,
 					width:155, tooltip:""
 				},
 				{
