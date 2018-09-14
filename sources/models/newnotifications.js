@@ -2,6 +2,7 @@ let i = 0;
 export function newNotification(){
 	return webix.copy(notifications[i++%notifications.length]);
 }
+
 const notifications = [
 	{
 		title:"Warning",

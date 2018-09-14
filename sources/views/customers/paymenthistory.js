@@ -20,7 +20,7 @@ export default class PaymentHistoryView extends JetView{
 					adjust:"header", tooltip:obj => obj.type ? "Bought" : "Sold",
 					template:obj => {
 						let type = obj.type ? "left bought" : "right sold";
-						return `<span class="webix_icon mdi mdi-arrow-${type}"></span>`
+						return `<span class="webix_icon mdi mdi-arrow-${type}"></span>`;
 					}
 				},
 				{

@@ -1,7 +1,5 @@
 import {JetView} from "webix-jet";
-import {cities} from "models/cities";
-import {persons} from "models/persons";
-import {geoData} from "helpers/geodata";
+import {GetGeoData} from "models/geodata";
 
 export default class GeoView extends JetView {
 	config(){
@@ -30,6 +28,6 @@ export default class GeoView extends JetView {
 		};
 	}
 	init(){
-		this.$$("chart").parse(geoData(cities,persons));
+		this.$$("chart").parse(GetGeoData());
 	}
 }

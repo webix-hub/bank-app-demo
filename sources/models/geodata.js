@@ -1,7 +1,10 @@
-export function geoData(cities,persons){
+import {getCities} from "models/cities";
+import {persons} from "models/persons";
+
+export function GetGeoData(){
 	let data = [];
 	return persons.waitData.then(() => {
-		cities.map(city => {
+		getCities().map(city => {
 			if (city.id !== "$empty"){
 				let country = city.value.split(", ").pop();
 				

@@ -32,8 +32,8 @@ export default class PersonsView extends JetView {
 						{
 							view:"icon", icon:"magnify",
 							click:() => {
-								this.$$("search").show();
 								this.$$("label").hide();
+								this.$$("search").show();
 								this.$$("search").focus();
 							}
 						}
@@ -85,8 +85,8 @@ export default class PersonsView extends JetView {
 			}
 		});
 
-		this.on(this.app,"customer:save",(id,data) => {
-			persons.updateItem(id,data);
+		this.on(this.app,"customer:save",(data) => {
+			persons.updateItem(data.id,data);
 			webix.message(_("Saved"));
 		});
 

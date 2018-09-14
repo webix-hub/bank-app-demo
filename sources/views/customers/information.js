@@ -1,5 +1,5 @@
 import {JetView} from "webix-jet";
-import {cities} from "models/cities";
+import {getCities} from "models/cities";
 import {getTags} from "models/tags";
 import {getPositions} from "models/positions";
 import "webix/photo";
@@ -138,8 +138,7 @@ export default class InformationView extends JetView {
 							view:"button", value:_("Save"), type:"form", autowidth:true,
 							click:() => {
 								const newdata = this.getRoot().getValues();
-								const id = newdata.id;
-								this.app.callEvent("customer:save",[id,newdata]);
+								this.app.callEvent("customer:save",[newdata]);
 							}
 						}
 					]
@@ -167,7 +166,7 @@ export default class InformationView extends JetView {
 		t_options.map(x => x.value = _(x.value));
 		this.$$("tags:combo").getPopup().getList().parse(t_options);
 
-		let c_options = webix.copy(cities);
+		let c_options = webix.copy(getCities());
 		c_options.map(x => x.value = _(x.value));
 		this.$$("cities:combo").getPopup().getList().parse(c_options);
 	}

@@ -1,4 +1,8 @@
-export const cities = [
+export function getCities(){
+	return cities;
+}
+
+const cities = [
 	{ id:"$empty", value:"-- Not selected --", $empty:true },
 	{ id:"1", value:"Tirane, Albania" },
 	{ id:"2", value:"Buenos Aires, Argentina" },
