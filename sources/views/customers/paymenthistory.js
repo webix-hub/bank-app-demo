@@ -5,7 +5,14 @@ export default class PaymentHistoryView extends JetView{
 	config(){
 		return {
 			view:"datatable",
-			autoConfig:true
+			columns:[
+				{ id:"id", header:"", sort:"int", width:40 },
+				{ id:"date", header:"Date", sort:"date", format:webix.Date.dateToStr("%d %F, %H:%i") },
+				{ id:"type", header:"" },
+				{ id:"item" },
+				{ id:"number" },
+				{ id:"sum" }
+			]
 		};
 	}
 	init(view){
