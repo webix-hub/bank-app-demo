@@ -128,14 +128,14 @@ export default class InformationView extends JetView {
 					cols:[
 						{},
 						{
-							view:"button", value:_("Reset"), width:100,
+							view:"button", value:_("Reset"), autowidth:true,
 							click:() => {
 								this.$$("notes").setValue("");  // ! a crude workaround
 								this.getRoot().clear();
 							}
 						},
 						{
-							view:"button", value:_("Save"), type:"form", width:100,
+							view:"button", value:_("Save"), type:"form", autowidth:true,
 							click:() => {
 								const newdata = this.getRoot().getValues();
 								const id = newdata.id;

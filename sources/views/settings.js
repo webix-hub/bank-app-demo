@@ -93,14 +93,14 @@ export default class SettingsView extends JetView {
 							margin:10, cols:[
 								{
 									view:"button", value:_("Default settings"),
-									width:160,
+									autowidth:true,
 									click:function(){
 										this.getFormView().setValues(this.$scope._defaults);
 									}
 								},
 								{
 									view:"button", value:_("Reset"),
-									width:100, type:"danger",
+									autowidth:true, type:"danger",
 									click:function(){
 										this.getFormView().clear();
 									}
@@ -108,7 +108,7 @@ export default class SettingsView extends JetView {
 								{},
 								{
 									view:"button", value:_("Save"),
-									width:100, type:"form",
+									autowidth:true, type:"form",
 									click:function(){
 										if (this.getFormView().validate())
 											this.$scope.app.getService("locale").setLang(this.$scope._lang);
