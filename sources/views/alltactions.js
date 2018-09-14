@@ -56,8 +56,11 @@ export default class AllTActionsView extends JetView {
 	}
 	init(grid){
 		const _ = this.app.getService("locale")._;
+		const list_length = this.app.config.listLength;
 		
-		grid.sync(allpayments);
+		grid.sync(allpayments,function(){
+			this.filter(obj => obj.id <= list_length);
+		});
 
 		this.on(this.app,"tactions:filter",type => {
 			if (type === "all") grid.filter();

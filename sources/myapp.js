@@ -11,6 +11,7 @@ export default class MyApp extends JetApp{
 			start 		: "/top/transactions",
 			theme		: webix.storage.local.get("bank_app_theme") || "",
 			dateFormat	: "%j %F, %H:%i",
+			listLength	: 50,
 			views:{
 				"information":"customers.information",
 				"statistics":"customers.statistics",

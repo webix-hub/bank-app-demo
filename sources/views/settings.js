@@ -8,6 +8,7 @@ export default class SettingsView extends JetView {
 		const theme = this.app.config.theme;
 		const combo_theme_value = theme ? "1" : "0";
 		const date_combo_value = this.app.config.dateFormat;
+		const list_length_slider_value = this.app.config.listLength;
 
 		return {
 			rows:[
@@ -48,21 +49,11 @@ export default class SettingsView extends JetView {
 										{ value:"d Month, hh:mm", 	id:"%j %F, %H:%i" }
 									],
 									on:{
-										onChange(newv){
-											this.$scope.app.config.dateFormat = newv;
-										}
+										onChange:newv => this.app.config.dateFormat = newv
 									}
 								},
 								{},
-								{
-									label:_("Money format"), view:"richselect",
-									name:"moneyformat", value:"1",
-									minWidth:144, gravity:3,
-									options:[
-										{ id:"1", value:"1,234.56" },
-										{ id:"2", value:"1'234,56" }
-									]
-								},
+								{ minWidth:144, gravity:3 },
 								{ gravity:5 }
 							]
 						},
@@ -88,8 +79,11 @@ export default class SettingsView extends JetView {
 								{
 									label:_("Max list length"), view:"slider",
 									name:"maxlist", minWidth:144,
-									min:10, max:50, value:50, step:10,
-									title:"#value#", gravity:3
+									min:10, max:50, value:list_length_slider_value, step:10,
+									title:"#value#", gravity:3,
+									on:{
+										onChange:newv => this.app.config.listLength = newv
+									}
 								},
 								{ gravity:9 }
 							]
