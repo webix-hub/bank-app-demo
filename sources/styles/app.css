@@ -88,3 +88,9 @@ path {
 .webix_view.chart_header{
 	text-align: center;
 }
+.bought{
+	color:#8664C6;
+}
+.sold{
+	color:#1CA1C1;
+}

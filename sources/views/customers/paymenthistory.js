@@ -5,13 +5,35 @@ export default class PaymentHistoryView extends JetView{
 	config(){
 		return {
 			view:"datatable",
+			select:true,
+			tooltip:true,
 			columns:[
-				{ id:"id", header:"", sort:"int", width:40 },
-				{ id:"date", header:"Date", sort:"date", format:webix.Date.dateToStr("%d %F, %H:%i") },
-				{ id:"type", header:"" },
-				{ id:"item" },
-				{ id:"number" },
-				{ id:"sum" }
+				{
+					id:"date", header:"Date", sort:"date",
+					format:webix.Date.dateToStr("%d %F, %H:%i"),
+					width:155, tooltip:""
+				},
+				{
+					id:"type", header:"Type", sort:"string",
+					adjust:"header", tooltip:obj => obj.type ? "Bought" : "Sold",
+					template:obj => {
+						let type = obj.type ? "left bought" : "right sold";
+						return `<span class="webix_icon mdi mdi-arrow-${type}"></span>`
+					}
+				},
+				{
+					id:"item", header:"Item", sort:"string",
+					fillspace:8, tooltip:"#item#"
+				},
+				{
+					id:"number", header:"Quantity", sort:"int",
+					fillspace:1, tooltip:""
+				},
+				{
+					id:"sum", header:"Cost", sort:"int",
+					format:webix.i18n.priceFormat, fillspace:1,
+					tooltip:""
+				}
 			]
 		};
 	}
