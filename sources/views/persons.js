@@ -76,6 +76,14 @@ export default class PersonsView extends JetView {
 		
 		list.parse(persons);
 
+		persons.waitData.then(() => {
+			if (this.getUrl()[1].page !== "customers"){
+				const cur_user = this.getParam("user",true);
+				list.select(cur_user);
+				list.showItem(cur_user);
+			}
+		});
+
 		this.on(this.app,"customer:save",(id,data) => {
 			persons.updateItem(id,data);
 			webix.message(_("Saved"));

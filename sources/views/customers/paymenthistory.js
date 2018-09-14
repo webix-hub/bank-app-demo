@@ -38,11 +38,10 @@ export default class PaymentHistoryView extends JetView{
 		};
 	}
 	init(view){
-		view.sync(individualpayments,function(){
-			this.filter(obj => obj.id%2 === 0);
-		});
+		view.sync(individualpayments);
+		
 		this.on(this.app,"person:select",person => view.filter(obj => {
-			return obj.id%2 === person.id%2;
+			return obj.id%6 === person.id%6;
 		}));
 	}
 }
