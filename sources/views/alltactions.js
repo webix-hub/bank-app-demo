@@ -9,12 +9,10 @@ export default class AllTActionsView extends JetView {
 		return {
 			view:"datatable",
 			select:true,
-			tooltip:true,
 			columns:[
-				{ id:"id", header:"#", width:40, sort:"int", tooltip:"" },
+				{ id:"id", header:"#", width:40, sort:"int" },
 				{
 					id:"status", header:"", width:40,
-					tooltip:"",
 					css:"status", sort:"text",
 					template:data => {
 						let icon = "";
@@ -34,7 +32,7 @@ export default class AllTActionsView extends JetView {
 				{
 					id:"", header:_("Payment"), fillspace:1, minWidth:240, sort:"text",
 					template:data => {
-						return `<img style="margin-bottom:-6px;margin-right:8px;" src="sources/styles/${data.method}.svg" />${data.method} ${data.number || ""}`;
+						return `<img style="margin-bottom:-7px;margin-right:8px;" src="sources/styles/${data.method}.svg" />${data.method} ${data.number || ""}`;
 					}
 				},
 				{
@@ -43,14 +41,13 @@ export default class AllTActionsView extends JetView {
 				},
 				{
 					id:"type", header:"+/-", width:40, sort:"int", css:"type",
-					tooltip:"",
 					template:data => {
 						let type = data.type ? "plus incoming" : "minus payment";
 						return `<span class='webix_icon mdi mdi-${type}'></span>`;
 					}
 				},
-				{ id:"sum", header:_("Sum"), sort:"int", format:webix.i18n.priceFormat, tooltip:"" },
-				{ id:"left", header:_("Left"), sort:"int", format:webix.i18n.priceFormat, tooltip:"" }
+				{ id:"sum", header:_("Sum"), sort:"int", format:webix.i18n.priceFormat },
+				{ id:"left", header:_("Left"), sort:"int", format:webix.i18n.priceFormat }
 			]
 		};
 	}

@@ -8,13 +8,13 @@ export default class ToolView extends JetView {
 
 		return {
 			view:"toolbar", css:theme,
-			height:60,
+			height:56,
 			elements:[
 				{
 					paddingY:7,
 					rows:[
 						{
-							view:"icon", icon:"menu",
+							view:"icon", icon:"mdi mdi-menu",
 							click:() => this.app.callEvent("menu:toggle")
 						}
 					]
@@ -27,7 +27,7 @@ export default class ToolView extends JetView {
 						{
 							cols:[
 								{
-									view:"icon", icon:"bell",
+									view:"icon", icon:"mdi mdi-bell",
 									localId:"bell", badge:2,
 									tooltip:_("Open latest notifications"),
 									click:function(){
@@ -35,7 +35,7 @@ export default class ToolView extends JetView {
 									}
 								},
 								{
-									view:"icon", icon:"settings",
+									view:"icon", icon:"mdi mdi-settings",
 									tooltip:_("Go to settings"),
 									click:() => this.show("/top/settings")
 								}

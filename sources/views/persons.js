@@ -30,7 +30,7 @@ export default class PersonsView extends JetView {
 							}
 						},
 						{
-							view:"icon", icon:"magnify",
+							view:"icon", icon:"mdi mdi-magnify",
 							click:() => {
 								this.$$("label").hide();
 								this.$$("search").show();

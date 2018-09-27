@@ -33,6 +33,7 @@ export default class TransactionsView extends JetView {
 								onChange:newv => this.app.callEvent("tactions:filter",[newv])
 							}
 						},
+						{width:6}
 					]
 				},
 				AllTActions
