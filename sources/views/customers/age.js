@@ -24,7 +24,7 @@ export default class AgeView extends JetView {
 					item:{
 						borderColor:"#fff",
 						color:"#8664C6",
-						shadow:true,
+						shadow:false,
 						radius:7,
 						type:"d"
 					},

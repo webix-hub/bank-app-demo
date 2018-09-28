@@ -25,6 +25,7 @@ export default class ToolView extends JetView {
 					paddingY:7,
 					rows:[
 						{
+							margin:8,
 							cols:[
 								{
 									view:"icon", icon:"mdi mdi-bell",
