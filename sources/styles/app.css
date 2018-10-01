@@ -56,7 +56,7 @@
 .incoming{
 	color:#55CD97;
 }
-.payment, .unread{
+.payment{
 	color:#FF5C4C;
 }
 /* notifications */
@@ -70,11 +70,6 @@
 }
 .notifications .webix_list_item .message{
 	display:block;
-}
-.link{
-	color:blue;
-	text-decoration:underline;
-	cursor:pointer;
 }
 /* form */
 .webix_view.form_photo > div{
