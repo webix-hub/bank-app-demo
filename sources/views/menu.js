@@ -11,10 +11,10 @@ export default class MenuView extends JetView {
 				{ id:"transactions", value:_("Transactions"), icon:"mdi mdi-cart" },
 				{ id:"customers", value:_("Customers"), icon:"mdi mdi-cube" },
 				{ id:"charts", value:_("Charts"), icon:"mdi mdi-chart-areaspline" },
-				{ id:"widgets", value:_("Widgets"), icon:"mdi mdi-code-not-equal-variant" },
-				{ id:"demos", value:_("Demos"), icon:"mdi mdi-view-dashboard" },
-				{ id:"prices", value:_("Prices"), icon:"mdi mdi-format-line-style" },
-				{ id:"tutorials", value:_("Tutorials"), icon:"mdi mdi-calendar" }
+				{ id:"widgets", value:_("Widgets"), icon:"mdi mdi-widgets" },
+				{ id:"demos", value:_("Demos"), icon:"mdi mdi-cellphone-link" },
+				{ id:"prices", value:_("Prices"), icon:"mdi mdi-currency-usd" },
+				{ id:"tutorials", value:_("Tutorials"), icon:"mdi mdi-school" }
 			]
 		};
 	}
