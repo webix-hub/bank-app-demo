@@ -26,21 +26,21 @@ export default class AllTActionsView extends JetView {
 					}
 				},
 				{
-					id:"date", header:_("Date"), fillspace:1, minWidth:170,
+					id:"date", header:_("Date"), fillspace:2, minWidth:170,
 					sort:"date", format:dateFormat
 				},
 				{
-					id:"", header:_("Payment"), fillspace:1, minWidth:240, sort:"text",
+					id:"", header:_("Payment"), fillspace:3, minWidth:240, sort:"text",
 					template:data => {
 						return `<img style="margin-bottom:-7px;margin-right:8px;" src="sources/styles/${data.method}.svg" />${data.method} ${data.number || ""}`;
 					}
 				},
 				{
-					id:"", header:_("Purchase"), fillspace:2, sort:"text",
+					id:"", header:_("Purchase"), fillspace:4, sort:"text",
 					template: data => `${data.name} / ${data.city} / ${data.country}`
 				},
 				{
-					id:"type", header:"+/-", width:40, sort:"int", css:"type",
+					id:"type", header:"+/-", sort:"int", css:"type",
 					template:data => {
 						let type = data.type ? "plus incoming" : "minus payment";
 						return `<span class='webix_icon mdi mdi-${type}'></span>`;

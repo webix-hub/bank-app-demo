@@ -50,9 +50,6 @@
 .failed{
 	color:#FF5C4C;
 }
-.type, .status{
-	text-align:center;
-}
 .incoming{
 	color:#55CD97;
 }
