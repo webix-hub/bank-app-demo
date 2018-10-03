@@ -59,7 +59,7 @@ export default class ToolView extends JetView {
 				this.$$("bell").config.badge += 1;
 				this.$$("bell").refresh();
 				this.app.callEvent("new:notification");
-			},20000);
+			},10000);
 		});
 	}
 }

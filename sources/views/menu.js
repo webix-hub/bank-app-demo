@@ -6,7 +6,9 @@ export default class MenuView extends JetView {
 		const theme = this.app.config.theme;
 
 		return {
-			width:200, view:"sidebar", css:theme,
+			view:"sidebar",
+			css:theme,
+			width:200,
 			data:[
 				{ id:"transactions", value:_("Transactions"), icon:"mdi mdi-cart" },
 				{ id:"customers", value:_("Customers"), icon:"mdi mdi-cube" },

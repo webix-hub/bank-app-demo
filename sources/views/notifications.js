@@ -1,5 +1,5 @@
 import {JetView} from "webix-jet";
-// import {notifications} from "models/notifications";
+import {getNotifications} from "models/notifications";
 import {newNotification} from "models/newnotifications";
 
 export default class NotificationView extends JetView {
@@ -21,17 +21,15 @@ export default class NotificationView extends JetView {
 				},
 				type:{
 					height:120
-				},
-				data:[
-					{ id:1, title:"Deposits News", message:"Dear client, we inform you about the following changes: beginning from September 24, 2018 all transactions (incoming and out..." },
-					{ id:2, title:"Search Improved", message:"Dear client! Following the latest updates of the SeekMeEverywhere engines, your search has become more reliable and convenient! No..." },
-					{ id:3, title:"Transaction Reports", message:"Dear client, we inform you about a change in the date of monthly transaction reports. Beginning from September 20, 2018 reports..." }
-				]
+				}
 			},
 			on:{
 				onHide:() => {
-					this.$$("list").clearAll();
-					this.$$("list").showOverlay("<div style='margin:20px; font-size:14px;'>There is no data</div>");
+					const list = this.$$("list");
+					list.clearAll();
+					list.showOverlay("<div style='margin:20px; font-size:14px;'>No new notifications</div>");
+					list.define({ autoheight:false, height:80 });
+        			list.resize();
 					this.app.callEvent("read:notifications");
 				}
 			}
@@ -39,11 +37,16 @@ export default class NotificationView extends JetView {
 	}
 	init(){
 		const list = this.$$("list");
-		//list.sync(notifications);
+
+		list.parse(getNotifications());
+		list.waitData.then(() => list.resize());
+
 		webix.extend(list,webix.OverlayBox);
 
 		this.on(this.app,"new:notification",() => {
 			list.hideOverlay();
+			list.define({ autoheight:true });
+        	list.resize();
 			list.add(newNotification(),0);
 		});
 	}

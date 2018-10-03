@@ -2,21 +2,29 @@ import {JetView} from "webix-jet";
 export default class PricesView extends JetView {
 	config(){
 		return {
-			template:`<div style="overflow:scroll; height:100%;">
-				<iframe scrolling="no" src="https://webix.com/licenses/" style="border:0px none; height:1550px; margin-top:-70px; width:100%;">
-				</iframe>
-			</div>`,
-			css:"ifr_template"
-			// view:"iframe", src:"https://webix.com/licenses/",
-			// on:{
-			// 	onAfterLoad(){
-			//		//CORS disapproves
-			// 		this.getWindow().document.querySelector(".global-header").style.visibility = "hidden";
-			// 		this.getWindow().document.querySelector(".licenses-info-section").style.visibility = "hidden";
-			// 		this.getWindow().document.querySelector(".section-info-row.section-info-row-get-start").style.visibility = "hidden";
-			// 		this.getWindow().document.querySelector(".global-footer-wrap").style.visibility = "hidden";
-			// 	}
-			// }
+			// template:`<div style="overflow:scroll; height:100%;">
+			// 	<iframe scrolling="no" src="https://webix.com/licenses/" style="border:0px none; height:1550px; margin-top:-70px; width:100%;">
+			// 	</iframe>
+			// </div>`,
+			css:"ifr_template",
+			view:"iframe",
+			on:{
+				onAfterLoad(){
+					this.hideProgress();
+					this.enable();
+					//CORS disapproves
+					this.getWindow().document.querySelector(".global-header").style.visibility = "hidden";
+					this.getWindow().document.querySelector(".licenses-info-section").style.visibility = "hidden";
+					this.getWindow().document.querySelector(".section-info-row.section-info-row-get-start").style.visibility = "hidden";
+					this.getWindow().document.querySelector(".global-footer-wrap").style.visibility = "hidden";
+				}
+			}
 		};
+	}
+	init(view){
+		view.load("https://webix.com/licenses/");
+		webix.extend(view,webix.ProgressBar);
+		view.disable();
+		view.showProgress({ type:"icon" });
 	}
 }

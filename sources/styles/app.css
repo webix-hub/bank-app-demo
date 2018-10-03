@@ -51,7 +51,7 @@
 	color:#FF5C4C;
 }
 .incoming{
-	color:#55CD97;
+	color:#41ad7c;
 }
 .payment{
 	color:#FF5C4C;
@@ -64,9 +64,11 @@
 }
 .notifications .webix_list_item .m_title{
 	font-weight:500;
+	color: #313131;
 }
 .notifications .webix_list_item .message{
 	display:block;
+	color:#475466;
 }
 /* form */
 .webix_view.form_photo > div{
