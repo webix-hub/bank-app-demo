@@ -98,13 +98,6 @@ export default class SettingsView extends JetView {
 										this.getFormView().setValues(this.$scope._defaults);
 									}
 								},
-								{
-									view:"button", value:_("Reset"),
-									autowidth:true, type:"danger",
-									click:function(){
-										this.getFormView().clear();
-									}
-								},
 								{},
 								{
 									view:"button", value:_("Save"),
@@ -126,7 +119,7 @@ export default class SettingsView extends JetView {
 
 		this._defaults = {
 			lang:"en",
-			dateformat:"5",
+			dateformat:"%j %F, %H:%i",
 			moneyformat:"1",
 			theme:"0",
 			maxlist:50
