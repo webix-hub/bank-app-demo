@@ -112,5 +112,6 @@ export default {
 	"Payment History":"支付历史",
 	"Origin of clients":"客戶的起源",
 	"Income from various age groups":"各年龄组的收入",
-	"Clients by occupation":"客戶按职业化分"
+	"Clients by occupation":"客戶按职业化分",
+	"No new notifications":"没有新的通知"
 };

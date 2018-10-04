@@ -112,5 +112,6 @@ export default {
 	"Payment History":"Historial de pagos",
 	"Origin of clients":"Origen de los clientes",
 	"Income from various age groups":"Ingresos de varios grupos de edad",
-	"Clients by occupation":"Clientes por ocupación"
+	"Clients by occupation":"Clientes por ocupación",
+	"No new notifications":"No hay nuevas notificaciones"
 };

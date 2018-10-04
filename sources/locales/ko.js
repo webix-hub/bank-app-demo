@@ -112,5 +112,6 @@ export default {
 	"Payment History":"지불 내역",
 	"Origin of clients":"고객의 유래",
 	"Income from various age groups":"다양한 연령대의 소득",
-	"Clients by occupation":"직업 별 고객"
+	"Clients by occupation":"직업 별 고객",
+	"No new notifications":"새로운 알림 없음"
 };

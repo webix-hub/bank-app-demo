@@ -112,5 +112,6 @@ export default {
 	"Origin of clients":"Origin of clients",
 	"Income from various age groups":"Income from various age groups",
 	"Awarded Badges":"Awarded Badges",
-	"Clients by occupation":"Clients by occupation"
+	"Clients by occupation":"Clients by occupation",
+	"No new notifications":"No new notifications"
 };
