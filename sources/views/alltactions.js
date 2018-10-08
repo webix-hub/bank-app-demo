@@ -32,7 +32,7 @@ export default class AllTActionsView extends JetView {
 				{
 					id:"", header:_("Payment"), fillspace:3, minWidth:240, sort:"text",
 					template:data => {
-						return `<img style="margin-bottom:-7px;margin-right:8px;" src="sources/styles/${data.method}.svg" />${data.method} ${data.number || ""}`;
+						return `<img class="method" src="data/images/${data.method}.svg" />${data.method} ${data.number || ""}`;
 					}
 				},
 				{

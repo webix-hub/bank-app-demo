@@ -56,6 +56,10 @@
 .payment{
 	color:#FF5C4C;
 }
+.method{
+	margin-bottom:-8px;
+	margin-right:8px;
+}
 /* notifications */
 .notifications .webix_list_item,
 .notifications .webix_list_item.webix_selected{
@@ -91,4 +95,8 @@ path {
 }
 .sold{
 	color:#1CA1C1;
+}
+/* form */
+.input_label{
+	font-weight:500;
 }

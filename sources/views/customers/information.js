@@ -108,14 +108,14 @@ export default class InformationView extends JetView {
 					labelWidth:0,
 					body:{
 						rows:[
-							{ view:"label", template:_("Notes") },
+							{ view:"label", template:_("Notes"), css:"input_label" },
 							{
 								view:"tinymce-editor",
+								borderless:true,
 								name:"notes",
 								localId:"notes",
 								config:{
 									menubar:false,
-									skin_url:"sources/styles/tiny_mce_webix_white",
 									plugins:"link",
 									toolbar:"fontsizeselect | bold italic underline | alignleft aligncenter alignright alignjustify | link"
 								}
@@ -130,7 +130,7 @@ export default class InformationView extends JetView {
 						{
 							view:"button", value:_("Reset"), autowidth:true,
 							click:() => {
-								this.$$("notes").setValue("");  // ! a crude workaround
+								this.$$("notes").setValue("");  // !
 								this.getRoot().clear();
 							}
 						},
