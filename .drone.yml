@@ -1,0 +1,11 @@
+pipeline:
+  build: 
+    image: registry.webix.io/js-build-env
+    pull: true
+    when:
+      event: push
+    secrets: [ preview_hook_token, aws_access_key_id, aws_secret_access_key ]
+    commands:
+      - yarn install --pure-lockfile
+      - yarn build
+      - /bin/bash ./deploy.sh
