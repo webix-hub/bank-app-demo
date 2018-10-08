@@ -75,7 +75,7 @@ export default class PersonsView extends JetView {
 		const _ = this.app.getService("locale")._;
 		const list = this.$$("list");
 		
-		list.parse(persons);
+		list.sync(persons);
 
 		persons.waitData.then(() => {
 			if (this.getUrl()[1].page !== "customers"){
@@ -112,5 +112,7 @@ export default class PersonsView extends JetView {
 			else
 				list.unselect();
 		});
+
+		this.on(this.app,"payment:history:ready",() => persons.waitData.then(() => list.select(1)));
 	}
 }

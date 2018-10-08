@@ -12,7 +12,7 @@ export default class MenuView extends JetView {
 			data:[
 				{ id:"transactions", value:_("Transactions"), icon:"mdi mdi-cart" },
 				{ id:"customers", value:_("Customers"), icon:"mdi mdi-account-box" },
-				{ id:"charts", value:_("Charts"), icon:"mdi mdi-chart-areaspline" },
+				{ id:"payhistoryview", value:_("Payment History"), icon:"mdi mdi-chart-areaspline" },
 				{ id:"widgets", value:_("Widgets"), icon:"mdi mdi-widgets" },
 				{ id:"demos", value:_("Demos"), icon:"mdi mdi-monitor-dashboard" },
 				{ id:"prices", value:_("Prices"), icon:"mdi mdi-currency-usd" },

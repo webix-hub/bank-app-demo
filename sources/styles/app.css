@@ -100,3 +100,12 @@ path {
 .input_label{
 	font-weight:500;
 }
+/* tinyMCE */
+.mce-container, .mce-container *, .mce-widget, .mce-widget *, .mce-reset {
+	color:#94A1B3 !important;
+}
+/* .mce-panel{
+	border:1px solid #94A1B3 !important;
+} */
+/* content text color #475466
+borders color #94A1B3*/
