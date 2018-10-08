@@ -26,7 +26,8 @@ export default class AllTActionsView extends JetView {
 					}
 				},
 				{
-					id:"date", header:_("Date"), fillspace:2, minWidth:170,
+					id:"date", header:_("Date"),
+					fillspace:2, minWidth:150,
 					sort:"date", format:dateFormat
 				},
 				{
@@ -36,18 +37,28 @@ export default class AllTActionsView extends JetView {
 					}
 				},
 				{
-					id:"", header:_("Purchase"), fillspace:4, sort:"text",
+					id:"", header:_("Purchase"),
+					fillspace:4, minWidth:200, sort:"text",
 					template: data => `${data.name} / ${data.city} / ${data.country}`
 				},
 				{
-					id:"type", header:"+/-", sort:"int", css:"type",
+					id:"type", header:"+/-", sort:"int",
+					css:"type", fillspace:1, minWidth:30,
 					template:data => {
 						let type = data.type ? "plus incoming" : "minus payment";
 						return `<span class='webix_icon mdi mdi-${type}'></span>`;
 					}
 				},
-				{ id:"sum", header:_("Sum"), sort:"int", format:webix.i18n.priceFormat },
-				{ id:"left", header:_("Left"), sort:"int", format:webix.i18n.priceFormat }
+				{
+					id:"sum", header:_("Sum"), sort:"int",
+					fillspace:1, minWidth:70,
+					format:webix.i18n.priceFormat
+				},
+				{
+					id:"left", header:_("Left"),
+					fillspace:1, minWidth:70,
+					sort:"int", format:webix.i18n.priceFormat
+				}
 			]
 		};
 	}
