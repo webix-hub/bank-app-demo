@@ -16,10 +16,6 @@ export default class PersonsView extends JetView {
 						{
 							view:"text", localId:"search", hidden:true,
 							on:{
-								onBlur(){
-									webix.delay(() => this.hide());
-									this.$scope.$$("label").show();
-								},
 								onTimedKeyPress(){
 									const input = this.getValue().toLowerCase();
 									this.$scope.$$("list").filter(obj => {
@@ -31,10 +27,19 @@ export default class PersonsView extends JetView {
 						},
 						{
 							view:"icon", icon:"mdi mdi-magnify",
-							click:() => {
-								this.$$("label").hide();
-								this.$$("search").show();
-								this.$$("search").focus();
+							state:"closed", localId:"search_icon",
+							click:function(){
+								if (this.config.state === "closed"){
+									this.$scope.$$("label").hide();
+									this.$scope.$$("search").show();
+									this.$scope.$$("search").focus();
+									this.config.state = "open";
+								}
+								else if (this.config.state === "open"){
+									this.$scope.$$("label").show();
+									this.$scope.$$("search").hide();
+									this.config.state = "closed";
+								}
 							}
 						}
 					]
