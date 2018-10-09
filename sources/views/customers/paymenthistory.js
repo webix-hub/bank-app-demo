@@ -41,12 +41,17 @@ export default class PaymentHistoryView extends JetView{
 	}
 	init(view){
 		const cur_user = this.getParam("user",true);
+		
 		view.sync(individualpayments,function(){
-			this.filter(obj => obj.id%6 === cur_user%6);
+			if (cur_user) this.filter(obj => obj.id%6 === cur_user%6);
 		});
 		
-		this.on(this.app,"person:select",person => view.filter(obj => {
-			return obj.id%6 === person.id%6;
-		}));
+		this.on(this.app,"person:select",person => {
+			individualpayments.waitData.then(() => {
+				view.filter(obj => {
+					return obj.id%6 === person.id%6;
+				});
+			});
+		});
 	}
 }
