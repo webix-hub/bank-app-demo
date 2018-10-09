@@ -104,8 +104,18 @@ path {
 .mce-container, .mce-container *, .mce-widget, .mce-widget *, .mce-reset {
 	color:#94A1B3 !important;
 }
-/* .mce-panel{
-	border:1px solid #94A1B3 !important;
-} */
-/* content text color #475466
-borders color #94A1B3*/
+.mce-btn-group:not(:first-child){
+	border-left:1px solid #DADEE0 !important;
+}
+.mce-panel{
+	border-color:#DADEE0 !important;
+	box-shadow:none !important;
+}
+.mce-edit-area.mce-container.mce-panel.mce-stack-layout-item{
+	border: 0px !important;
+}
+.mce-top-part::before{
+	box-shadow:none !important;
+	border-bottom:1px solid #DADEE0 !important;
+}
+/* content text color #475466 */

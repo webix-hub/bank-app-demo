@@ -117,7 +117,8 @@ export default class InformationView extends JetView {
 								config:{
 									menubar:false,
 									plugins:"link",
-									toolbar:"fontsizeselect | bold italic underline | alignleft aligncenter alignright alignjustify | link"
+									toolbar:"fontsizeselect | bold italic underline | alignleft aligncenter alignright alignjustify | link",
+									content_style:"* { color:#475466; font-family:Roboto,sans-serif; font-size:15px; }"
 								}
 							}
 						]
