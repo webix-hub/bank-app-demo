@@ -6,7 +6,7 @@ export default class MyApp extends JetApp{
 		const defaults = {
 			id			: APPNAME,
 			version 	: VERSION,
-			router 		: BUILD_AS_MODULE ? EmptyRouter : HashRouter,
+			router 		: HashRouter,
 			debug 		: !PRODUCTION,
 			start 		: "/top/transactions",
 			theme		: webix.storage.local.get("bank_app_theme") || "",
@@ -20,15 +20,15 @@ export default class MyApp extends JetApp{
 		};
 
 		super({ ...defaults, ...config });
+
+		this.use(plugins.Locale,{ storage:webix.storage.local });
 	}
 }
 
 if (!BUILD_AS_MODULE){
 	webix.ready(() => {
-		if (!webix.env.touch && webix.ui.scrollSize && webix.CustomScroll)
+		if (!webix.env.touch && webix.env.scrollSize && webix.CustomScroll)
 			webix.CustomScroll.init();
-		const app = new MyApp();
-		app.use(plugins.Locale,{ storage:webix.storage.local });
-		app.render();
+		new MyApp().render();
 	});
 }
