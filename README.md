@@ -1,10 +1,7 @@
 Banking Demo App (for the new Webix skin)
 ===================
 
-The project on invision:
-
-- https://projects.invisionapp.com/d/main#/console/12386541/309366070/preview
-- https://projects.invisionapp.com/d/main#/console/12386541/313827075/preview
+A demo for viewing, analyzing and editinn financial data.
 
 ### How to run
 
