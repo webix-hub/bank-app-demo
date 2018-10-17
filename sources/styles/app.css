@@ -82,6 +82,9 @@
 .webix_view.ifr_template .webix_template{
 	padding:0px;
 }
+.webix_view.ifr_template > .webix_disabled{
+	opacity:1 !important;
+}
 /* geochart */
 path {
     stroke:#D9D8D7;
