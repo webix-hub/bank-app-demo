@@ -77,12 +77,8 @@ module.exports = function(env) {
 		}
 
 		const out = config.output;
-		const sub = standalone ? "full" : "module";
-
 		out.library = pack.name.replace(/[^a-z0-9]/gi, "");
 		out.libraryTarget= "umd";
-		out.path = path.join(__dirname, "dist", sub);
-		out.publicPath = "/dist/"+sub+"/";
 	}
 
 	return config;
