@@ -68,6 +68,8 @@ module.exports = function(env) {
 
 	if (!production){
 		config.devtool = "inline-source-map";
+	} else {
+		config.devtool = "source-map";
 	}
 
 	if (asmodule){
