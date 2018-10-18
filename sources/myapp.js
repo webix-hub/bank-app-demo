@@ -1,5 +1,5 @@
 import "./styles/app.css";
-import {JetApp, EmptyRouter, HashRouter, plugins } from "webix-jet";
+import {JetApp, HashRouter, plugins } from "webix-jet";
 
 export default class MyApp extends JetApp{
 	constructor(config){
@@ -31,4 +31,13 @@ if (!BUILD_AS_MODULE){
 			webix.CustomScroll.init();
 		new MyApp().render();
 	});
+}
+
+//track js errors
+if (PRODUCTION){
+	window.Raven
+		.config(
+			"https://59d0634de9704b61ba83823ec3bf4787@sentry.webix.io/12"
+		)
+		.install();
 }
