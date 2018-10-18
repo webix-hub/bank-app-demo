@@ -1,7 +1,7 @@
 Banking Demo App (for the new Webix skin)
 ===================
 
-A demo for viewing, analyzing and editinn financial data.
+A demo for viewing, analyzing and editing financial data.
 
 ### How to run
 
