@@ -3,4 +3,3 @@ codebase/
 node_modules/
 *.log
 dist/
-*.lock
