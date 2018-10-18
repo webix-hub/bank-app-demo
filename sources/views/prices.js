@@ -6,8 +6,6 @@ export default class PricesView extends JetView {
 			view:"iframe",
 			on:{
 				onAfterLoad(){
-					this.hideProgress();
-					this.enable();
 					try{
 						this.getWindow().document.querySelector(".global-header").style.display = "none";
 						this.getWindow().document.querySelector(".licenses-info-section").style.display = "none";
@@ -15,6 +13,8 @@ export default class PricesView extends JetView {
 						this.getWindow().document.querySelector(".global-footer-wrap").style.display = "none";
 					}
 					catch(err){ /*when demo is opened on localhost*/ }
+					if (this.hideProgress) this.hideProgress();
+					this.enable();
 				}
 			}
 		};
