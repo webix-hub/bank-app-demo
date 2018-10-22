@@ -99,17 +99,23 @@ export default class InformationView extends JetView {
 
 		const upper_section = {
 			cols:[
-				left_main, { gravity:1 }, middle_extra, { gravity:2 }, right_photo
+				left_main,
+				{ gravity:1, minWidth:20 },
+				middle_extra,
+				{ gravity:2, minWidth:20 },
+				right_photo
 			]
 		};
 
 		const upper_section_narrow = {
-			margin:20, cols:[
+			cols:[
 				{
+					gravity:4,
 					rows:[
 						left_main, middle_extra
 					]
 				},
+				{ gravity:1, minWidth:20 },
 				right_photo
 			]
 		};

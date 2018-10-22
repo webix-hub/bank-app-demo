@@ -29,11 +29,11 @@ export default class PaymentHistoryView extends JetView{
 				},
 				{
 					id:"number", header:"Quantity", sort:"int",
-					fillspace:1, tooltip:""
+					width:67, tooltip:""
 				},
 				{
 					id:"sum", header:"Cost", sort:"int",
-					format:webix.i18n.priceFormat, fillspace:1,
+					format:webix.i18n.priceFormat, adjust:"data",
 					tooltip:""
 				}
 			]

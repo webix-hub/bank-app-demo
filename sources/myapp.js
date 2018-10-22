@@ -32,7 +32,7 @@ if (!BUILD_AS_MODULE){
 		const app = new MyApp();
 		const size = () => {
 			const screen = document.body.offsetWidth;
-			return screen > 1174 ? "wide" : (screen > 1022 ? "mid" : "small");
+			return screen > 1210 ? "wide" : (screen > 1060 ? "mid" : "small");
 		};
 		app.config.size = size();
 		

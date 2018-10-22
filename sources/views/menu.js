@@ -10,7 +10,7 @@ export default class MenuView extends JetView {
 			view:"sidebar",
 			css:theme,
 			width:200,
-			collapsed:(screen === "mid") || (screen === "small"),
+			collapsed:(screen !== "wide"),
 			data:[
 				{ id:"transactions", value:_("Transactions"), icon:"mdi mdi-cart" },
 				{ id:"customers", value:_("Customers"), icon:"mdi mdi-account-box" },
