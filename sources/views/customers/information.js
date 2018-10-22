@@ -17,7 +17,8 @@ export default class InformationView extends JetView {
 				{
 					view:"text", name:"fname",
 					label:_("First name"), labelPosition:"top",
-					placeholder:_("First name")
+					placeholder:_("First name"),
+					invalidMessage:_("A name is required")
 				},
 				{
 					view:"text", name:"lname",
@@ -138,13 +139,18 @@ export default class InformationView extends JetView {
 						{
 							view:"button", value:_("Save"), type:"form", autowidth:true,
 							click:() => {
-								const newdata = this.getRoot().getValues();
-								this.app.callEvent("customer:save",[newdata]);
+								if (this.getRoot().validate()){
+									const newdata = this.getRoot().getValues();
+									this.app.callEvent("customer:save",[newdata]);
+								}
 							}
 						}
 					]
 				}
-			]
+			],
+			rules:{
+				"fname":webix.rules.isNotEmpty
+			}
 		};
 	}
 	init(form){

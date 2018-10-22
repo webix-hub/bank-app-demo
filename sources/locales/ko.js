@@ -1,4 +1,5 @@
 export default {
+	"A name is required":"이름을 입력하십시오",
 	"Age":"나이",
 	"Total money spent, $":"지출 된 총 돈, $",
 	"Clients":"고객",

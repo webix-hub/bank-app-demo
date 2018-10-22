@@ -1,4 +1,5 @@
 export default {
+	"A name is required":"名称是必需的",
 	"Age":"年齡",
 	"Total money spent, $":"总数花的钱, $",
 	"Clients":"顾客",

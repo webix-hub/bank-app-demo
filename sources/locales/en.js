@@ -1,4 +1,5 @@
 export default {
+	"A name is required":"A name is required",
 	"Age":"Age",
 	"Total money spent, $":"Total money spent, $",
 	"Clients":"Clients",

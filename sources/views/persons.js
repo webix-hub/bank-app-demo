@@ -91,7 +91,8 @@ export default class PersonsView extends JetView {
 		});
 
 		this.on(this.app,"customer:save",(data) => {
-			persons.updateItem(data.id,data);
+			const id = data.id || this.getParam("user",true);
+			persons.updateItem(id,data);
 			webix.message(_("Saved"));
 		});
 

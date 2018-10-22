@@ -1,4 +1,5 @@
 export default {
+	"A name is required":"Введите имя",
 	"Age":"Возраст",
 	"Total money spent, $":"Всего денег вложено, $",
 	"Clients":"Клиенты",
