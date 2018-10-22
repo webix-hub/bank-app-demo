@@ -6,7 +6,7 @@ export default class PositionsView extends JetView {
 		const _ = this.app.getService("locale")._;
 
 		return {
-			gravity:1.02, type:"clean",
+			type:"clean",
 			rows:[
 				{
 					template:_("Clients by occupation"), type:"header",
@@ -20,9 +20,9 @@ export default class PositionsView extends JetView {
 					lineColor:obj => obj.color,
 					color:"#color#",
 					innerRadius:60,
-					padding:{ top:10, bottom:20 },
+					padding:{ top:10, bottom:20, left:20 },
 					legend:{
-						width:220,
+						width:170,
 						align:"right",
 						valign:"middle",
 						marker:{

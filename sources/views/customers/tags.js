@@ -6,7 +6,8 @@ export default class TagsView extends JetView {
 		const _ = this.app.getService("locale")._;
 		
 		return {
-			type:"clean", rows:[
+			type:"clean",
+			rows:[
 				{
 					template:_("Awarded Badges"), type:"header",
 					css:"webix_header chart_header"

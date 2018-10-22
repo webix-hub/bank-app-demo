@@ -8,18 +8,34 @@ import PositionsView from "views/customers/positions";
 export default class StatisticsView extends JetView {
 	config(){
 		return {
-			type:"wide", cols:[
+			rows:[
 				{
-					type:"wide", rows:[
-						GeoView,
-						MoneyView
-					]
+					height:10
 				},
 				{
-					type:"wide", rows:[
-						AgeView,
-						TagsView,
-						PositionsView
+					type:"wide",
+					rows:[
+						{
+							gravity:2,
+							type:"wide",
+							cols:[
+								GeoView,
+								{
+									type:"wide",
+									minWidth:370,
+									rows:[
+										PositionsView,
+										TagsView
+									]
+								}
+							]
+						},
+						{
+							type:"wide", cols:[
+								MoneyView,
+								AgeView
+							]
+						}
 					]
 				}
 			]
