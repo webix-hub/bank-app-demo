@@ -5,6 +5,7 @@ export default class PersonsView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
 		const theme = this.app.config.theme;
+		const screen = this.app.config.size;
 
 		return {
 			rows:[
@@ -48,7 +49,7 @@ export default class PersonsView extends JetView {
 					view:"list",
 					localId:"list",
 					css:"persons_list",
-					width:250,
+					width:(screen !== "small") ? 250 : 230,
 					select:true,
 					tooltip:{
 						template:_("Click twice to see more goodies")

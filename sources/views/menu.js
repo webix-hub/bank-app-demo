@@ -4,11 +4,13 @@ export default class MenuView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
 		const theme = this.app.config.theme;
+		const screen = this.app.config.size;
 
 		return {
 			view:"sidebar",
 			css:theme,
 			width:200,
+			collapsed:(screen === "mid") || (screen === "small"),
 			data:[
 				{ id:"transactions", value:_("Transactions"), icon:"mdi mdi-cart" },
 				{ id:"customers", value:_("Customers"), icon:"mdi mdi-account-box" },

@@ -20,8 +20,8 @@ export default class TransactionsView extends JetView {
 				{
 					view:"toolbar", css:theme,
 					elements:[
-						{ view:"label", label:_("Transactions"), minWidth:100 },
-						{},
+						{ view:"label", label:_("Transactions"), width:150 },
+						{ minWidth:4 },
 						{
 							view:"segmented", minWidth:333,
 							options:[
@@ -33,7 +33,7 @@ export default class TransactionsView extends JetView {
 								onChange:newv => this.app.callEvent("tactions:filter",[newv])
 							}
 						},
-						{width:6}
+						{ width:6 }
 					]
 				},
 				AllTActions

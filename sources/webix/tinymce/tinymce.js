@@ -86,11 +86,11 @@ webix.protoUI({
 		this._3rd_editor.theme.resizeTo(this.$width-2, this.$height - this.config.barHeight);
 	},
 	$setSize:function(x,y){
-		if (webix.ui.view.prototype.$setSize.call(this, x, y)){
+		if (webix.ui.view.prototype.$setSize.call(this, x, y)){			
 			if (!this._3rd_editor)
 				this._require_tinymce_once();
-			this._set_inner_size();
-		}
+			this._set_inner_size();		
+		}	
 	},
 	setValue:function(value){
 		this.config.value = value;

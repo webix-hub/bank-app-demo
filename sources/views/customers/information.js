@@ -8,6 +8,7 @@ import "webix/tinymce/tinymce";
 export default class InformationView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
+		const screen = this.app.config.size;
 		
 		const left_main = {
 			gravity:3,
@@ -46,7 +47,7 @@ export default class InformationView extends JetView {
 						{ id:2, value:_("No") }
 					]
 				},
-				{ height:20 }
+				// { height:20 }
 			]
 		};
 
@@ -96,57 +97,74 @@ export default class InformationView extends JetView {
 			]
 		};
 
-		return {
-			view:"form",
-			rows:[
+		const upper_section = {
+			cols:[
+				left_main, { gravity:1 }, middle_extra, { gravity:2 }, right_photo
+			]
+		};
+
+		const upper_section_narrow = {
+			margin:20, cols:[
 				{
-					cols:[
-						left_main, { gravity:1 }, middle_extra, { gravity:2 }, right_photo
+					rows:[
+						left_main, middle_extra
 					]
 				},
+				right_photo
+			]
+		};
+
+		const notes = {
+			view:"forminput",
+			labelWidth:0,
+			body:{
+				rows:[
+					{ view:"label", template:_("Notes"), css:"input_label" },
+					{
+						view:"tinymce-editor",
+						borderless:true,
+						name:"notes",
+						localId:"notes",
+						config:{
+							menubar:false,
+							plugins:"link",
+							toolbar:"fontsizeselect | bold italic underline | alignleft aligncenter alignright alignjustify | link",
+							content_style:"* { color:#475466; font-family:Roboto,sans-serif; font-size:15px; }"
+						}
+					}
+				]
+			}
+		};
+
+		const buttons = {
+			margin:10,
+			cols:[
+				{},
 				{
-					view:"forminput",
-					labelWidth:0,
-					body:{
-						rows:[
-							{ view:"label", template:_("Notes"), css:"input_label" },
-							{
-								view:"tinymce-editor",
-								borderless:true,
-								name:"notes",
-								localId:"notes",
-								config:{
-									menubar:false,
-									plugins:"link",
-									toolbar:"fontsizeselect | bold italic underline | alignleft aligncenter alignright alignjustify | link",
-									content_style:"* { color:#475466; font-family:Roboto,sans-serif; font-size:15px; }"
-								}
-							}
-						]
+					view:"button", value:_("Reset"), autowidth:true,
+					click:() => {
+						this.$$("notes").setValue("");  // !
+						this.getRoot().clear();
 					}
 				},
 				{
-					margin:10,
-					cols:[
-						{},
-						{
-							view:"button", value:_("Reset"), autowidth:true,
-							click:() => {
-								this.$$("notes").setValue("");  // !
-								this.getRoot().clear();
-							}
-						},
-						{
-							view:"button", value:_("Save"), type:"form", autowidth:true,
-							click:() => {
-								if (this.getRoot().validate()){
-									const newdata = this.getRoot().getValues();
-									this.app.callEvent("customer:save",[newdata]);
-								}
-							}
+					view:"button", value:_("Save"), type:"form", autowidth:true,
+					click:() => {
+						if (this.getRoot().validate()){
+							const newdata = this.getRoot().getValues();
+							this.app.callEvent("customer:save",[newdata]);
 						}
-					]
+					}
 				}
+			]
+		};
+
+		return {
+			view:"form",
+			rows:[
+				(screen !== "small") ? upper_section : upper_section_narrow,
+				notes,
+				buttons
 			],
 			rules:{
 				"fname":webix.rules.isNotEmpty

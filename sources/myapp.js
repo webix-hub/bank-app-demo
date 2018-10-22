@@ -29,7 +29,22 @@ if (!BUILD_AS_MODULE){
 	webix.ready(() => {
 		if (!webix.env.touch && webix.env.scrollSize && webix.CustomScroll)
 			webix.CustomScroll.init();
-		new MyApp().render();
+		const app = new MyApp();
+		const size = () => {
+			const screen = document.body.offsetWidth;
+			return screen > 1174 ? "wide" : (screen > 1022 ? "mid" : "small");
+		};
+		app.config.size = size();
+		
+		webix.event(window, "resize", function(){
+			var newSize = size();
+			if (newSize != app.config.size){
+				app.config.size = newSize;
+				app.refresh();
+			}
+		});
+
+		app.render();
 	});
 }
 
