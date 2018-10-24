@@ -4,7 +4,7 @@ webix.protoUI({
 		return this.config.value;
 	},
 	setValue(value){
-		this.setHTML("<img style='height:260px;' src='data/photos/"+value+".jpg'>");
+		this.setHTML("<img style='height:260px;' src='data/photos/"+value+"_1.jpg'>");
 		this.config.value = value;
 	}
 },

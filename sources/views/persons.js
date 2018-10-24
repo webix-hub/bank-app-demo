@@ -55,7 +55,7 @@ export default class PersonsView extends JetView {
 						template:_("Click twice to see more goodies")
 					},
 					type:{
-						template:obj => `<image class="userphoto" src="data/photos/${obj.photo}.jpg" />
+						template:obj => `<image class="userphoto" src="data/photos/${obj.photo}_1.jpg" />
 							<div class="text">
 						  		<span class="username">${obj.fname} ${obj.lname}</span>
 						  		<span class="money">$${obj.money}</span>
