@@ -3,6 +3,11 @@ import {JetApp, HashRouter, plugins } from "webix-jet";
 
 export default class MyApp extends JetApp{
 	constructor(config){
+		const size = () => {
+			const screen = document.body.offsetWidth;
+			return screen > 1210 ? "wide" : (screen > 1060 ? "mid" : "small");
+		};
+
 		const defaults = {
 			id			: APPNAME,
 			version 	: VERSION,
@@ -12,6 +17,7 @@ export default class MyApp extends JetApp{
 			theme		: webix.storage.local.get("bank_app_theme") || "",
 			dateFormat	: "%j %F, %H:%i",
 			listLength	: 50,
+			size		: size(),
 			views:{
 				"information":"customers.information",
 				"statistics":"customers.statistics",
@@ -22,6 +28,14 @@ export default class MyApp extends JetApp{
 		super({ ...defaults, ...config });
 
 		this.use(plugins.Locale,{ storage:webix.storage.local });
+
+		webix.event(window, "resize", () => {
+			const newSize = size();
+			if (newSize != this.config.size){
+				this.config.size = newSize;
+				this.refresh();
+			}
+		});
 	}
 }
 
@@ -29,22 +43,7 @@ if (!BUILD_AS_MODULE){
 	webix.ready(() => {
 		if (!webix.env.touch && webix.env.scrollSize && webix.CustomScroll)
 			webix.CustomScroll.init();
-		const app = new MyApp();
-		const size = () => {
-			const screen = document.body.offsetWidth;
-			return screen > 1210 ? "wide" : (screen > 1060 ? "mid" : "small");
-		};
-		app.config.size = size();
-		
-		webix.event(window, "resize", function(){
-			var newSize = size();
-			if (newSize != app.config.size){
-				app.config.size = newSize;
-				app.refresh();
-			}
-		});
-
-		app.render();
+		new MyApp().render();
 	});
 }
 
