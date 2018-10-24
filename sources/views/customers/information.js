@@ -10,9 +10,7 @@ export default class InformationView extends JetView {
 		const _ = this.app.getService("locale")._;
 		const screen = this.app.config.size;
 		
-		const left_main = {
-			gravity:3,
-			minWidth:200,
+		const main_info = {
 			margin:10,
 			rows:[
 				{
@@ -27,31 +25,44 @@ export default class InformationView extends JetView {
 					placeholder:_("Last name")
 				},
 				{
-					view:"richselect", name:"position",
-					localId:"position:combo",
-					label:_("Position"), labelPosition:"top",
+					view:"datepicker", name:"birthday",
+					label:_("Birthday"), labelPosition:"top",
 					placeholder:_("Click to select"),
-					options:[]
-				},
-				{
-					view:"text", name:"email",
-					label:_("Email"), labelPosition:"top",
-					placeholder:"judetheawesome@obscure.com"
-				},
-				{
-					view:"radio", name:"notifications",
-					label:_("Notifications"), labelPosition:"top",
-					value:1,
-					options:[
-						{ id:1, value:_("Yes") },
-						{ id:2, value:_("No") }
-					]
-				},
-				// { height:20 }
+					format:webix.Date.dateToStr("%d %M %Y")
+				}
 			]
 		};
 
-		const middle_extra = {
+		const position = {
+			view:"richselect", name:"position",
+			localId:"position:combo",
+			label:_("Position"), labelPosition:"top",
+			placeholder:_("Click to select"),
+			options:[]
+		};
+
+		const notifications = {
+			view:"radio", name:"notifications",
+			label:_("Notifications"), labelPosition:"top",
+			value:1,
+			options:[
+				{ id:1, value:_("Yes") },
+				{ id:2, value:_("No") }
+			]
+		};
+
+		const left_main = {
+			gravity:3,
+			minWidth:200,
+			margin:10,
+			rows:[
+				main_info,
+				position,
+				notifications
+			]
+		};
+
+		const more_info = {
 			gravity:3,
 			minWidth:200,
 			margin:10,
@@ -68,10 +79,9 @@ export default class InformationView extends JetView {
 					labelPosition:"top", placeholder:_("Address")
 				},
 				{
-					view:"datepicker", name:"birthday",
-					label:_("Birthday"), labelPosition:"top",
-					placeholder:_("Click to select"),
-					format:webix.Date.dateToStr("%d %M %Y")
+					view:"text", name:"email",
+					label:_("Email"), labelPosition:"top",
+					placeholder:"judetheawesome@obscure.com"
 				}
 			]
 		};
@@ -101,7 +111,7 @@ export default class InformationView extends JetView {
 			cols:[
 				left_main,
 				{ gravity:1, minWidth:20 },
-				middle_extra,
+				more_info,
 				{ gravity:2, minWidth:20 },
 				right_photo
 			]
@@ -111,12 +121,19 @@ export default class InformationView extends JetView {
 			cols:[
 				{
 					gravity:4,
+					margin:10,
 					rows:[
-						left_main, middle_extra
+						main_info, more_info, position
 					]
 				},
 				{ gravity:1, minWidth:20 },
-				right_photo
+				{
+					margin:10,
+					rows:[
+						right_photo,
+						notifications
+					]
+				}
 			]
 		};
 
