@@ -27,21 +27,21 @@ webix.i18n.locales["es-ES"] = {
 		done:"Listo",
 		clear: "Reinicio",
 		today: "Hoy"
-    },
+	},
 
-    dataExport:{
+	dataExport:{
 		page:"Página",
 		of:"de"
-    },
-    PDFviewer:{
+	},
+	PDFviewer:{
 		of:"de",
 		automaticZoom:"Zoom automático",
 		actualSize:"Tamaño real",
 		pageFit:"Tamaño de página",
 		pageWidth:"Ancho de página",
 		pageHeight:"Altura de la página"
-    },
-    aria:{
+	},
+	aria:{
 		calendar:"Сalendario",
 		increaseValue:"Aumentar el valor",
 		decreaseValue:"Disminuye el valor",
@@ -70,15 +70,15 @@ webix.i18n.locales["es-ES"] = {
 		showChart:"Espectáculo chart",
 		hideChart:"Esconder chart",
 		resizeChart:"Cambiar el tamaño el chart"
-    },
-    richtext:{
-        underline: "Subrayar",
-        bold: "Negrita",
-        italic: "Itálico"
-    },
-    combo:{
-    	select:"Seleccionar",
-        selectAll:"Seleccionar todo",
-        unselectAll:"Deselecciona todo"
-    }
+	},
+	richtext:{
+		underline: "Subrayar",
+		bold: "Negrita",
+		italic: "Itálico"
+	},
+	combo:{
+		select:"Seleccionar",
+		selectAll:"Seleccionar todo",
+		unselectAll:"Deselecciona todo"
+	}
 };

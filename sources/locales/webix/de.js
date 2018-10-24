@@ -27,22 +27,22 @@ webix.i18n.locales["de-DE"] = {
 		done:"Fertig",
 		clear: "Entfernen",
 		today: "Heute"
-    },
+	},
 
-    dataExport:{
+	dataExport:{
 		page:"Seite",
 		of:"aus"
-    },
-    PDFviewer:{
+	},
+	PDFviewer:{
 		of:"aus",
 		automaticZoom:"Automatisch Zoom",
 		actualSize:"Aktuelles Ausmaß",
 		pageFit:"Seite Ausmaß",
 		pageWidth:"Seite Breite",
 		pageHeight:"Seite Höhe"
-    },
-    aria:{
-    	calendar:"Kalender",
+	},
+	aria:{
+		calendar:"Kalender",
 		increaseValue:"Wert erhöhen",
 		decreaseValue:"Wert verringern",
 		navMonth:["Vorheriger Monat", "Nächsten Monat"],
@@ -70,15 +70,15 @@ webix.i18n.locales["de-DE"] = {
 		showChart:"Chart anzeigen",
 		hideChart:"Chart verstecken",
 		resizeChart:"Chart Größe ändern"
-    },
-    richtext:{
-        underline: "Unterstreichen",
-        bold: "Fettgedruckt",
-        italic: "Kursiv"
-    },
-    combo:{
-    	select:"Auswählen",
-        selectAll:"Alles auswählen",
-        unselectAll:"Alles widerrufen"
-    }
+	},
+	richtext:{
+		underline: "Unterstreichen",
+		bold: "Fettgedruckt",
+		italic: "Kursiv"
+	},
+	combo:{
+		select:"Auswählen",
+		selectAll:"Alles auswählen",
+		unselectAll:"Alles widerrufen"
+	}
 };

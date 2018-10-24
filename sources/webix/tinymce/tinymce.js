@@ -5,7 +5,7 @@ webix.protoUI({
 		barHeight:72,
 		value:""
 	},
-	$init:function(config){
+	$init:function(){
 		this.$view.className += " webix_selectable";
 
 		this._waitEditor = webix.promise.defer();
@@ -23,7 +23,7 @@ webix.protoUI({
 		if (this.config.cdn === false){
 			this._init_tinymce_once();
 			return;
-		};
+		}
 
 		var cdn = this.config.cdn ? this.config.cdn : "https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.7.13";
 
@@ -37,10 +37,10 @@ webix.protoUI({
 		webix.require([
 			cdn+"/tinymce.min.js"
 		])
-		.then( webix.bind(this._init_tinymce_once, this) )
-		.catch(function(e){
-			console.log(e);
-		});
+			.then( webix.bind(this._init_tinymce_once, this) )
+			.catch(function(e){
+				console.log(e);
+			});
 
 	},
 	_init_tinymce_once:function(){		
@@ -70,9 +70,9 @@ webix.protoUI({
 		this._init_tinymce_once = function(){};
 	},
 	_mce_editor_setup:function(editor){
-		editor.on("init", webix.bind(this._mce_editor_ready,this))
+		editor.on("init", webix.bind(this._mce_editor_ready,this));
 	},
-	_mce_editor_ready:function(editor){
+	_mce_editor_ready:function(){
 		this._3rd_editor = tinyMCE.get(this._mce_id);
 		this._set_inner_size();
 		this._waitEditor.resolve(this._3rd_editor);

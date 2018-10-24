@@ -27,21 +27,21 @@ webix.i18n.locales["zh-CN"] = {
 		done:"完成",
 		clear: "清除",
 		today: "今天"
-    },
+	},
 
-    dataExport:{
+	dataExport:{
 		page:"页",
 		of:"从"
-    },
-    PDFviewer:{
+	},
+	PDFviewer:{
 		of:"从",
 		automaticZoom:"自动设置页面大小",
 		actualSize:"实际尺寸",
 		pageFit:"页面大小",
 		pageWidth:"页面宽度",
 		pageHeight:"页面高度"
-    },
-    aria:{
+	},
+	aria:{
 		calendar:"日历",
 		increaseValue:"增加值",
 		decreaseValue:"减少值",
@@ -70,15 +70,15 @@ webix.i18n.locales["zh-CN"] = {
 		showChart:"显示图表",
 		hideChart:"隐藏图表",
 		resizeChart:"调整图"
-    },
-    richtext:{
-        underline: "强调",
-        bold: "粗體",
-        italic: "斜体"
-    },
-    combo:{
-    	select:"选择",
-        selectAll:"全选",
-        unselectAll:"全部取消选择"
-    }
+	},
+	richtext:{
+		underline: "强调",
+		bold: "粗體",
+		italic: "斜体"
+	},
+	combo:{
+		select:"选择",
+		selectAll:"全选",
+		unselectAll:"全部取消选择"
+	}
 };
