@@ -36,6 +36,10 @@ export default class MyApp extends JetApp{
 				this.refresh();
 			}
 		});
+
+		this.attachEvent("app:error:resolve", function(err, url) {
+			webix.delay(() => this.show("/top/transactions"));
+		});
 	}
 }
 
