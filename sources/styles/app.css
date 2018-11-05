@@ -25,6 +25,10 @@
 	font-weight:500;
 	line-height:20px;
 	display:block;
+	max-width:150px;
+	white-space: nowrap; 
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 .money{
 	color:#475466;
