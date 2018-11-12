@@ -10,15 +10,15 @@ export default class MyApp extends JetApp{
 
 		const defaults = {
 			id			: APPNAME,
-			version 	: VERSION,
-			router 		: HashRouter,
-			debug 		: !PRODUCTION,
-			start 		: "/top/transactions",
-			theme		: webix.storage.local.get("bank_app_theme") || "",
+			version		: VERSION,
+			router		: HashRouter,
+			debug		: !PRODUCTION,
+			start		: "/top/transactions",
+			theme		: window.localStorage ? (webix.storage.local.get("bank_app_theme") || "") : "",
 			dateFormat	: "%j %F, %H:%i",
 			listLength	: 50,
 			size		: size(),
-			views:{
+			views		:{
 				"information":"customers.information",
 				"statistics":"customers.statistics",
 				"paymenthistory":"customers.paymenthistory"
