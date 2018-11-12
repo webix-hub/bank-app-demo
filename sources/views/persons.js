@@ -113,8 +113,10 @@ export default class PersonsView extends JetView {
 		this.on(this.app,"taction:select",record => {
 			if (record) {
 				const person = persons.find(obj => obj.company === record.id)[0];
-				list.select(person.id);
-				list.showItem(person.id);
+				if (person){
+					list.select(person.id);
+					list.showItem(person.id);
+				}
 			}
 			else
 				list.unselect();
