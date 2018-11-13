@@ -77,7 +77,10 @@ export default class SettingsView extends JetView {
 									on:{
 										onChange:newtheme => {
 											const th = this.app.config.theme = newtheme === "1" ? "webix_dark" : "";
-											webix.storage.local.put("bank_app_theme",th);
+											try{
+												webix.storage.local.put("bank_app_theme",th);
+											}
+											catch(err){/* if cookies are blocked */}
 										}
 									}
 								},
