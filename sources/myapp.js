@@ -8,17 +8,27 @@ export default class MyApp extends JetApp{
 			return screen > 1210 ? "wide" : (screen > 1060 ? "mid" : "small");
 		};
 
+		let theme = "";
+		let cookies = true;
+		try {
+			theme = webix.storage.local.get("bank_app_theme");
+		}
+		catch(err){
+			cookies = false;
+			webix.message("You disabled cookies. The language and theme won't be restored after page reloads.","debug");
+		}
+
 		const defaults = {
 			id			: APPNAME,
-			version		: VERSION,
-			router		: HashRouter,
-			debug		: !PRODUCTION,
-			start		: "/top/transactions",
-			theme		: window.localStorage ? (webix.storage.local.get("bank_app_theme") || "") : "",
+			version 	: VERSION,
+			router 		: HashRouter,
+			debug 		: !PRODUCTION,
+			start 		: "/top/transactions",
+			theme		: theme || "",
 			dateFormat	: "%j %F, %H:%i",
 			listLength	: 50,
 			size		: size(),
-			views		:{
+			views:{
 				"information":"customers.information",
 				"statistics":"customers.statistics",
 				"paymenthistory":"customers.paymenthistory"
@@ -27,7 +37,11 @@ export default class MyApp extends JetApp{
 
 		super({ ...defaults, ...config });
 
-		this.use(plugins.Locale,{ storage:webix.storage.local });
+		let localeConfig = {};
+		if (cookies)
+			localeConfig.storage = webix.storage.local;
+
+		this.use(plugins.Locale,localeConfig);
 
 		webix.event(window, "resize", () => {
 			const newSize = size();
