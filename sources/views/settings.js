@@ -46,7 +46,7 @@ export default class SettingsView extends JetView {
 								{
 									label:_("Date format"), view:"richselect",
 									name:"dateformat", value:date_combo_value, gravity:3,
-									minWidth:144,
+									minWidth:207,
 									options:[
 										{ value:"dd/mm/yyyy hh:mm", id:"%d/%m/%Y %H:%i" },
 										{ value:"mm/dd/yyyy hh:mm", id:"%m/%d/%Y %H:%i" },
@@ -87,7 +87,7 @@ export default class SettingsView extends JetView {
 								{},
 								{
 									label:_("Max list length"), view:"slider",
-									name:"maxlist", minWidth:144,
+									name:"maxlist", minWidth:207,
 									min:10, max:50, value:list_length_slider_value, step:10,
 									title:"#value#", gravity:3,
 									on:{
