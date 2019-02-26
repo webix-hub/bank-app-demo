@@ -35,11 +35,7 @@ export default class SettingsView extends JetView {
 									minWidth:144,
 									options:getLangsList(),
 									on:{
-										onChange:function(newlang){
-											this.$scope._lang = newlang;
-											const country = this.getList().getItem(newlang).code;
-											webix.i18n.setLocale(newlang+"-"+country);
-										}
+										onChange:newlang => this.$scope._lang = newlang
 									}
 								},
 								{},

@@ -37,7 +37,16 @@ export default class MyApp extends JetApp{
 
 		super({ ...defaults, ...config });
 
-		let localeConfig = {};
+		let localeConfig = {
+			webix:{
+				en:"en-US",
+				zh:"zh-CN",
+				es:"es-ES",
+				ko:"ko-KR",
+				ru:"ru-RU",
+				de:"de-DE"
+			}
+		};
 		if (cookies)
 			localeConfig.storage = webix.storage.local;
 
@@ -51,7 +60,7 @@ export default class MyApp extends JetApp{
 			}
 		});
 
-		this.attachEvent("app:error:resolve", function(err, url) {
+		this.attachEvent("app:error:resolve", function() {
 			webix.delay(() => this.show("/top/transactions"));
 		});
 	}
