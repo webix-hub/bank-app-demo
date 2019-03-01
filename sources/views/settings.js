@@ -35,7 +35,7 @@ export default class SettingsView extends JetView {
 									minWidth:144,
 									options:getLangsList(),
 									on:{
-										onChange:newlang => this.$scope._lang = newlang
+										onChange:newlang => this._lang = newlang
 									}
 								},
 								{},
