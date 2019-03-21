@@ -8,7 +8,7 @@ export default class AgeView extends JetView {
 		return {
 			type:"clean",
 			rows:[
-				{ template:_("Income from various age groups"), type:"header", css:"webix_header chart_header" },
+				{ template:_("Income from various age groups"), type:"header", css:"chart_header" },
 				{
 					view:"chart", type:"scatter",
 					localId:"chart",

@@ -3,12 +3,12 @@ import {GetGeoData} from "models/geodata";
 
 export default class GeoView extends JetView {
 	config(){
-		const _ = this.app.getService("locale")._; 
+		const _ = this.app.getService("locale")._;
 		return {
 			type:"clean",
 			gravity:2,
 			rows:[
-				{ template:_("Origin of clients"), type:"header", css:"webix_header chart_header" },
+				{ template:_("Origin of clients"), type:"header", css:"chart_header" },
 				{
 					type:"form", rows:[
 						{

@@ -16,7 +16,6 @@ export default class CustomersView extends JetView {
 								{ id:"information", value:_("Information"), width:170 },
 								{ id:"paymenthistory", value:_("Payment History"), width:170 },
 								{ id:"statistics", value:_("Statistics"), width:170 }
-								
 							]
 						},
 						{ $subview:true }

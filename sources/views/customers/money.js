@@ -8,7 +8,7 @@ export default class MoneyView extends JetView {
 
 		return {
 			type:"clean", rows:[
-				{ template:_("Top clients"), type:"header", css:"webix_header chart_header" },
+				{ template:_("Top clients"), type:"header", css:"chart_header" },
 				{
 					view:"chart",
 					type:"bar",

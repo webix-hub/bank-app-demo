@@ -10,7 +10,7 @@ export default class PositionsView extends JetView {
 			rows:[
 				{
 					template:_("Clients by occupation"), type:"header",
-					css:"webix_header chart_header"
+					css:"chart_header"
 				},
 				{
 					view:"chart",

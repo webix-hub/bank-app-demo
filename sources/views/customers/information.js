@@ -9,7 +9,7 @@ export default class InformationView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
 		const screen = this.app.config.size;
-		
+
 		const main_info = {
 			margin:10,
 			rows:[

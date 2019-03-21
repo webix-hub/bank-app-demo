@@ -12,6 +12,7 @@ export default class PersonsView extends JetView {
 				{
 					view:"toolbar", css:theme,
 					elements:[
+						{ width:4 },
 						{ view:"label", label:_("Persons"), localId:"label" },
 						{ width:4 },
 						{
@@ -80,7 +81,7 @@ export default class PersonsView extends JetView {
 	init(){
 		const _ = this.app.getService("locale")._;
 		const list = this.$$("list");
-		
+
 		list.sync(persons);
 
 		persons.waitData.then(() => {

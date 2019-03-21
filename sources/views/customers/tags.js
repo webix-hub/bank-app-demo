@@ -4,13 +4,13 @@ import {getTagsData} from "models/tagsdata";
 export default class TagsView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
-		
+
 		return {
 			type:"clean",
 			rows:[
 				{
 					template:_("Awarded Badges"), type:"header",
-					css:"webix_header chart_header"
+					css:"chart_header"
 				},
 				{
 					view:"chart",

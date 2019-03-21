@@ -13,7 +13,7 @@ export default class PaymentHistoryView extends JetView{
 				{
 					id:"date", header:"Date", sort:"date",
 					format:dateFormat,
-					width:155, tooltip:""
+					width:155, tooltip:false
 				},
 				{
 					id:"type", header:"Type", sort:"string",
@@ -29,23 +29,23 @@ export default class PaymentHistoryView extends JetView{
 				},
 				{
 					id:"number", header:"Quantity", sort:"int",
-					width:67, tooltip:""
+					width:67, tooltip:false
 				},
 				{
 					id:"sum", header:"Cost", sort:"int",
 					format:webix.i18n.priceFormat, adjust:"data",
-					tooltip:""
+					tooltip:false
 				}
 			]
 		};
 	}
 	init(view){
 		const cur_user = this.getParam("user",true);
-		
+
 		view.sync(individualpayments,function(){
 			if (cur_user) this.filter(obj => obj.id%6 === cur_user%6);
 		});
-		
+
 		this.on(this.app,"person:select",person => {
 			individualpayments.waitData.then(() => {
 				view.filter(obj => {

@@ -20,6 +20,7 @@ export default class TransactionsView extends JetView {
 				{
 					view:"toolbar", css:theme,
 					elements:[
+						{ width:4 },
 						{ view:"label", label:_("Transactions"), width:150 },
 						{ minWidth:4 },
 						{

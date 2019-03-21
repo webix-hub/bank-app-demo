@@ -18,7 +18,7 @@ export default class SettingsView extends JetView {
 
 		return {
 			rows:[
-				{ template:_("Settings"), type:"header", css:`webix_header ${theme}` },
+				{ template:_("Settings"), type:"header", css:theme },
 				{
 					view:"form", elementsConfig:{ labelPosition:"top" },
 					rules:{
