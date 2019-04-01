@@ -144,5 +144,7 @@ export default {
 	"Choose the length of the transactions list (datatable)":"Elija la longitud de la lista de transacciones (datable)",
 	"Click to collapse / expand the sidebar":"Haga clic para contraer / expandir la barra lateral",
 	"Display":"Mostrar",
-	"transactions":"actas"
+	"transactions":"actas",
+	"Click to sort the list by shops":"Haga clic para ordenar la lista por tiendas",
+	"Total money flow: ":"Flujo total de dinero: "
 };

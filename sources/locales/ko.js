@@ -144,5 +144,7 @@ export default {
 	"Choose the length of the transactions list (datatable)":"트랜잭션 목록 (데이터 테이블)의 길이 선택",
 	"Click to collapse / expand the sidebar":"사이드 바 축소 / 확장하려면 클릭하십시오.",
 	"Display":"디스플레이",
-	"transactions":"업무"
+	"transactions":"업무",
+	"Click to sort the list by shops":"상점별로 목록을 정렬하려면 클릭하십시오.",
+	"Total money flow: ":"총 돈 흐름: "
 };

@@ -38,7 +38,10 @@ export default class AllTActionsView extends JetView {
 					}
 				},
 				{
-					id:"", header:_("Purchase"),
+					id:"", header:{
+						text:_("Purchase"),
+						tooltip:_("Click to sort the list by shops")
+					},
 					fillspace:4, minWidth:200, sort:"text",
 					template: data => `${data.name} / ${data.city} / ${data.country}`
 				},

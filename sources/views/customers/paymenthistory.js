@@ -6,14 +6,18 @@ export default class PaymentHistoryView extends JetView{
 		const dateFormat = webix.Date.dateToStr(this.app.config.dateFormat);
 
 		return {
-			view:"datatable",
+			view:"datatable", localId:"grid",
 			select:true,
 			tooltip:true,
+			footer:true,
 			columns:[
 				{
 					id:"date", header:"Date", sort:"date",
 					format:dateFormat,
-					width:155, tooltip:false
+					width:155, tooltip:false,
+					footer:{
+						text:"Total:"
+					}
 				},
 				{
 					id:"type", header:"Type", sort:"string",
@@ -34,7 +38,14 @@ export default class PaymentHistoryView extends JetView{
 				{
 					id:"sum", header:"Cost", sort:"int",
 					format:webix.i18n.priceFormat, adjust:"data",
-					tooltip:false
+					tooltip:false,
+					footer:{
+						content:"summColumn",
+						tooltip:obj => {
+							const sum = this.$$("grid").getHeaderContent(obj.contentId).getValue();
+							return _("Total money flow: ") + sum;
+						}
+					}
 				}
 			]
 		};

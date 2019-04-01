@@ -144,5 +144,7 @@ export default {
 	"Choose the length of the transactions list (datatable)":"选择事务列表的长度（数据表）",
 	"Click to collapse / expand the sidebar":"单击以折叠/展开侧栏",
 	"Display":"显示",
-	"transactions":"交易"
+	"transactions":"交易",
+	"Click to sort the list by shops":"单击按商店对列表进行排序",
+	"Total money flow: ":"总资金流量: "
 };

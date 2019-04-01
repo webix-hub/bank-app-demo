@@ -144,5 +144,7 @@ export default {
 	"Choose the length of the transactions list (datatable)":"Wählen Sie die Länge der Transaktionsliste (datatable)",
 	"Click to collapse / expand the sidebar":"Klicken Sie hier, um die Seitenleiste ein- oder auszublenden",
 	"Display":"Anzeigen",
-	"transactions":"Transaktionen"
+	"transactions":"Transaktionen",
+	"Click to sort the list by shops":"Klicken Sie hier, um die Liste nach Shops zu sortieren",
+	"Total money flow: ":"Geldfluss insgesamt: "
 };

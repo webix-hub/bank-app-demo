@@ -144,5 +144,7 @@ export default {
 	"Choose the length of the transactions list (datatable)":"Выберите длину отображаемого списка платежей",
 	"Click to collapse / expand the sidebar":"Свернуть / развернуть сайдбар",
 	"Display":"Показать",
-	"transactions":"платежи"
+	"transactions":"платежи",
+	"Click to sort the list by shops":"Отсортировать по названиям магазинов",
+	"Total money flow: ":"Общий денежный оборот: "
 };
