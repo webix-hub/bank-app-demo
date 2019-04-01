@@ -97,14 +97,14 @@ export default class InformationView extends JetView {
 					placeholder:_("Click to select"),
 					options:[],
 					tooltip:obj =>{
-						return obj.value ? _("The city where the client works") : "<span class='notselected'>"+_("Not selected")+"</span>"
+						return obj.value ? _("The city where the client works") : "<span class='notselected'>"+_("Not selected")+"</span>";
 					}
 				},
 				{
 					view:"text", name:"address", label:_("Address"),
 					labelPosition:"top", placeholder:_("Address"),
 					tooltip:obj =>{
-						return obj.value ? _("The address of the client's office") : "<span class='notselected'>"+_("Not specified")+"</span>"
+						return obj.value ? _("The address of the client's office") : "<span class='notselected'>"+_("Not specified")+"</span>";
 					}
 				},
 				{
@@ -112,7 +112,7 @@ export default class InformationView extends JetView {
 					label:_("Email"), labelPosition:"top",
 					placeholder:"judetheawesome@obscure.com",
 					tooltip:obj =>{
-						return obj.value ? _("The working email address of the client") : "<span class='notselected'>"+_("Not specified")+"</span>"
+						return obj.value ? _("The working email address of the client") : "<span class='notselected'>"+_("Not specified")+"</span>";
 					}
 				}
 			]
@@ -136,7 +136,7 @@ export default class InformationView extends JetView {
 					placeholder:_("Click to add tags"),
 					options:[],
 					tooltip:obj =>{
-						return obj.value ? _("The badges unlocked by the client") : "<span class='notselected'>"+_("No badges")+"</span>"
+						return obj.value ? _("The badges unlocked by the client") : "<span class='notselected'>"+_("No badges")+"</span>";
 					}
 				}
 			]

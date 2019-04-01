@@ -4,6 +4,7 @@ import {individualpayments} from "models/individualpayments";
 export default class PaymentHistoryView extends JetView{
 	config(){
 		const dateFormat = webix.Date.dateToStr(this.app.config.dateFormat);
+		const _ = this.app.getService("locale")._;
 
 		return {
 			view:"datatable", localId:"grid",

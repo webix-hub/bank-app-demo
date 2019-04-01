@@ -24,7 +24,7 @@ webix.protoUI({
 		if (c.cdn === false || window.tinymce){
 			this._init_tinymce_once();
 			return;
-		};
+		}
 		var cdn = c.cdn || "https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.4";
 
 		//path to tinymce codebase
@@ -49,10 +49,10 @@ webix.protoUI({
 			// woraround event logic in tinymce
 			tinymce.dom.Event.domLoaded = true;
 			webix.html.addStyle(".mce-tinymce.mce-container{ border-width:0px !important}");
-		};
+		}
 
 		var c = this.config,
-				editor_config = c.config ? webix.copy(c.config) : {};
+			editor_config = c.config ? webix.copy(c.config) : {};
 
 		editor_config.mode = "exact";
 		editor_config.selector = "#"+this._mce_id;
@@ -66,8 +66,8 @@ webix.protoUI({
 		}, this);
 
 		webix.delay(function(){
-			tinymce.init(editor_config)
-		}, this)
+			tinymce.init(editor_config);
+		}, this);
 	},
 	_mce_editor_setup:function(event){
 		if (!this._editor){
@@ -93,7 +93,7 @@ webix.protoUI({
 		var height = 5;
 		for (var i = 0; i < bars.length; i++){
 			height += bars[i].clientHeight;
-		};
+		}
 		return height;
 	},
 	$setSize:function(x,y){
