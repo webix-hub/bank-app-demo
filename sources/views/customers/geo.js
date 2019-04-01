@@ -33,7 +33,7 @@ export default class GeoView extends JetView {
 								{ type:"string", label:"country" },
 								{ type:"number", label:"money" }
 							],
-							tooltip:`${_("Clients")}: #clients#<br/>${_("Income")}: #money#`
+							tooltip:`<div class="mytooltip">${_("Clients")}: #clients#<br/>${_("Income")}: #money#</div>`
 						}
 					]
 				}

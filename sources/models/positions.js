@@ -1,10 +1,10 @@
 import {persons} from "models/persons";
 
-export function getPositions(){ 
+export function getPositions(){
 	return positions;
 }
 
-export function getPositionsData(){ 
+export function getPositionsData(){
 	let data = [];
 	return persons.waitData.then(() => {
 		positions.map(pos => {

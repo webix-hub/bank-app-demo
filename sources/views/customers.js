@@ -12,6 +12,9 @@ export default class CustomersView extends JetView {
 						{
 							view:"tabbar", localId:"tabbar",
 							height:43,
+							tooltip:obj => {
+								return `${_("View detailed client's")} ${obj.value.toLowerCase()}`;
+							},
 							options:[
 								{ id:"information", value:_("Information"), width:170 },
 								{ id:"paymenthistory", value:_("Payment History"), width:170 },

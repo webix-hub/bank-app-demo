@@ -15,7 +15,8 @@ export default class ToolView extends JetView {
 					rows:[
 						{
 							view:"icon", icon:"mdi mdi-menu",
-							click:() => this.app.callEvent("menu:toggle")
+							click:() => this.app.callEvent("menu:toggle"),
+							tooltip:_("Click to collapse / expand the sidebar")
 						}
 					]
 				},

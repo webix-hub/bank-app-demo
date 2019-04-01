@@ -6,6 +6,7 @@ export default class PersonsView extends JetView {
 		const _ = this.app.getService("locale")._;
 		const theme = this.app.config.theme;
 		const screen = this.app.config.size;
+		const dateFormat = webix.Date.dateToStr("%d %M %Y");
 
 		return {
 			rows:[
@@ -30,6 +31,7 @@ export default class PersonsView extends JetView {
 						{
 							view:"icon", icon:"mdi mdi-magnify",
 							state:"closed", localId:"search_icon",
+							tooltip:_("Search for a client"),
 							click:function(){
 								if (this.config.state === "closed"){
 									this.$scope.$$("label").hide();
@@ -53,7 +55,13 @@ export default class PersonsView extends JetView {
 					width:(screen !== "small") ? 250 : 230,
 					select:true,
 					tooltip:{
-						template:_("Click twice to see more goodies")
+						template:obj => {
+							let result = "<div>" + obj.lname + ", " + obj.fname + "</div>";
+							result += `<div>${_("Born")} ${dateFormat(obj.birthday)}</div>`;
+							result += `<p align="center" style="margin:0px;"><img src="data/photos/${obj.photo}_1.jpg" width="200px" height="200px"></p>`;
+							result += `<div>${_("Click twice to see more goodies")}</div>`;
+							return result;
+						}
 					},
 					type:{
 						template:obj => `<image class="userphoto" src="data/photos/${obj.photo}_1.jpg" />

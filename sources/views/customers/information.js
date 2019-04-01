@@ -9,6 +9,7 @@ export default class InformationView extends JetView {
 	config(){
 		const _ = this.app.getService("locale")._;
 		const screen = this.app.config.size;
+		const dateFormat = webix.Date.dateToStr("%d %M %Y");
 
 		const main_info = {
 			margin:10,
@@ -17,18 +18,34 @@ export default class InformationView extends JetView {
 					view:"text", name:"fname",
 					label:_("First name"), labelPosition:"top",
 					placeholder:_("First name"),
-					invalidMessage:_("A name is required")
+					invalidMessage:_("A name is required"),
+					tooltip:_("Client's name is ") + "#value#"
 				},
 				{
 					view:"text", name:"lname",
 					label:_("Last name"), labelPosition:"top",
-					placeholder:_("Last name")
+					placeholder:_("Last name"),
+					tooltip:_("Client's last name is ") + "#value#"
 				},
 				{
 					view:"datepicker", name:"birthday",
 					label:_("Birthday"), labelPosition:"top",
 					placeholder:_("Click to select"),
-					format:webix.Date.dateToStr("%d %M %Y")
+					format:dateFormat,
+					tooltip:obj => {
+						let result = _("Client is ");
+						if (obj.value){
+							result += Math.floor((new Date() - obj.value) / (1000 * 60 * 60 * 24 * 365)) + _(" years old");
+							let nearestBDay = new Date();
+							nearestBDay.setMonth(obj.value.getMonth());
+							nearestBDay.setDate(obj.value.getDate());
+							if (nearestBDay < new Date()){
+								webix.Date.add(nearestBDay, 1, "year");
+							}
+							result += "<br>" + _("Next birthday is on ") + dateFormat(nearestBDay);
+						}
+						return result;
+					}
 				}
 			]
 		};
@@ -38,13 +55,19 @@ export default class InformationView extends JetView {
 			localId:"position:combo",
 			label:_("Position"), labelPosition:"top",
 			placeholder:_("Click to select"),
-			options:[]
+			options:[],
+			tooltip:obj => {
+				return obj.value ? _("The position that client occupies within their company") : "<span class='notselected'>" + ("Not selected") + "</span>";
+			}
 		};
 
 		const notifications = {
 			view:"radio", name:"notifications",
 			label:_("Notifications"), labelPosition:"top",
 			value:1,
+			tooltip:obj => {
+				return obj.id%2 ? _("You will receive email notifications about actions performed by this client.") : _("You will receive no email notifications.");
+			},
 			options:[
 				{ id:1, value:_("Yes") },
 				{ id:2, value:_("No") }
@@ -72,16 +95,25 @@ export default class InformationView extends JetView {
 					localId:"cities:combo",
 					label:_("City, country"), labelPosition:"top",
 					placeholder:_("Click to select"),
-					options:[]
+					options:[],
+					tooltip:obj =>{
+						return obj.value ? _("The city where the client works") : "<span class='notselected'>"+_("Not selected")+"</span>"
+					}
 				},
 				{
 					view:"text", name:"address", label:_("Address"),
-					labelPosition:"top", placeholder:_("Address")
+					labelPosition:"top", placeholder:_("Address"),
+					tooltip:obj =>{
+						return obj.value ? _("The address of the client's office") : "<span class='notselected'>"+_("Not specified")+"</span>"
+					}
 				},
 				{
 					view:"text", name:"email",
 					label:_("Email"), labelPosition:"top",
-					placeholder:"judetheawesome@obscure.com"
+					placeholder:"judetheawesome@obscure.com",
+					tooltip:obj =>{
+						return obj.value ? _("The working email address of the client") : "<span class='notselected'>"+_("Not specified")+"</span>"
+					}
 				}
 			]
 		};
@@ -102,7 +134,10 @@ export default class InformationView extends JetView {
 					view:"multicombo", name:"tags",
 					localId:"tags:combo",
 					placeholder:_("Click to add tags"),
-					options:[]
+					options:[],
+					tooltip:obj =>{
+						return obj.value ? _("The badges unlocked by the client") : "<span class='notselected'>"+_("No badges")+"</span>"
+					}
 				}
 			]
 		};
@@ -168,7 +203,8 @@ export default class InformationView extends JetView {
 					click:() => {
 						this.$$("notes").setValue("");  // !
 						this.getRoot().clear();
-					}
+					},
+					tooltip:_("Click to clean the form")
 				},
 				{
 					view:"button", value:_("Save"), type:"form", autowidth:true,

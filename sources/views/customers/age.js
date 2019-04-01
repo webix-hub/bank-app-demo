@@ -41,7 +41,11 @@ export default class AgeView extends JetView {
 						color:"#fff", lineColor:"#EDEFF0"
 					},
 					tooltip:{
-						template:"<b>#fname# #lname#</b><br>$#money#"
+						template:obj => {
+							return `<div class="username_chart">${obj.fname} ${obj.lname}</div>
+							<p align="center" style="margin:0px;"><img src="data/photos/${obj.photo}_1.jpg" width="100px" height="100px"></p>
+							$${obj.money}`;
+						}
 					}
 				}
 			]

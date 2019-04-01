@@ -8,12 +8,12 @@ export default class AllTActionsView extends JetView {
 
 		return {
 			view:"datatable",
-			select:true,
+			select:true, tooltip:true,
 			columns:[
-				{ id:"id", header:"#", width:40, sort:"int" },
+				{ id:"id", header:"#", width:40, sort:"int", tooltip:false },
 				{
 					id:"status", header:"", width:40,
-					css:"status", sort:"text",
+					css:"status", sort:"text", tooltip:false,
 					template:data => {
 						let icon = "";
 						if (data.status === "success")
@@ -32,6 +32,7 @@ export default class AllTActionsView extends JetView {
 				},
 				{
 					id:"", header:_("Payment"), fillspace:3, minWidth:240, sort:"text",
+					tooltip:_("The card with which the payment was made"),
 					template:data => {
 						return `<img class="method" src="data/images/${data.method}.svg" />${data.method} ${data.number || ""}`;
 					}
@@ -47,6 +48,9 @@ export default class AllTActionsView extends JetView {
 					template:data => {
 						let type = data.type ? "plus incoming" : "minus payment";
 						return `<span class='webix_icon mdi mdi-${type}'></span>`;
+					},
+					tooltip:obj => {
+						return (obj.type ? _("Incoming") : _("Outgoing")) + _(" payment");
 					}
 				},
 				{

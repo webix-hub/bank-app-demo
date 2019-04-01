@@ -25,6 +25,9 @@ export default class TransactionsView extends JetView {
 						{ minWidth:4 },
 						{
 							view:"segmented", minWidth:333,
+							tooltip:obj => {
+								return `${_("Display")} ${obj.value.toLowerCase()} ${obj.value.indexOf("Payments") === 0 ? "" : _("transactions")}`;
+							},
 							options:[
 								{ id:"all", value:_("All") },
 								{ id:"0", value:_("Payments") },
