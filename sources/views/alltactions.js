@@ -7,10 +7,13 @@ export default class AllTActionsView extends JetView {
 		const dateFormat = webix.Date.dateToStr(this.app.config.dateFormat);
 
 		return {
-			view:"datatable",
-			select:true, tooltip:true,
+			view:"datatable", localId:"grid",
+			select:true, tooltip:true, footer:true,
 			columns:[
-				{ id:"id", header:"#", width:40, sort:"int", tooltip:false },
+				{
+					id:"id", header:"#", width:40, sort:"int", tooltip:false,
+					footer:{ text:"Total:", colspan:2 }
+				},
 				{
 					id:"status", header:"", width:40,
 					css:"status", sort:"text", tooltip:false,
@@ -59,12 +62,26 @@ export default class AllTActionsView extends JetView {
 				{
 					id:"sum", header:_("Sum"), sort:"int",
 					fillspace:1, minWidth:70,
-					format:webix.i18n.priceFormat
+					format:webix.i18n.priceFormat,
+					footer:{
+						content:"summColumn",
+						tooltip:obj => {
+						  const sum = this.$$("grid").getHeaderContent(obj.contentId).getValue();
+						  return "Total money flow: " + sum;
+						}
+					}
 				},
 				{
 					id:"left", header:_("Left"),
 					fillspace:1, minWidth:70,
-					sort:"int", format:webix.i18n.priceFormat
+					sort:"int", format:webix.i18n.priceFormat,
+					footer:{
+						content:"summColumn",
+						tooltip:obj => {
+						  const sum = this.$$("grid").getHeaderContent(obj.contentId).getValue();
+						  return "Total money left: " + sum;
+						}
+					}
 				}
 			]
 		};

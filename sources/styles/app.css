@@ -26,7 +26,7 @@
 	line-height:20px;
 	display:block;
 	max-width:150px;
-	white-space: nowrap; 
+	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
@@ -34,7 +34,7 @@
 	color:#475466;
 	display:block;
 	letter-spacing:0.2px;
-	line-height:20px; 
+	line-height:20px;
 }
 .persons_list .webix_list_item,
 .persons_list .webix_list_item.webix_selected{
@@ -51,7 +51,7 @@
 .waiting{
 	color:orange;
 }
-.failed{
+.failed, .danger{
 	color:#FF5C4C;
 }
 .incoming{

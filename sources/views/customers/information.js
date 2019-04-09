@@ -57,7 +57,7 @@ export default class InformationView extends JetView {
 			placeholder:_("Click to select"),
 			options:[],
 			tooltip:obj => {
-				return obj.value ? _("The position that client occupies within their company") : "<span class='notselected'>" + ("Not selected") + "</span>";
+				return obj.value ? _("The position that client occupies within their company") : "<span class='notselected'>" + _("Not selected") + "</span>";
 			}
 		};
 
@@ -123,7 +123,7 @@ export default class InformationView extends JetView {
 			margin:10,
 			rows:[
 				{
-					view:"photo",
+					view:"photo", localId:"photo",
 					name:"photo",
 					css:"form_photo",
 					width:260,
@@ -135,7 +135,7 @@ export default class InformationView extends JetView {
 					localId:"tags:combo",
 					placeholder:_("Click to add tags"),
 					options:[],
-					tooltip:obj =>{
+					tooltip:obj => {
 						return obj.value ? _("The badges unlocked by the client") : "<span class='notselected'>"+_("No badges")+"</span>";
 					}
 				}
@@ -208,6 +208,7 @@ export default class InformationView extends JetView {
 				},
 				{
 					view:"button", value:_("Save"), type:"form", autowidth:true,
+					tooltip:"Save changes",
 					click:() => {
 						if (this.getRoot().validate()){
 							const newdata = this.getRoot().getValues();
@@ -238,6 +239,23 @@ export default class InformationView extends JetView {
 		this.on(this.app,"person:select",person => form.setValues(person));
 
 		this.getLocalizedComboOptions();
+
+		webix.TooltipControl.addTooltip(this.$$("photo").$view);
+
+		const tagsCombo = this.$$("tags:combo");
+		this.on(tagsCombo, "onChange",() => {
+			webix.delay(() => {
+				const delIcons = tagsCombo.$view.querySelectorAll(".webix_multicombo_delete");
+				for (let i = 0; i < delIcons.length; i++){
+					if (!delIcons[i].getAttribute("webix_tooltip")){
+						delIcons[i].setAttribute(
+							"webix_tooltip",
+							"<span class=\"danger\">Click to remove the badge</span>"
+						);
+					}
+				}
+			});
+		});
 	}
 	getLocalizedComboOptions(){
 		const _ = this.app.getService("locale")._;

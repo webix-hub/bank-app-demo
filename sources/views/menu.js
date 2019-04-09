@@ -11,6 +11,9 @@ export default class MenuView extends JetView {
 			css:theme,
 			width:200,
 			collapsed:(screen !== "wide"),
+			tooltip:(obj) => {
+				return this.getRoot().config.collapsed ? obj.value : "";
+			},
 			data:[
 				{ id:"transactions", value:_("Transactions"), icon:"mdi mdi-cart" },
 				{ id:"customers", value:_("Customers"), icon:"mdi mdi-account-box" },
