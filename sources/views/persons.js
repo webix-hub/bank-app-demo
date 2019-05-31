@@ -133,4 +133,11 @@ export default class PersonsView extends JetView {
 
 		this.on(this.app,"payment:history:ready",() => persons.waitData.then(() => list.select(1)));
 	}
+	urlChange(view, url){
+		const list = this.$$("list");
+		const param = this.getParam("user", true);
+		const sel = list.getSelectedId();
+		if (param && sel && param != sel)
+			list.select(param);
+	}
 }
